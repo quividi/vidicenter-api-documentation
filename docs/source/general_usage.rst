@@ -5,7 +5,7 @@ General usage
 Authentication
 ##############
 
-VidiCenter's REST protocol is stateless and therefore **you have to provide an authentication token with each request**. Authentication relies on the HTTP Basic Auth method, with your VidiCenter username as useranem and a unique and user-dependent token as the password. So, for example, using curl you would use the following syntax for each request::
+VidiCenter's REST protocol is stateless and therefore **you have to provide an authentication token with each request**. Authentication relies on the HTTP Basic Auth method, with your VidiCenter username as username and a unique and user-dependent token as the password. So, for example, using curl you would use the following syntax for each request::
 
     $> curl -u USERNAME:AUTH_TOKEN https://vidicenter.quividi.com/api/.../
 
