@@ -49,7 +49,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'vidicenter-api-documentation'
-copyright = u'2016, Pierre Mourlanne'
+copyright = u'2016, Quividi'
 author = u'Pierre Mourlanne'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -141,14 +141,14 @@ html_theme = 'alabaster'
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
-#
-# html_logo = None
+
+html_logo = 'images/quividi.gif'
 
 # The name of an image file (relative to this directory) to use as a favicon of
 # the docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
 # pixels large.
 #
-# html_favicon = None
+html_favicon = 'images/favicon.ico'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -266,7 +266,7 @@ latex_documents = [
 # The name of an image file (relative to this directory) to place at the top of
 # the title page.
 #
-# latex_logo = None
+# latex_logo = None.
 
 # For "manual" documents, if this is true, then toplevel headings are parts,
 # not chapters.
