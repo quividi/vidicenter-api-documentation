@@ -36,8 +36,6 @@ Notable data keys
 * ``extra_data``: In case of Input or License Errors Alerts, contains more info on the alert.
 * ``linked_alerthistory``: The ID of the alert the current alert is terminating.
 
-
-
 Example
 -------
 
