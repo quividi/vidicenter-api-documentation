@@ -19,6 +19,7 @@ Contents:
 
    general_usage
    topology
+   status
 
 
 .. Indices and tables
