@@ -64,6 +64,30 @@ The dictionary may also contain the following keys:
 * ``creation_date``: the creation date of your export.
 * ``data``: the actual export data.
 
+The data can contain the following keys:
+
+* ``location_id``: the ID of the location the data comes from.
+* ``period_start``: the start of the aggregate or the event (in finest mode).
+* ``ots_count``: for OTS exports, the number of OTS in the current aggregate.
+* ``duration``: for OTS exports, the duration of the OTS.
+* ``watcher_count``: the number of watcher in the current aggregate.
+* ``gender``: the gender for the current aggregate. Possible values:
+
+    * ``0``: unknown
+    * ``1``: male
+    * ``2``: female
+
+* ``age``: the age for the current aggregate. Possible values:
+
+    * ``0``: unknown
+    * ``1``: child
+    * ``2``: young adult
+    * ``3``: adult
+    * ``4``: senior
+
+* ``dwell_time``: the dwell time for the current aggregate in **tenth of seconds**.
+* ``attention_time``: the attention time for the current aggregate in **tenth of seconds**.
+
 
 Asynchronous usage
 ------------------
