@@ -69,7 +69,7 @@ The data can contain the following keys:
 * ``location_id``: the ID of the location the data comes from.
 * ``period_start``: the start of the aggregate or the event (in finest mode).
 * ``ots_count``: for OTS exports, the number of OTS in the current aggregate.
-* ``duration``: for OTS exports, the duration of the OTS.
+* ``duration``: for OTS exports, the duration of the OTS in seconds.
 * ``watcher_count``: the number of watcher in the current aggregate.
 * ``gender``: the gender for the current aggregate. Possible values:
 
@@ -85,9 +85,36 @@ The data can contain the following keys:
     * ``3``: adult
     * ``4``: senior
 
+* ``glasses``: viewer's glasses information (expert only):
+
+    * ``0``: unknown
+    * ``1``: no glasses
+    * ``2``: glasses
+    * ``3``: sunglasses
+
+* ``moustache``: viewer's moustache information (expert only):
+
+    * ``0``: unknown
+    * ``1``: no moustache
+    * ``2``: moustache
+
+* ``beard``: viewer's beard information (expert only):
+
+    * ``0``: unknown
+    * ``1``: no beard
+    * ``2``: beard
+
+* ``age_value``: the viewer's numeric age in years (expert only).
+
 * ``dwell_time``: the dwell time for the current aggregate in **tenth of seconds**.
 * ``attention_time``: the attention time for the current aggregate in **tenth of seconds**.
+* Mood values (expert only) are given in percentage, they represent the distribution of a viewer's mood over time. The sum of the five moods totals 100. Each mood is a key:
 
+    * ``very_happy``
+    * ``happy``
+    * ``neutral``
+    * ``unhappy``
+    * ``very_unhappy``
 
 Asynchronous usage
 ------------------
@@ -117,7 +144,7 @@ We immediately make the same call
     curl -u USERNAME:AUTH_TOKEN 'https://vidicenter.quividi.com/api/v1/data/?locations=1056&data_type=viewers&start=2016-04-29T10:00:00&end=2016-04-29T11:00:00&time_resolution=1h'
     {
         "state": "in_progress",
-        "creation_date": "2016-08-25T15:22:35"
+        "creation_date": "2016-08-25 15:22:35"
     }
 
 Some time later, the same call returns the data
@@ -144,5 +171,52 @@ Some time later, the same call returns the data
                 "period_start": "2016-04-29 11:00:00"
             }
         ],
-        "creation_date": "2016-08-25T15:22:35"
+        "creation_date": "2016-08-25 15:22:35"
+    }
+
+
+Example of expert return values
+*******************************
+
+ ::
+
+    {
+        "state": "finished",
+        "data": [
+            {
+                "happy": 20,
+                "dwell_time": 11,
+                "gender": 1,
+                "location_id": 22383,
+                "unhappy": 0,
+                "age": 4,
+                "neutral": 80,
+                "age_value": 86,
+                "attention_time": 5,
+                "period_start": "2016-07-25 00:11:26",
+                "glasses": 1,
+                "very_unhappy": 0,
+                "very_happy": 0,
+                "mustache": 1,
+                "beard": 1
+            },
+            {
+                "happy": 19.215686274509803,
+                "dwell_time": 139,
+                "gender": 1,
+                "location_id": 22383,
+                "unhappy": 8.235294117647058,
+                "age": 3,
+                "neutral": 69.80392156862746,
+                "age_value": 39,
+                "attention_time": 55,
+                "period_start": "2016-07-25 00:46:52",
+                "glasses": 1,
+                "very_unhappy": 0,
+                "very_happy": 2.7450980392156863,
+                "mustache": 1,
+                "beard": 1
+            }
+        ],
+        "creation_date": "2016-08-25 17:10:32"
     }
