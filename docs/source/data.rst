@@ -123,6 +123,11 @@ The export data endpoint is asynchronous. The first time you make a specific req
 
 Export are cached for around 24 hours. If you want to ignore the cache and force VidiCenter to build a new export, you can use the ``force_rebuild`` parameter.
 
+Rate limiting
+-------------
+
+Exports can be intensive on our servers so we limit the number of exports one user can start in parallel. **You cannot start more than 3 exports in parallel**.
+
 Example
 -------
 
