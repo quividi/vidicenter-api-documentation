@@ -174,6 +174,28 @@ Example
     ]
 
 
+Network's monitoring messages list
+##################################
+
+Returns a list of a network's 1000 most recent monitoring messages
+
+URL
+---
+
+``https://vidicenter.quividi.com/api/v1/network/{network_id}/monitor_msgs/``
+
+
+Site's monitoring messages list
+###############################
+
+Returns a list of a site's 1000 most recent monitoring messages
+
+URL
+---
+
+``https://vidicenter.quividi.com/api/v1/site/{site_id}/monitor_msgs/``
+
+
 Location's monitoring messages list
 ###################################
 
