@@ -22,7 +22,6 @@ You can test your token with the following query::
     {"username": "USERNAME"}
 
 
-
 HTTP responses
 ##############
 
@@ -38,15 +37,8 @@ In case of error, the response can contain a JSON object explaining the issue::
     {"message": "Invalid API Token", "error": 401}
 
 
+Test page
+#########
 
-Asynchronous requests
-#####################
+`This page on VidiCenter <http://vidicenter.quividi.com/api/v1/test/>`_ allows you to generate curl commands and query the export API. You can use it to famliarize yourself with the API.
 
-TODO
-
-
-
-Cache
-#####
-
-TODO
