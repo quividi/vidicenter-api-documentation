@@ -178,14 +178,14 @@ Returns a list of a site's locations
 URL
 ---
 
-``https://vidicenter.quividi.com/api/v1/network/{site_id}/locations/``
+``https://vidicenter.quividi.com/api/v1/site/{site_id}/locations/``
 
 Example
 -------
 
  ::
 
-    curl -u USERNAME:AUTH_TOKEN https://vidicenter.quividi.com/api/v1/network/8654/locations/
+    curl -u USERNAME:AUTH_TOKEN https://vidicenter.quividi.com/api/v1/site/8654/locations/
     [
         {
             "last_upload_timestamp":"2015-10-12T10:29:43",
@@ -310,7 +310,7 @@ Returns a list of a location's boxes
 Url
 ---
 
-``https://vidicenter.quividi.com/api/v1/site/{location_id}/boxes/``
+``https://vidicenter.quividi.com/api/v1/location/{location_id}/boxes/``
 
 Example
 -------
