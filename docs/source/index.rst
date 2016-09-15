@@ -21,6 +21,7 @@ Contents:
    topology
    status
    data
+   clip_metadata
 
 
 .. Indices and tables
