@@ -158,8 +158,8 @@ Optional arguments
 Examples
 ********
 
-Successful creation
-^^^^^^^^^^^^^^^^^^^
+Successful update
+^^^^^^^^^^^^^^^^^
 
  ::
 
