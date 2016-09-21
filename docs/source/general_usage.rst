@@ -18,7 +18,7 @@ Do note that making an insecure call (using http instead of https for example) w
 
 You can test your token with the following query::
 
-    $> curl -u USERNAME:AUTH_TOKEN https://vidicenter.quividi.com/api/v1/whoami
+    $> curl -u USERNAME:AUTH_TOKEN https://vidicenter.quividi.com/api/v1/whoami/
     {"username": "USERNAME"}
 
 
@@ -33,7 +33,7 @@ All successful requests will return a JSON object. If the request fails, the HTT
 
 In case of error, the response can contain a JSON object explaining the issue::
 
-    $> curl -u USERNAME:INVALID_TOKEN https://vidicenter.quividi.com/api/v1/whoami
+    $> curl -u USERNAME:INVALID_TOKEN https://vidicenter.quividi.com/api/v1/whoami/
     {"message": "Invalid API Token", "error": 401}
 
 
