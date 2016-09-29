@@ -15,11 +15,12 @@ Mandatory arguments
 * ``data_type``: The type of data you want to extract. Allowed values:
 
     * ``ots``: OTS data
+    * ``gate``: Gate data
     * ``viewers``: Viewers data
 
 * ``time_resolution``: The time resolution used in the aggregation. Allowed values:
 
-    * ``finest``: Do not aggregate, display all raw objects (unavailable for OTS exports).
+    * ``finest``: Do not aggregate, display all raw objects (unavailable for OTS and Gate exports).
     * ``5m``: 5 minutes aggregates
     * ``10m``: 10 minutes aggregates
     * ``15m``: 15 minutes aggregates
@@ -67,9 +68,12 @@ The dictionary may also contain the following keys:
 The data can contain the following keys:
 
 * ``location_id``: the ID of the location the data comes from.
+* ``gate_id``: for Gate exports, the ID of the gate the data comes from.
 * ``period_start``: the start of the aggregate or the event (in finest mode).
 * ``ots_count``: for OTS exports, the number of OTS in the current aggregate.
-* ``duration``: for OTS exports, the duration of the OTS in seconds.
+* ``in_count``: for Gate exports, the number of people who entered the gate.
+* ``out_count``: for Gate exports, the number of people who exited the gate.
+* ``duration``: for OTS and Gate exports, the duration of the OTS or Gate event in seconds.
 * ``watcher_count``: the number of watcher in the current aggregate.
 * ``gender``: the gender for the current aggregate. Possible values:
 
