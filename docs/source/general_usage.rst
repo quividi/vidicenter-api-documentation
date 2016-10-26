@@ -42,3 +42,5 @@ Test page
 
 `This page on VidiCenter <http://vidicenter.quividi.com/api/v1/test/>`_ allows you to generate curl commands and query the export API. You can use it to famliarize yourself with the API.
 
+
+Continue to :ref:`topology`

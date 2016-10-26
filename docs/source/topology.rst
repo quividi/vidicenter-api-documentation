@@ -1,3 +1,6 @@
+.. _topology:
+
+
 Topology calls
 ==============
 
@@ -327,3 +330,6 @@ Example
             "label":"box-192366 (C001246) (box-192366)"
         }
     ]
+
+
+Continue to :ref:`status`

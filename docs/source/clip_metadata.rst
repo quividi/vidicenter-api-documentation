@@ -1,3 +1,6 @@
+.. _clip_metadata:
+
+
 Clip Metadata
 =============
 

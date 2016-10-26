@@ -1,3 +1,6 @@
+.. _status:
+
+
 Status calls
 ============
 
@@ -216,3 +219,6 @@ URL
 ---
 
 ``https://vidicenter.quividi.com/api/v1/box/{box_id}/monitor_msgs/``
+
+
+Continue to :ref:`data`
