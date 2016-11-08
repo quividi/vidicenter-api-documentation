@@ -113,6 +113,17 @@ URL
 ``https://vidicenter.quividi.com/api/v1/site/{site_id}/alerts/``
 
 
+Site tag's alerts list
+######################
+
+Returns a list of a site tag's 1000 most recent alerts
+
+URL
+---
+
+``https://vidicenter.quividi.com/api/v1/site_tag/{tag}/alerts/``
+
+
 Location's alerts list
 ######################
 
@@ -122,6 +133,17 @@ URL
 ---
 
 ``https://vidicenter.quividi.com/api/v1/location/{location_id}/alerts/``
+
+
+Location tag's alerts list
+##########################
+
+Returns a list of a location tag's 1000 most recent alerts
+
+URL
+---
+
+``https://vidicenter.quividi.com/api/v1/location_tag/{tag}/alerts/``
 
 
 Box's alerts list
@@ -199,6 +221,17 @@ URL
 ``https://vidicenter.quividi.com/api/v1/site/{site_id}/monitor_msgs/``
 
 
+Site tag's monitoring messages list
+###################################
+
+Returns a list of a site tag's 1000 most recent monitoring messages
+
+URL
+---
+
+``https://vidicenter.quividi.com/api/v1/site_tag/{tag}/monitor_msgs/``
+
+
 Location's monitoring messages list
 ###################################
 
@@ -208,6 +241,17 @@ URL
 ---
 
 ``https://vidicenter.quividi.com/api/v1/location/{location_id}/monitor_msgs/``
+
+
+Location tag's monitoring messages list
+#######################################
+
+Returns a list of a location tag's 1000 most recent monitoring messages
+
+URL
+---
+
+``https://vidicenter.quividi.com/api/v1/location_tag/{tag}/monitor_msgs/``
 
 
 Box's monitoring messages list
