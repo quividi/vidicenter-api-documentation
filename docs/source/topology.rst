@@ -11,7 +11,7 @@ The following API endpoints allow you to retrieve informations pertaining to you
 Networks list
 #############
 
-Returns a list of your networks.
+Returns a list of your networks
 
 URL
 ---
@@ -26,12 +26,12 @@ Example
     curl -u USERNAME:AUTH_TOKEN https://vidicenter.quividi.com/api/v1/networks/
     [
         {
-            "id": 15678,
-            "label": "My first network"
+            "id":15678,
+            "label":"My first network"
         },
         {
-            "id": 25444,
-            "label": "My other network"
+            "id":25444,
+            "label":"My other network"
         }
     ]
 
@@ -39,7 +39,7 @@ Example
 Sites list
 ##########
 
-Returns a list of your sites.
+Returns a list of your sites
 
 URL
 ---
@@ -54,17 +54,17 @@ Example
     curl -u USERNAME:AUTH_TOKEN https://vidicenter.quividi.com/api/v1/sites/
     [
         {
-            "network_id": 15678,
-            "id": 8654,
-            "label": "VidiReports"
+            "network_id":15678,
+            "id":8654,
+            "label":"VidiReports"
         }, {
-            "network_id": 15678,
-            "id": 54422,
-            "label": "Another site"
+            "network_id":15678,
+            "id":54422,
+            "label":"Another site"
         }, {
-            "network_id": 25444,
-            "id": 66531,
-            "label": "VidiReports"
+            "network_id":25444,
+            "id":66531,
+            "label":"VidiReports"
         }
     ]
 
@@ -72,7 +72,7 @@ Example
 Network's sites list
 ####################
 
-Returns a list of a network's sites.
+Returns a list of a network's sites
 
 URL
 ---
@@ -87,13 +87,38 @@ Example
     curl -u USERNAME:AUTH_TOKEN https://vidicenter.quividi.com/api/v1/network/15678/sites/
     [
         {
-            "network_id": 15678,
-            "id": 8654,
-            "label": "VidiReports"
+            "network_id":15678,
+            "id":8654,
+            "label":"VidiReports"
         }, {
-            "network_id": 15678,
-            "id": 54422,
-            "label": "Another site"
+            "network_id":15678,
+            "id":54422,
+            "label":"Another site"
+        }
+    ]
+
+
+Site tag's sites list
+#####################
+
+Returns a list of a site tag's sites
+
+URL
+---
+
+``https://vidicenter.quividi.com/api/v1/site_tag/{tag}/sites/``
+
+Example
+-------
+
+ ::
+
+    curl -u USERNAME:AUTH_TOKEN https://vidicenter.quividi.com/api/v1/site_tag/my%20special%20tag/sites/
+    [
+        {
+            "network_id":9842,
+            "id":54892,
+            "label":"A tagged site"
         }
     ]
 
@@ -200,13 +225,81 @@ Example
     ]
 
 
+Site tag's locations list
+#########################
+
+Returns a list of a site tag's locations
+
+URL
+---
+
+``https://vidicenter.quividi.com/api/v1/site_tag/{tag}/locations/``
+
+Example
+-------
+
+ ::
+
+    curl -u USERNAME:AUTH_TOKEN https://vidicenter.quividi.com/api/v1/site_tag/my%20special%20tag/locations/
+    [
+        {
+            "last_upload_timestamp":"2015-09-15T11:00:16",
+            "box_id":114242,
+            "site_id":54892,
+            "id":1330,
+            "label":"A location's name"
+        },
+        {
+            "last_upload_timestamp":"2015-10-29T12:13:02",
+            "box_id":114246,
+            "site_id":54892,
+            "id":1334,
+            "label":"Another location"
+        }
+    ]
+
+
+Location tag's locations list
+#############################
+
+Returns a list of a location tag's locations
+
+URL
+---
+
+``https://vidicenter.quividi.com/api/v1/location_tag/{tag}/locations/``
+
+Example
+-------
+
+ ::
+
+    curl -u USERNAME:AUTH_TOKEN https://vidicenter.quividi.com/api/v1/location_tag/tag%20of%20mine/locations/
+    [
+        {
+            "last_upload_timestamp":"2015-09-15T11:00:16",
+            "box_id":114242,
+            "site_id":54892,
+            "id":1330,
+            "label":"A location's name"
+        },
+        {
+            "last_upload_timestamp":"2015-10-29T12:13:02",
+            "box_id":114246,
+            "site_id":54892,
+            "id":1334,
+            "label":"Another location"
+        }
+    ]
+
+
 Boxes list
 ##########
 
 Returns a list of your boxes
 
 
-Url
+URL
 ---
 
 ``https://vidicenter.quividi.com/api/v1/boxes/``
@@ -248,7 +341,7 @@ Network's boxes list
 Returns a list of a network's boxes
 
 
-Url
+URL
 ---
 
 ``https://vidicenter.quividi.com/api/v1/network/{network_id}/boxes/``
@@ -283,7 +376,7 @@ Site's boxes list
 Returns a list of a site's boxes
 
 
-Url
+URL
 ---
 
 ``https://vidicenter.quividi.com/api/v1/site/{site_id}/boxes/``
@@ -305,12 +398,46 @@ Example
     ]
 
 
+Site tag's boxes list
+#####################
+
+Returns a list of a site tag's boxes
+
+URL
+---
+
+``https://vidicenter.quividi.com/api/v1/site_tag/{tag}/boxes/``
+
+Example
+-------
+
+ ::
+
+    curl -u USERNAME:AUTH_TOKEN https://vidicenter.quividi.com/api/v1/site_tag/my%20special%20tag/boxes/
+    [
+        {
+            "last_upload_timestamp":"2015-09-15T11:00:16",
+            "location_id":1330,
+            "site_id":54892,
+            "id":114242,
+            "label":"A first box"
+        },
+        {
+            "last_upload_timestamp":"2015-10-29T12:13:02",
+            "location_id":1334,
+            "site_id":54892,
+            "id":114246,
+            "label":"Another box"
+        }
+    ]
+
+
 Location's boxes list
 #####################
 
 Returns a list of a location's boxes
 
-Url
+URL
 ---
 
 ``https://vidicenter.quividi.com/api/v1/location/{location_id}/boxes/``
@@ -328,6 +455,40 @@ Example
             "site_id":54422,
             "id":192366,
             "label":"box-192366 (C001246) (box-192366)"
+        }
+    ]
+
+
+Location tag's boxes list
+#########################
+
+Returns a list of a location tag's boxes
+
+URL
+---
+
+``https://vidicenter.quividi.com/api/v1/location_tag/{tag}/boxes/``
+
+Example
+-------
+
+ ::
+
+    curl -u USERNAME:AUTH_TOKEN https://vidicenter.quividi.com/api/v1/location_tag/tag%20of%20mine/boxes
+    [
+        {
+            "last_upload_timestamp":"2015-09-15T11:00:16",
+            "location_id":1330,
+            "site_id":54892,
+            "id":114242,
+            "label":"A first box"
+        },
+        {
+            "last_upload_timestamp":"2015-10-29T12:13:02",
+            "location_id":1334,
+            "site_id":54892,
+            "id":114246,
+            "label":"Another box"
         }
     ]
 
