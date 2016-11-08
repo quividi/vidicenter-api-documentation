@@ -20,6 +20,7 @@ Contents:
    general_usage
    topology
    status
+   tags
    data
    clip_metadata
 

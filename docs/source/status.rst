@@ -5,13 +5,13 @@ Status calls
 ============
 
 
-The following API endpoints allow you to see the status of your networks.
+The following API endpoints allow you to see the status of your networks
 
 
 Alerts list
 ###########
 
-Returns a list of the 1000 most recent alerts in your networks.
+Returns a list of the 1000 most recent alerts in your networks
 
 URL
 ---
@@ -94,7 +94,7 @@ Example
 Network's alerts list
 #####################
 
-Returns a list of a network's 1000 most recent alerts.
+Returns a list of a network's 1000 most recent alerts
 
 URL
 ---
@@ -105,7 +105,7 @@ URL
 Site's alerts list
 ##################
 
-Returns a list of a site's 1000 most recent alerts.
+Returns a list of a site's 1000 most recent alerts
 
 URL
 ---
@@ -116,7 +116,7 @@ URL
 Location's alerts list
 ######################
 
-Returns a list of a locations's 1000 most recent alerts.
+Returns a list of a locations's 1000 most recent alerts
 
 URL
 ---
@@ -127,7 +127,7 @@ URL
 Box's alerts list
 #################
 
-Returns a list of a box's 1000 most recent alerts.
+Returns a list of a box's 1000 most recent alerts
 
 URL
 ---
@@ -138,7 +138,7 @@ URL
 Monitoring messages list
 ########################
 
-Returns a list of your 1000 most recent monitoring messages.
+Returns a list of your 1000 most recent monitoring messages
 
 URL
 ---
@@ -221,4 +221,4 @@ URL
 ``https://vidicenter.quividi.com/api/v1/box/{box_id}/monitor_msgs/``
 
 
-Continue to :ref:`data`
+Continue to :ref:`tags`
