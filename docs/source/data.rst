@@ -45,6 +45,8 @@ The api endpoint expects you to specify at least one of the following values:
 * ``sites``: A comma separated list of site ids.
 * ``locationgroups``: A comma separated list of location group ids.
 * ``sitegroups``: A comma separated list of site group ids.
+* ``location_tags``: A comma separated list of location tag ids.
+* ``site_tags``: A comma separated list of site tag ids.
 
 Optional arguments
 ------------------
