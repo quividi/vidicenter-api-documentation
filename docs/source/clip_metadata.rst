@@ -43,7 +43,7 @@ Successful creation
 
  ::
 
-    curl -u USERNAME:AUTH_TOKEN --form "screenshot=@my-clip-image.jpg;filename=my-filename.jpg" --form clip_id="clip_123" --form network=9876 --form name="My clip name" --form description="The description of my clip" https://vidicenter.quividi.com/api/v1/clip/metadata/
+    curl -u USERNAME:AUTH_TOKEN --form "screenshot=@path/to/local/image.jpg;filename=desired-filename-in-vidicenter.jpg" --form clip_id="clip_123" --form network=9876 --form name="My clip name" --form description="The description of my clip" https://vidicenter.quividi.com/api/v1/clip/metadata/
     {
         "url": "https://vidicenter.quividi.com/api/v1/network/9876/clip/metadata/clip_123/"
     }
