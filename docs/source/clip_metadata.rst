@@ -7,6 +7,17 @@ Clip Metadata
 The Clip Metadata api endpoint is useful for clients using the CMS content integration with VidiReports. With this feature, you provide VidiReports with clip ids, and you are able to see analytics based on these clip ids. Clip ids may not be explicit, or easy to use, that's why you can provide clip metadata to VidiCenter.
 
 
+Important note about unicode and encoding
+-----------------------------------------
+
+If you want to upload unicode data, use an utf-8 encoding. If you are using curl, make sure your ``LANG`` environment variable is utf-8 compliant. For example:
+
+ ::
+
+    echo $LANG
+    en_US.UTF-8
+
+
 Create
 ------
 
@@ -47,6 +58,7 @@ Successful creation
     {
         "url": "https://vidicenter.quividi.com/api/v1/network/9876/clip/metadata/clip_123/"
     }
+
 
 
 Clip id is unique on a network
