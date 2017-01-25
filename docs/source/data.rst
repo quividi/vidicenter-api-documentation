@@ -101,11 +101,11 @@ The data can contain the following keys:
     * ``2``: glasses
     * ``3``: sunglasses
 
-* ``moustache``: viewer's moustache information (expert only):
+* ``mustache``: viewer's mustache information (expert only):
 
     * ``0``: unknown
-    * ``1``: no moustache
-    * ``2``: moustache
+    * ``1``: no mustache
+    * ``2``: mustache
 
 * ``beard``: viewer's beard information (expert only):
 
