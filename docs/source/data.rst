@@ -137,6 +137,30 @@ Rate limiting
 
 Exports can be intensive on our servers so we limit the number of exports one user can start in parallel. **You cannot start more than 3 exports in parallel**.
 
+Placeholder data and null values
+--------------------------------
+
+The API will try to fill "missing" lines with placeholder values. Let's say you ask for the OTS data day by day for a location, on a two-day period. The data returned may look like this::
+
+    [
+        {
+            "duration": 86400.0,
+            "location_id": 1234,
+            "ots_count": 504,
+            "watcher_count": 156,
+            "period_start": '2016-04-29 00:00:00'
+        },
+        {
+            "duration": null,
+            "location_id": 1234,
+            "ots_count": null,
+            "watcher_count": null,
+            "period_start": '2016-04-30 00:00:00'
+        }
+    ]
+
+The first line looks normal. The second line has ``null`` values for the three metrics `duration`, `ots_count` and `watcher_count`. This means that we don't have any data for the concerned period. Rather than omitting the line from the results, we add a placeholder line with ``null`` values.
+
 Example
 -------
 
