@@ -165,14 +165,14 @@ Returns a list of your 1000 most recent monitoring messages
 URL
 ---
 
-``https://vidicenter.quividi.com/api/v1/monitor_msgs/``
+``https://vidicenter.quividi.com/api/v1/monitoring_msgs/``
 
 Example
 -------
 
  ::
 
-    curl -u USERNAME:AUTH_TOKEN https://vidicenter.quividi.com/api/v1/monitor_msgs/
+    curl -u USERNAME:AUTH_TOKEN https://vidicenter.quividi.com/api/v1/monitoring_msgs/
     [
         {
             "avg_luma": "43.1%",
@@ -207,7 +207,7 @@ Returns a list of a network's 1000 most recent monitoring messages
 URL
 ---
 
-``https://vidicenter.quividi.com/api/v1/network/{network_id}/monitor_msgs/``
+``https://vidicenter.quividi.com/api/v1/network/{network_id}/monitoring_msgs/``
 
 
 Site's monitoring messages list
@@ -218,7 +218,7 @@ Returns a list of a site's 1000 most recent monitoring messages
 URL
 ---
 
-``https://vidicenter.quividi.com/api/v1/site/{site_id}/monitor_msgs/``
+``https://vidicenter.quividi.com/api/v1/site/{site_id}/monitoring_msgs/``
 
 
 Site tag's monitoring messages list
@@ -229,7 +229,7 @@ Returns a list of a site tag's 1000 most recent monitoring messages
 URL
 ---
 
-``https://vidicenter.quividi.com/api/v1/site_tag/{tag}/monitor_msgs/``
+``https://vidicenter.quividi.com/api/v1/site_tag/{tag}/monitoring_msgs/``
 
 
 Location's monitoring messages list
@@ -240,7 +240,7 @@ Returns a list of a location's 1000 most recent monitoring messages
 URL
 ---
 
-``https://vidicenter.quividi.com/api/v1/location/{location_id}/monitor_msgs/``
+``https://vidicenter.quividi.com/api/v1/location/{location_id}/monitoring_msgs/``
 
 
 Location tag's monitoring messages list
@@ -251,7 +251,7 @@ Returns a list of a location tag's 1000 most recent monitoring messages
 URL
 ---
 
-``https://vidicenter.quividi.com/api/v1/location_tag/{tag}/monitor_msgs/``
+``https://vidicenter.quividi.com/api/v1/location_tag/{tag}/monitoring_msgs/``
 
 
 Box's monitoring messages list
@@ -262,7 +262,7 @@ Returns a list of a box's 1000 most recent monitoring messages
 URL
 ---
 
-``https://vidicenter.quividi.com/api/v1/box/{box_id}/monitor_msgs/``
+``https://vidicenter.quividi.com/api/v1/box/{box_id}/monitoring_msgs/``
 
 
 Continue to :ref:`tags`
