@@ -80,6 +80,7 @@ The data can contain the following keys:
 * ``out_count``: for Gate exports, the number of people who exited the gate.
 * ``duration``: for OTS and Gate exports, the duration of the OTS or Gate event in seconds.
 * ``watcher_count``: the number of watcher in the current aggregate.
+* ``conversion_ratio``: the number of watcher divided by the number of OTS in the current aggregate.
 * ``gender``: the gender for the current aggregate. Possible values:
 
     * ``0``: unknown
