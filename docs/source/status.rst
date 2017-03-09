@@ -182,7 +182,8 @@ Example
             "location": 1982,
             "nb_inputlost": 0,
             "status": "running",
-            "timestamp": "2015-10-27T12:42:25",
+            "host_timestamp": "2015-10-27T11:00:00",
+            "timestamp": "2015-10-27T12:02:25",
             "vr_status": "Processing"
         },
         {
@@ -193,6 +194,7 @@ Example
             "location": 1692,
             "nb_inputlost": 0,
             "status": "running",
+            "host_timestamp": "2015-10-27T12:00:00",
             "timestamp": "2015-10-27T12:29:25",
             "vr_status": "Input Lost"
         }
