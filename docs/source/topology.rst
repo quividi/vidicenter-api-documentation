@@ -145,6 +145,7 @@ Example
             "box_id":193538,
             "site_id":8654,
             "id":204452,
+            "creation_date":"2014-09-11T09:18:32",
             "label":"location-204452"
         },
         {
@@ -152,6 +153,7 @@ Example
             "box_id":192366,
             "site_id":54422,
             "id":27046,
+            "creation_date":"2012-07-09T07:05:19",
             "label":"Entrance"
         },
         {
@@ -159,6 +161,7 @@ Example
             "box_id":219354,
             "site_id":66531,
             "id":320453,
+            "creation_date":"2014-01-04T19:55:41",
             "label":"Exit screen"
         }
     ]
@@ -186,6 +189,7 @@ Example
             "box_id":193538,
             "site_id":8654,
             "id":204452,
+            "creation_date":"2014-09-11T09:18:32",
             "label":"location-204452"
         },
         {
@@ -193,6 +197,7 @@ Example
             "box_id":192366,
             "site_id":54422,
             "id":27046,
+            "creation_date":"2012-07-09T07:05:19",
             "label":"Entrance"
         }
     ]
@@ -220,6 +225,7 @@ Example
             "box_id":193538,
             "site_id":8654,
             "id":204452,
+            "creation_date":"2014-09-11T09:18:32",
             "label":"location-204452"
         }
     ]
@@ -247,6 +253,7 @@ Example
             "box_id":114242,
             "site_id":54892,
             "id":1330,
+            "creation_date":"2014-09-11T09:18:32",
             "label":"A location's name"
         },
         {
@@ -254,6 +261,7 @@ Example
             "box_id":114246,
             "site_id":54892,
             "id":1334,
+            "creation_date":"2012-07-09T07:05:19",
             "label":"Another location"
         }
     ]
@@ -281,6 +289,7 @@ Example
             "box_id":114242,
             "site_id":54892,
             "id":1330,
+            "creation_date":"2014-09-11T09:18:32",
             "label":"A location's name"
         },
         {
@@ -288,6 +297,7 @@ Example
             "box_id":114246,
             "site_id":54892,
             "id":1334,
+            "creation_date":"2012-07-09T07:05:19",
             "label":"Another location"
         }
     ]
