@@ -27,11 +27,13 @@ Example
     [
         {
             "id":15678,
-            "label":"My first network"
+            "label":"My first network",
+            "active":true
         },
         {
             "id":25444,
-            "label":"My other network"
+            "label":"My other network",
+            "active":false
         }
     ]
 
@@ -56,15 +58,20 @@ Example
         {
             "network_id":15678,
             "id":8654,
-            "label":"VidiReports"
-        }, {
+            "label":"VidiReports",
+            "active":true
+        },
+        {
             "network_id":15678,
             "id":54422,
-            "label":"Another site"
-        }, {
+            "label":"Another site",
+            "active":true
+        },
+        {
             "network_id":25444,
             "id":66531,
-            "label":"VidiReports"
+            "label":"VidiReports",
+            "active":false
         }
     ]
 
@@ -89,11 +96,14 @@ Example
         {
             "network_id":15678,
             "id":8654,
-            "label":"VidiReports"
-        }, {
+            "label":"VidiReports",
+            "active":true,
+        },
+        {
             "network_id":15678,
             "id":54422,
-            "label":"Another site"
+            "label":"Another site",
+            "active":true,
         }
     ]
 
@@ -118,7 +128,8 @@ Example
         {
             "network_id":9842,
             "id":54892,
-            "label":"A tagged site"
+            "label":"A tagged site",
+            "active":true
         }
     ]
 
@@ -146,7 +157,8 @@ Example
             "site_id":8654,
             "id":204452,
             "creation_date":"2014-09-11T09:18:32",
-            "label":"location-204452"
+            "label":"location-204452",
+            "active":true
         },
         {
             "last_upload_timestamp":"2015-10-27T11:29:57",
@@ -154,7 +166,8 @@ Example
             "site_id":54422,
             "id":27046,
             "creation_date":"2012-07-09T07:05:19",
-            "label":"Entrance"
+            "label":"Entrance",
+            "active":true
         },
         {
             "last_upload_timestamp":"2015-10-13T21:40:57",
@@ -162,7 +175,8 @@ Example
             "site_id":66531,
             "id":320453,
             "creation_date":"2014-01-04T19:55:41",
-            "label":"Exit screen"
+            "label":"Exit screen",
+            "active":true
         }
     ]
 
@@ -190,7 +204,8 @@ Example
             "site_id":8654,
             "id":204452,
             "creation_date":"2014-09-11T09:18:32",
-            "label":"location-204452"
+            "label":"location-204452",
+            "active":true
         },
         {
             "last_upload_timestamp":"2015-10-27T11:29:57",
@@ -198,7 +213,8 @@ Example
             "site_id":54422,
             "id":27046,
             "creation_date":"2012-07-09T07:05:19",
-            "label":"Entrance"
+            "label":"Entrance",
+            "active":true
         }
     ]
 
@@ -226,7 +242,8 @@ Example
             "site_id":8654,
             "id":204452,
             "creation_date":"2014-09-11T09:18:32",
-            "label":"location-204452"
+            "label":"location-204452",
+            "active":true
         }
     ]
 
@@ -254,7 +271,8 @@ Example
             "site_id":54892,
             "id":1330,
             "creation_date":"2014-09-11T09:18:32",
-            "label":"A location's name"
+            "label":"A location's name",
+            "active":true
         },
         {
             "last_upload_timestamp":"2015-10-29T12:13:02",
@@ -262,7 +280,8 @@ Example
             "site_id":54892,
             "id":1334,
             "creation_date":"2012-07-09T07:05:19",
-            "label":"Another location"
+            "label":"Another location",
+            "active":true
         }
     ]
 
@@ -290,7 +309,8 @@ Example
             "site_id":54892,
             "id":1330,
             "creation_date":"2014-09-11T09:18:32",
-            "label":"A location's name"
+            "label":"A location's name",
+            "active":true
         },
         {
             "last_upload_timestamp":"2015-10-29T12:13:02",
@@ -298,7 +318,8 @@ Example
             "site_id":54892,
             "id":1334,
             "creation_date":"2012-07-09T07:05:19",
-            "label":"Another location"
+            "label":"Another location",
+            "active":true
         }
     ]
 
@@ -326,21 +347,24 @@ Example
             "location_id":204452,
             "site_id":8654,
             "id":193538,
-            "label":"box-193538 (C001680) (box-193538)"
+            "label":"box-193538 (C001680) (box-193538)",
+            "active":true
         },
         {
             "last_upload_timestamp":"2015-10-27T11:19:32",
             "location_id":27046,
             "site_id":54422,
             "id":192366,
-            "label":"box-192366 (C001246) (box-192366)"
+            "label":"box-192366 (C001246) (box-192366)",
+            "active":true
         },
         {
             "last_upload_timestamp":"2015-10-27T11:26:47",
             "location_id":320453,
             "site_id":66531,
             "id":219354,
-            "label":"My third box"
+            "label":"My third box",
+            "active":false
         },
     ]
 
@@ -368,14 +392,16 @@ Example
             "location_id":204452,
             "site_id":8654,
             "id":193538,
-            "label":"box-193538 (C001680) (box-193538)"
+            "label":"box-193538 (C001680) (box-193538)",
+            "active":true
         },
         {
             "last_upload_timestamp":"2015-10-27T11:19:32",
             "location_id":27046,
             "site_id":54422,
             "id":192366,
-            "label":"box-192366 (C001246) (box-192366)"
+            "label":"box-192366 (C001246) (box-192366)",
+            "active":true
         }
     ]
 
@@ -403,7 +429,8 @@ Example
             "location_id":27046,
             "site_id":54422,
             "id":192366,
-            "label":"box-192366 (C001246) (box-192366)"
+            "label":"box-192366 (C001246) (box-192366)",
+            "active":true
         }
     ]
 
@@ -430,14 +457,16 @@ Example
             "location_id":1330,
             "site_id":54892,
             "id":114242,
-            "label":"A first box"
+            "label":"A first box",
+            "active":true
         },
         {
             "last_upload_timestamp":"2015-10-29T12:13:02",
             "location_id":1334,
             "site_id":54892,
             "id":114246,
-            "label":"Another box"
+            "label":"Another box",
+            "active":true
         }
     ]
 
@@ -464,7 +493,8 @@ Example
             "location_id":27046,
             "site_id":54422,
             "id":192366,
-            "label":"box-192366 (C001246) (box-192366)"
+            "label":"box-192366 (C001246) (box-192366)",
+            "active":true
         }
     ]
 
@@ -491,14 +521,16 @@ Example
             "location_id":1330,
             "site_id":54892,
             "id":114242,
-            "label":"A first box"
+            "label":"A first box",
+            "active":true
         },
         {
             "last_upload_timestamp":"2015-10-29T12:13:02",
             "location_id":1334,
             "site_id":54892,
             "id":114246,
-            "label":"Another box"
+            "label":"Another box",
+            "active":true
         }
     ]
 
