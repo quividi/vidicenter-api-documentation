@@ -12,7 +12,7 @@ authorized customers will be able to generate the necessary authentication token
 
 Please be aware that any abuse of service (excessive number of requests per minute, repeated invalidation of the cache, etc.) will affect the quality of service experienced by all VidiCenter users; in this regard, Quividi reserves the right to disable access to the REST interface upon violation of the terms of service.
 
-If we feel the volume of your requests may impact the performance of our service, the API may return responses with the 403 HTTP status code.
+If we feel the volume of your requests may impact the performance of our service, the API may return responses with the 403 or 429 HTTP status code.
 
 Contents:
 
