@@ -144,6 +144,11 @@ URL
 
 ``https://vidicenter.quividi.com/api/v1/locations/``
 
+Notable data keys
+-----------------
+
+* ``last_timezone``: The timezone of the latest upload to this location. It is an integer representing the offset in minutes to the UTC timezone, more info can be found `here <https://en.wikipedia.org/wiki/UTC%C2%B100:00>`_.
+
 Example
 -------
 
@@ -153,6 +158,7 @@ Example
     [
         {
             "last_upload_timestamp":"2015-10-12T10:29:43",
+            "last_timezone": 0,
             "box_id":193538,
             "site_id":8654,
             "id":204452,
@@ -162,6 +168,7 @@ Example
         },
         {
             "last_upload_timestamp":"2015-10-27T11:29:57",
+            "last_timezone": 3600,
             "box_id":192366,
             "site_id":54422,
             "id":27046,
@@ -171,6 +178,7 @@ Example
         },
         {
             "last_upload_timestamp":"2015-10-13T21:40:57",
+            "last_timezone": -14400,
             "box_id":219354,
             "site_id":66531,
             "id":320453,
@@ -200,6 +208,7 @@ Example
     [
         {
             "last_upload_timestamp":"2015-10-12T10:29:43",
+            "last_timezone": 0,
             "box_id":193538,
             "site_id":8654,
             "id":204452,
@@ -209,6 +218,7 @@ Example
         },
         {
             "last_upload_timestamp":"2015-10-27T11:29:57",
+            "last_timezone": 3600,
             "box_id":192366,
             "site_id":54422,
             "id":27046,
@@ -238,6 +248,7 @@ Example
     [
         {
             "last_upload_timestamp":"2015-10-12T10:29:43",
+            "last_timezone": 0,
             "box_id":193538,
             "site_id":8654,
             "id":204452,
@@ -267,6 +278,7 @@ Example
     [
         {
             "last_upload_timestamp":"2015-09-15T11:00:16",
+            "last_timezone": -28800,
             "box_id":114242,
             "site_id":54892,
             "id":1330,
@@ -276,6 +288,7 @@ Example
         },
         {
             "last_upload_timestamp":"2015-10-29T12:13:02",
+            "last_timezone": 14400,
             "box_id":114246,
             "site_id":54892,
             "id":1334,
@@ -305,6 +318,7 @@ Example
     [
         {
             "last_upload_timestamp":"2015-09-15T11:00:16",
+            "last_timezone": -28800,
             "box_id":114242,
             "site_id":54892,
             "id":1330,
@@ -314,6 +328,7 @@ Example
         },
         {
             "last_upload_timestamp":"2015-10-29T12:13:02",
+            "last_timezone": 14400,
             "box_id":114246,
             "site_id":54892,
             "id":1334,
