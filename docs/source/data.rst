@@ -213,6 +213,16 @@ Some time later, the same call returns the data
         "creation_date": "2016-08-25 15:22:35"
     }
 
+We may ask for VidiCenter to rebuild the exports, to take into accounts recent uploads for example
+**************************************************************************************************
+
+ ::
+
+    curl -u USERNAME:AUTH_TOKEN 'https://vidicenter.quividi.com/api/v1/data/?locations=1056&data_type=viewers&start=2016-04-29T10:00:00&end=2016-04-29T11:00:00&time_resolution=1h&force_rebuild=1'
+    {
+        "state": "started",
+    }
+
 
 Example of expert return values
 *******************************
