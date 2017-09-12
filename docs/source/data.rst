@@ -32,6 +32,7 @@ Mandatory arguments
     * ``1d``: 1 day aggregates
     * ``7d``: 7 days aggregates
     * ``30d``: 30 days aggregates
+    * ``1M``: 1 month aggregates
 
 * ``start``: The start time for the export. Expected format is ``YYYY-MM-DDTHH:mm:SS``. For example, 2016 August 25 at 8:05PM would be ``2016-08-25T20:05:00``.
 * ``end``: The end time for the export. Expected format is ``YYYY-MM-DDTHH:mm:SS``.
