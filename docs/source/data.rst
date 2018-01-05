@@ -230,6 +230,7 @@ Example of expert return values
 
  ::
 
+    curl -u USERNAME:AUTH_TOKEN 'https://vidicenter.quividi.com/api/v1/data/?locations=22383&data_type=viewers&start=2016-07-25T10:00:00&end=2016-07-25T01:00:00&time_resolution=finest'
     {
         "state": "finished",
         "data": [
