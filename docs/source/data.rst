@@ -21,6 +21,8 @@ Mandatory arguments
     * ``ots``: OTS data.
     * ``viewers``: Viewers data.
     * ``viewers_apc``: Viewers with content data (**BETA**). Will only contain viewers who have content data.
+    * ``proof_of_play_by_location``: Proof of play data grouped by location.
+    * ``proof_of_play_by_site``: Proof of play data grouped by site.
 
 * ``time_resolution``: The time resolution used in the aggregation. Allowed values:
 
@@ -597,6 +599,131 @@ Example
         ],
         "creation_date":"2018-01-29 10:23:23"
     }
+
+
+Proof of play by location export
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Expected keys
+"""""""""""""
+* ``content_duration``: the duration of the content.
+* ``content_id``: the id of the content
+* ``duration``: total observation time in seconds in the current aggregate.
+* ``estimated_ots``: the estimated amount of OTS calculated using the conversion ratio.
+* ``location_id``: the ID of the location the data comes from.
+* ``period_start``: the start of the aggregate.
+* ``play_count``: how many times the content was played.
+* ``watchers``: the number of watchers for this content item.
+* ``watchers_2sec``: the number of watchers for this content item with an attention time > 2 seconds.
+
+Example
+"""""""
+
+ ::
+
+    curl -u USERNAME:AUTH_TOKEN 'http://localhost:8000/api/v1/data/?locations=4636&start=2018-01-29T02:00:00&end=2018-01-29T04:59:59&data_type=proof_of_play_by_location&time_resolution=1h'
+    {
+        "state":"finished",
+        "data":[
+            {
+                "content_duration":12.2,
+                "content_id":"content one",
+                "duration":3600,
+                "estimated_ots":32,
+                "location_id":4636,
+                "period_start":"2018-01-29 02:00:00",
+                "play_count":12,
+                "watchers":8,
+                "watchers_2sec":6,
+            },
+            {
+                "content_duration":7.8,
+                "content_id":"content one",
+                "duration":3600,
+                "estimated_ots":96,
+                "location_id":4636,
+                "period_start":"2018-01-29 03:00:00",
+                "play_count":22,
+                "watchers":64,
+                "watchers_2sec":20,
+            },
+            {
+                "content_duration":12.2,
+                "content_id":"content one",
+                "duration":3600,
+                "estimated_ots":8,
+                "location_id":4636,
+                "period_start":"2018-01-29 04:00:00",
+                "play_count":33,
+                "watchers":4,
+                "watchers_2sec":1,
+            },
+        ],
+        "creation_date":"2018-01-29 10:06:09"
+    }
+
+
+Proof of play by site export
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Expected keys
+"""""""""""""
+* ``content_duration``: the duration of the content.
+* ``content_id``: the id of the content
+* ``duration``: total observation time in seconds in the current aggregate.
+* ``estimated_ots``: the estimated amount of OTS calculated using the conversion ratio.
+* ``period_start``: the start of the aggregate.
+* ``play_count``: how many times the content was played.
+* ``site_id``: the ID of the site the data comes from.
+* ``watchers``: the number of watchers for this content item.
+* ``watchers_2sec``: the number of watchers for this content item with an attention time > 2 seconds.
+
+Example
+"""""""
+
+ ::
+
+    curl -u USERNAME:AUTH_TOKEN 'http://localhost:8000/api/v1/data/?site=178&start=2018-01-29T02:00:00&end=2018-01-29T04:59:59&data_type=proof_of_play_by_location&time_resolution=1h'
+    {
+        "state":"finished",
+        "data":[
+            {
+                "content_duration":12.2,
+                "content_id":"content one",
+                "duration":3600,
+                "estimated_ots":31,
+                "period_start":"2018-01-29 02:00:00",
+                "play_count":10,
+                "site_id":178,
+                "watchers":7,
+                "watchers_2sec":5,
+            },
+            {
+                "content_duration":7.8,
+                "content_id":"content one",
+                "duration":3600,
+                "estimated_ots":28,
+                "period_start":"2018-01-29 03:00:00",
+                "play_count":22,
+                "site_id":178,
+                "watchers":14,
+                "watchers_2sec":14,
+            },
+            {
+                "content_duration":12.2,
+                "content_id":"content one",
+                "duration":3600,
+                "estimated_ots":87,
+                "period_start":"2018-01-29 04:00:00",
+                "play_count":4,
+                "site_id":178,
+                "watchers":42,
+                "watchers_2sec":12,
+            },
+        ],
+        "creation_date":"2018-01-29 10:08:12"
+    }
+
 
 Placeholder data and null values
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
