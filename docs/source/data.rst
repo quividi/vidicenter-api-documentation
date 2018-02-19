@@ -21,8 +21,8 @@ Mandatory arguments
     * ``ots``: OTS data.
     * ``viewers``: Viewers data.
     * ``viewers_apc``: Viewers with content data (**BETA**). Will only contain viewers who have content data.
-    * ``proof_of_play_by_location``: Proof of play data grouped by location.
-    * ``proof_of_play_by_site``: Proof of play data grouped by site.
+    * ``proof_of_play_by_location``: Proof of play data grouped by location (**BETA**). This requires APC data.
+    * ``proof_of_play_by_site``: Proof of play data grouped by site (**BETA**).  This requires APC data.
 
 * ``time_resolution``: The time resolution used in the aggregation. Allowed values:
 
@@ -606,7 +606,7 @@ Proof of play by location export
 
 Expected keys
 """""""""""""
-* ``content_duration``: the duration of the content.
+* ``content_duration``: cumulated play duration of the content.
 * ``content_id``: the id of the content
 * ``duration``: total observation time in seconds in the current aggregate.
 * ``estimated_ots``: the estimated amount of OTS calculated using the conversion ratio.
@@ -668,7 +668,7 @@ Proof of play by site export
 
 Expected keys
 """""""""""""
-* ``content_duration``: the duration of the content.
+* ``content_duration``: cumulated play duration of the content.
 * ``content_id``: the id of the content
 * ``duration``: total observation time in seconds in the current aggregate.
 * ``estimated_ots``: the estimated amount of OTS calculated using the conversion ratio.
@@ -683,7 +683,7 @@ Example
 
  ::
 
-    curl -u USERNAME:AUTH_TOKEN 'http://localhost:8000/api/v1/data/?site=178&start=2018-01-29T02:00:00&end=2018-01-29T04:59:59&data_type=proof_of_play_by_location&time_resolution=1h'
+    curl -u USERNAME:AUTH_TOKEN 'http://localhost:8000/api/v1/data/?site=178&start=2018-01-29T02:00:00&end=2018-01-29T04:59:59&data_type=proof_of_play_by_site&time_resolution=1h'
     {
         "state":"finished",
         "data":[
