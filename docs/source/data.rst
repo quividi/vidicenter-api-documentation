@@ -607,7 +607,7 @@ Proof of play by location export
 Expected keys
 """""""""""""
 * ``content_duration``: cumulated play duration of the content.
-* ``content_id``: the id of the content
+* ``content_id``: the id of the content.
 * ``duration``: total observation time in seconds in the current aggregate.
 * ``estimated_ots``: the estimated amount of OTS calculated using the conversion ratio.
 * ``location_id``: the ID of the location the data comes from.
@@ -669,7 +669,7 @@ Proof of play by site export
 Expected keys
 """""""""""""
 * ``content_duration``: cumulated play duration of the content.
-* ``content_id``: the id of the content
+* ``content_id``: the id of the content.
 * ``duration``: total observation time in seconds in the current aggregate.
 * ``estimated_ots``: the estimated amount of OTS calculated using the conversion ratio.
 * ``period_start``: the start of the aggregate.
