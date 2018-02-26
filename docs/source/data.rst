@@ -192,7 +192,7 @@ Expert keys are present, but are filled with ``null`` values.
 
  ::
 
-    curl -u USERNAME:AUTH_TOKEN 'http://localhost:8000/api/v1/data/?locations=8264&start=2018-01-29T00:00:00&end=2018-01-29T02:00:00&data_type=viewers&time_resolution=finest'
+    curl -u USERNAME:AUTH_TOKEN 'https://vidicenter.quividi.com/api/v1/data/?locations=8264&start=2018-01-29T00:00:00&end=2018-01-29T02:00:00&data_type=viewers&time_resolution=finest'
     {
         "state":"finished",
         "data":[
@@ -241,7 +241,7 @@ Expert values are present.
 
  ::
 
-    curl -u USERNAME:AUTH_TOKEN 'http://localhost:8000/api/v1/data/?locations=8866&start=2018-01-29T00:00:00&end=2018-01-29T02:00:00&data_type=viewers&time_resolution=finest'
+    curl -u USERNAME:AUTH_TOKEN 'https://vidicenter.quividi.com/api/v1/data/?locations=8866&start=2018-01-29T00:00:00&end=2018-01-29T02:00:00&data_type=viewers&time_resolution=finest'
     {
         "state":"finished",
         "data":[
@@ -312,7 +312,7 @@ Example
 
  ::
 
-    curl -u USERNAME:AUTH_TOKEN 'http://localhost:8000/api/v1/data/?locations=38918&start=2018-01-14T00:00:00&end=2018-01-14T10:00:00&data_type=viewers_apc&time_resolution=finest'
+    curl -u USERNAME:AUTH_TOKEN 'https://vidicenter.quividi.com/api/v1/data/?locations=38918&start=2018-01-14T00:00:00&end=2018-01-14T10:00:00&data_type=viewers_apc&time_resolution=finest'
     {
         "state":"finished",
         "data":[
@@ -425,7 +425,7 @@ Example
 
  ::
 
-    curl -u USERNAME:AUTH_TOKEN 'http://localhost:8000/api/v1/data/?locations=4636&start=2018-01-29T02:00:00&end=2018-01-29T04:59:59&data_type=viewers&time_resolution=1h'
+    curl -u USERNAME:AUTH_TOKEN 'https://vidicenter.quividi.com/api/v1/data/?locations=4636&start=2018-01-29T02:00:00&end=2018-01-29T04:59:59&data_type=viewers&time_resolution=1h'
     {
         "state":"finished",
         "data":[
@@ -463,7 +463,7 @@ Group by demographics example
 
  ::
 
-    curl -u USERNAME:AUTH_TOKEN 'http://localhost:8000/api/v1/data/?locations=9876&start=2018-01-29T04:00:00&end=2018-01-29T04:59:59&data_type=viewers&time_resolution=1h&group_by_demographics=1'
+    curl -u USERNAME:AUTH_TOKEN 'https://vidicenter.quividi.com/api/v1/data/?locations=9876&start=2018-01-29T04:00:00&end=2018-01-29T04:59:59&data_type=viewers&time_resolution=1h&group_by_demographics=1'
     {
         "state":"finished",
         "data":[
@@ -507,7 +507,7 @@ Example
 
  ::
 
-    curl -u USERNAME:AUTH_TOKEN 'http://localhost:8000/api/v1/data/?locations=1467&start=2018-01-29T00:00:00&end=2018-01-29T04:59:59&data_type=ots&time_resolution=1h'
+    curl -u USERNAME:AUTH_TOKEN 'https://vidicenter.quividi.com/api/v1/data/?locations=1467&start=2018-01-29T00:00:00&end=2018-01-29T04:59:59&data_type=ots&time_resolution=1h'
     {
         "state":"finished",
         "data":[
@@ -568,7 +568,7 @@ Example
 
  ::
 
-    curl -u USERNAME:AUTH_TOKEN 'http://localhost:8000/api/v1/data/?locations=26549&start=2018-01-19T10:00:00&end=2018-01-19T12:59:59&data_type=gate&time_resolution=1h'
+    curl -u USERNAME:AUTH_TOKEN 'https://vidicenter.quividi.com/api/v1/data/?locations=26549&start=2018-01-19T10:00:00&end=2018-01-19T12:59:59&data_type=gate&time_resolution=1h'
     {
         "state":"finished",
         "data":[
@@ -621,7 +621,7 @@ Example
 
  ::
 
-    curl -u USERNAME:AUTH_TOKEN 'http://localhost:8000/api/v1/data/?locations=4636&start=2018-01-29T02:00:00&end=2018-01-29T04:59:59&data_type=proof_of_play_by_location&time_resolution=1h'
+    curl -u USERNAME:AUTH_TOKEN 'https://vidicenter.quividi.com/api/v1/data/?locations=4636&start=2018-01-29T02:00:00&end=2018-01-29T04:59:59&data_type=proof_of_play_by_location&time_resolution=1h'
     {
         "state":"finished",
         "data":[
@@ -683,7 +683,7 @@ Example
 
  ::
 
-    curl -u USERNAME:AUTH_TOKEN 'http://localhost:8000/api/v1/data/?site=178&start=2018-01-29T02:00:00&end=2018-01-29T04:59:59&data_type=proof_of_play_by_site&time_resolution=1h'
+    curl -u USERNAME:AUTH_TOKEN 'https://vidicenter.quividi.com/api/v1/data/?site=178&start=2018-01-29T02:00:00&end=2018-01-29T04:59:59&data_type=proof_of_play_by_site&time_resolution=1h'
     {
         "state":"finished",
         "data":[
