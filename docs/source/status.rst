@@ -39,6 +39,11 @@ Notable data keys
 * ``extra_data``: In case of Input or License Errors Alerts, contains more info on the alert.
 * ``linked_alerthistory``: The ID of the alert the current alert is terminating.
 
+Optional arguments
+------------------
+
+* ``active``: If specified as True, only the currently active alerts will be returned.
+
 Example
 -------
 
@@ -90,6 +95,40 @@ Example
         }
       ]
 
+ ::
+
+    curl -u USERNAME:AUTH_TOKEN https://vidicenter.quividi.com/api/v1/alerts/?active=True
+    [
+        {
+            "alert_type": 3,
+            "box": 1689,
+            "extra_data": "Processing,Black Input",
+            "host_timestamp": "2015-10-26T22:18:43",
+            "id": 192751,
+            "label": "Input or License Errors Alert",
+            "location": 1768,
+            "network": 47,
+            "site": 219,
+            "status": "raised",
+            "timestamp": "2015-10-26T22:18:45",
+            "linked_alerthistory": 192755
+        },
+        {
+            "alert_type": 8,
+            "box": 1512,
+            "extra_data": "",
+            "host_timestamp": "2015-10-27T08:18:53",
+            "id": 199250,
+            "label": "Refused Events Alert",
+            "location": 158,
+            "network": 84,
+            "site": 208,
+            "status": "raised",
+            "timestamp": "2015-10-26T22:18:31",
+            "linked_alerthistory": null
+        }
+      ]
+
 
 Network's alerts list
 #####################
@@ -100,6 +139,11 @@ URL
 ---
 
 ``https://vidicenter.quividi.com/api/v1/network/{network_id}/alerts/``
+
+Optional arguments
+------------------
+
+* ``active``: If specified as True, only the currently active alerts will be returned.
 
 
 Site's alerts list
@@ -112,6 +156,11 @@ URL
 
 ``https://vidicenter.quividi.com/api/v1/site/{site_id}/alerts/``
 
+Optional arguments
+------------------
+
+* ``active``: If specified as True, only the currently active alerts will be returned.
+
 
 Site tag's alerts list
 ######################
@@ -122,6 +171,11 @@ URL
 ---
 
 ``https://vidicenter.quividi.com/api/v1/site_tag/{tag}/alerts/``
+
+Optional arguments
+------------------
+
+* ``active``: If specified as True, only the currently active alerts will be returned.
 
 
 Location's alerts list
@@ -134,6 +188,11 @@ URL
 
 ``https://vidicenter.quividi.com/api/v1/location/{location_id}/alerts/``
 
+Optional arguments
+------------------
+
+* ``active``: If specified as True, only the currently active alerts will be returned.
+
 
 Location tag's alerts list
 ##########################
@@ -145,6 +204,11 @@ URL
 
 ``https://vidicenter.quividi.com/api/v1/location_tag/{tag}/alerts/``
 
+Optional arguments
+------------------
+
+* ``active``: If specified as True, only the currently active alerts will be returned.
+
 
 Box's alerts list
 #################
@@ -155,6 +219,11 @@ URL
 ---
 
 ``https://vidicenter.quividi.com/api/v1/box/{box_id}/alerts/``
+
+Optional arguments
+------------------
+
+* ``active``: If specified as True, only the currently active alerts will be returned.
 
 
 Monitoring messages list
