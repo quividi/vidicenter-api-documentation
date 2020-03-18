@@ -607,7 +607,8 @@ Expected keys
 * ``content_duration``: cumulated play duration of the content, in seconds.
 * ``content_id``: the id of the content.
 * ``duration``: total observation time in seconds in the current aggregate.
-* ``estimated_ots``: the estimated amount of OTS calculated using the conversion ratio.
+* ``estimated_ots``: the estimated amount of OTS calculated using the conversion ratio. (**DEPRECATED** this field will be removed in the future)
+* ``impressions``: the estimated amount of impressions calculated using the conversion ratio.
 * ``location_id``: the ID of the location the data comes from.
 * ``period_start``: the start of the aggregate.
 * ``play_count``: how many times the content was played.
@@ -628,6 +629,7 @@ Example
                 "content_id":"content one",
                 "duration":3600,
                 "estimated_ots":32,
+                "impressions":32,
                 "location_id":4636,
                 "period_start":"2018-01-29 02:00:00",
                 "play_count":12,
@@ -639,6 +641,7 @@ Example
                 "content_id":"content one",
                 "duration":3600,
                 "estimated_ots":96,
+                "impressions":96,
                 "location_id":4636,
                 "period_start":"2018-01-29 03:00:00",
                 "play_count":22,
@@ -650,6 +653,7 @@ Example
                 "content_id":"content one",
                 "duration":3600,
                 "estimated_ots":8,
+                "impressions":8,
                 "location_id":4636,
                 "period_start":"2018-01-29 04:00:00",
                 "play_count":33,
@@ -669,7 +673,8 @@ Expected keys
 * ``content_duration``: cumulated play duration of the content, in seconds.
 * ``content_id``: the id of the content.
 * ``duration``: total observation time in seconds in the current aggregate.
-* ``estimated_ots``: the estimated amount of OTS calculated using the conversion ratio.
+* ``estimated_ots``: the estimated amount of OTS calculated using the conversion ratio. (**DEPRECATED** this field will be removed in the future)
+* ``impressions``: the estimated amount of impressions calculated using the conversion ratio.
 * ``period_start``: the start of the aggregate.
 * ``play_count``: how many times the content was played.
 * ``site_id``: the ID of the site the data comes from.
@@ -690,6 +695,7 @@ Example
                 "content_id":"content one",
                 "duration":3600,
                 "estimated_ots":31,
+                "impressions":31,
                 "period_start":"2018-01-29 02:00:00",
                 "play_count":10,
                 "site_id":178,
@@ -701,6 +707,7 @@ Example
                 "content_id":"content one",
                 "duration":3600,
                 "estimated_ots":28,
+                "impressions":28,
                 "period_start":"2018-01-29 03:00:00",
                 "play_count":22,
                 "site_id":178,
@@ -712,6 +719,7 @@ Example
                 "content_id":"content one",
                 "duration":3600,
                 "estimated_ots":87,
+                "impressions":87,
                 "period_start":"2018-01-29 04:00:00",
                 "play_count":4,
                 "site_id":178,
