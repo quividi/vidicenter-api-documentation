@@ -39,12 +39,16 @@ Mandatory arguments
 * ``clip_id``: The clip id linked to the metadata you are trying to create.
 * ``network``: The network's id in which the clip is used.
 * ``name``: The name of the clip, will be used in VidiCenter. Max length is 64 characters.
+* ``clip_duration``: The duration of the clip, in seconds, between 0 and 999 with up to 2 decimal places.
+* ``advertiser_name``: The advertiser name for the clip. Max length is 255 characters.
 
 Optional arguments
 ******************
 
 * ``description``: Description of the clip. No length limit.
 * ``screenshot``: An image for the clip.
+* ``video``: A video file for the clip.
+* ``creative_agency_name``: The creative agency name for the clip. Max length is 255 characters.
 
 Examples
 ********
@@ -54,7 +58,7 @@ Successful creation
 
  ::
 
-    curl -u USERNAME:AUTH_TOKEN --form "screenshot=@path/to/local/image.jpg;filename=desired-filename-in-vidicenter.jpg" --form clip_id="clip_123" --form network=9876 --form name="My clip name" --form description="The description of my clip" https://vidicenter.quividi.com/api/v1/clip/metadata/
+    curl -u USERNAME:AUTH_TOKEN --form "screenshot=@path/to/local/image.jpg;filename=desired-filename-in-vidicenter.jpg" --form clip_id="clip_123" --form network=9876 --form name="My clip name" --form description="The description of my clip" --form clip_duration=10 --form advertiser_name "My favorite advertiser" https://vidicenter.quividi.com/api/v1/clip/metadata/
     {
         "url": "https://vidicenter.quividi.com/api/v1/network/9876/clip/metadata/clip_123/"
     }
