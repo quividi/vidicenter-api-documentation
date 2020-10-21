@@ -610,6 +610,7 @@ Expected keys
 * ``duration``: total observation time in seconds in the current aggregate.
 * ``estimated_ots``: the estimated amount of OTS calculated using the conversion ratio. (**DEPRECATED** this field will be removed in the future)
 * ``impressions``: the estimated amount of impressions calculated using the conversion ratio.
+* ``impressions_per_play``: the amount of impressions divided by the number of plays.
 * ``location_id``: the ID of the location the data comes from.
 * ``period_start``: the start of the aggregate.
 * ``play_count``: how many times the content was played.
@@ -676,6 +677,7 @@ Expected keys
 * ``duration``: total observation time in seconds in the current aggregate.
 * ``estimated_ots``: the estimated amount of OTS calculated using the conversion ratio. (**DEPRECATED** this field will be removed in the future)
 * ``impressions``: the estimated amount of impressions calculated using the conversion ratio.
+* ``impressions_per_play``: the amount of impressions divided by the number of plays.
 * ``period_start``: the start of the aggregate.
 * ``play_count``: how many times the content was played.
 * ``site_id``: the ID of the site the data comes from.
