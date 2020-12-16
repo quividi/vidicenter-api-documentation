@@ -23,6 +23,8 @@ Mandatory arguments
     * ``viewers_apc``: Viewers with content data (**BETA**). Will only contain viewers who have content data.
     * ``proof_of_play_by_location``: Proof of play data grouped by location (**BETA**). This requires APC data.
     * ``proof_of_play_by_site``: Proof of play data grouped by site (**BETA**).  This requires APC data.
+    * ``extrapolated_watchers``: Extrapolated Watchers (**BETA**)
+    * ``extrapolated_ots``: Extrapolated OTS (**BETA**)
 
 * ``time_resolution``: The time resolution used in the aggregation. Allowed values:
 
@@ -744,7 +746,7 @@ Expected keys
 * ``attention_time``: the cumulated attention time for the current aggregate in **tenths of seconds**.
 
 Mandatory arguments
--------------------
+"""""""""""""""""""
 
 * ``extrapolation_amount``: An integer value that defines to how many locations we should extrapolate.
 
@@ -791,7 +793,7 @@ Expected keys
 * ``watcher_count``: the cumulated number of watchers in the current aggregate.
 
 Mandatory arguments
--------------------
+"""""""""""""""""""
 
 * ``extrapolation_amount``: An integer value that defines to how many locations we should extrapolate.
 
