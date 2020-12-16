@@ -733,6 +733,111 @@ Example
         "creation_date":"2018-01-29 10:08:12"
     }
 
+Extrapolated watchers export
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Expected keys
+"""""""""""""
+* ``period_start``: the start of the aggregate.
+* ``watcher_count``: the number of watchers in the current aggregate.
+* ``dwell_time``: the cumulated dwell time for the current aggregate in **tenths of seconds**.
+* ``attention_time``: the cumulated attention time for the current aggregate in **tenths of seconds**.
+
+Mandatory arguments
+-------------------
+
+* ``extrapolation_amount``: An integer value that defines to how many locations we should extrapolate.
+
+Example
+"""""""
+
+ ::
+
+    curl -u USERNAME:AUTH_TOKEN 'https://vidicenter.quividi.com/api/v1/data/?locations=4636&start=2018-01-29T02:00:00&end=2018-01-29T04:59:59&data_type=extrapolated_watchers&time_resolution=1h&extrapolation_amount=12'
+    {
+        "state":"finished",
+        "data":[
+            {
+                "dwell_time":12,
+                "watcher_count":1,
+                "attention_time":3,
+                "period_start":"2018-01-29 02:00:00",
+            },
+            {
+                "dwell_time":0,
+                "watcher_count":0,
+                "attention_time":0,
+                "period_start":"2018-01-29 03:00:00",
+            },
+            {
+                "dwell_time":83,
+                "watcher_count":3,
+                "attention_time":27,
+                "period_start":"2018-01-29 04:00:00",
+            },
+        ],
+        "creation_date":"2018-01-29 10:06:09"
+    }
+
+
+Extrapolated OTS export
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Expected keys
+"""""""""""""
+* ``period_start``: the start of the aggregate.
+* ``ots_count``: the cumulated number of OTS in the current aggregate.
+* ``duration``: the cumulated duration of the OTS events in seconds in the current aggregate.
+* ``watcher_count``: the cumulated number of watchers in the current aggregate.
+
+Mandatory arguments
+-------------------
+
+* ``extrapolation_amount``: An integer value that defines to how many locations we should extrapolate.
+
+Example
+"""""""
+
+ ::
+
+    curl -u USERNAME:AUTH_TOKEN 'https://vidicenter.quividi.com/api/v1/data/?locations=1467&start=2018-01-29T00:00:00&end=2018-01-29T04:59:59&data_type=extrapolated_ots&time_resolution=1h&extrapolation_amount=12'
+    {
+        "state":"finished",
+        "data":[
+            {
+                "duration":3600,
+                "watcher_count":3,
+                "period_start":"2018-01-29 00:00:00",
+                "ots_count":4
+            },
+            {
+                "duration":3600,
+                "watcher_count":0,
+                "period_start":"2018-01-29 01:00:00",
+                "ots_count":0
+            },
+            {
+                "duration":3600,
+                "watcher_count":1,
+                "period_start":"2018-01-29 02:00:00",
+                "ots_count":9
+            },
+            {
+                "duration":3600,
+                "watcher_count":0,
+                "period_start":"2018-01-29 03:00:00",
+                "ots_count":0
+            },
+            {
+                "duration":3600,
+                "watcher_count":3,
+                "period_start":"2018-01-29 04:00:00",
+                "ots_count":11
+            }
+        ],
+        "creation_date":"2018-01-29 10:15:49"
+    }
+
 
 Placeholder data and null values
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
