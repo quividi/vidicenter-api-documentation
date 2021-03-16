@@ -25,6 +25,8 @@ Mandatory arguments
     * ``proof_of_play_by_site``: Proof of play data grouped by site (**BETA**).  This requires APC data.
     * ``extrapolated_watchers``: Extrapolated Watchers (**BETA**)
     * ``extrapolated_ots``: Extrapolated OTS (**BETA**)
+    * ``vehicles``: Vehicles
+    * ``persons``: Persons
 
 * ``time_resolution``: The time resolution used in the aggregation. Allowed values:
 
@@ -748,7 +750,7 @@ Expected keys
 Mandatory arguments
 """""""""""""""""""
 
-* ``extrapolation_amount``: An integer value that defines to how many locations we should extrapolate.
+* ``extrapolation_amount``: An integer value that defines to how many locations we should extrapolate. Leave this empty to get the average of the sampled locations.
 
 Example
 """""""
@@ -795,7 +797,7 @@ Expected keys
 Mandatory arguments
 """""""""""""""""""
 
-* ``extrapolation_amount``: An integer value that defines to how many locations we should extrapolate.
+* ``extrapolation_amount``: An integer value that defines to how many locations we should extrapolate. Leave this empty to get the average of the sampled locations.
 
 Example
 """""""
@@ -840,6 +842,159 @@ Example
         "creation_date":"2018-01-29 10:15:49"
     }
 
+Finest vehicles export
+^^^^^^^^^^^^^^^^^^^^^
+
+Expected keys
+"""""""""""""
+
+* ``location_id``: the ID of the location the data comes from.
+* ``period_start``: the start of the current vehicle event.
+* ``type``: vehicle type
+* ``color``: vehicle color
+* ``dwell_time``: the dwell time of the current vehicle in **tenths of seconds**.
+
+Example
+"""""""""""
+
+ ::
+
+    curl -u USERNAME:AUTH_TOKEN 'https://vidicenter.quividi.com/api/v1/data/?locations=8264&start=2018-01-29T00:00:00&end=2018-01-29T02:00:00&data_type=vehicles&time_resolution=finest'
+    {
+        "state":"finished",
+        "data":[
+            {
+                "dwell_time":41,
+                "period_start":"2018-01-29T00:00:27",
+                "type":4,
+                "location_id":8264,
+                "color":null,
+            },
+            {
+                "dwell_time":54,
+                "period_start":"2018-01-29T00:03:57",
+                "type":3,
+                "location_id":8264,
+                "color":12356,
+            }
+        ],
+        "creation_date":"2018-01-29 09:24:18"
+    }
+
+Aggregated vehicles export
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Expected keys
+"""""""""""""
+* ``location_id``: the ID of the location the data comes from.
+* ``period_start``: the start of the aggregate.
+* ``vehicle_count``: the number of vehicles in the current aggregate.
+* ``dwell_time``: the cumulated dwell time for the current aggregate in **tenths of seconds**.
+
+Example
+"""""""
+
+ ::
+
+    curl -u USERNAME:AUTH_TOKEN 'https://vidicenter.quividi.com/api/v1/data/?locations=4636&start=2018-01-29T02:00:00&end=2018-01-29T04:59:59&data_type=vehicles&time_resolution=1h'
+    {
+        "state":"finished",
+        "data":[
+            {
+                "dwell_time":12,
+                "vehicle_count":1,
+                "period_start":"2018-01-29 02:00:00",
+                "location_id":4636
+            },
+            {
+                "dwell_time":0,
+                "vehicle_count":0,
+                "period_start":"2018-01-29 03:00:00",
+                "location_id":4636
+            },
+            {
+                "dwell_time":83,
+                "vehicle_count":3,
+                "period_start":"2018-01-29 04:00:00",
+                "location_id":4636
+            },
+        ],
+        "creation_date":"2018-01-29 10:06:09"
+    }
+
+Finest persons export
+^^^^^^^^^^^^^^^^^^^^^
+
+Expected keys
+"""""""""""""
+
+* ``location_id``: the ID of the location the data comes from.
+* ``period_start``: the start of the current person event.
+* ``dwell_time``: the dwell time of the current person in **tenths of seconds**.
+
+Example
+"""""""""""
+
+ ::
+
+    curl -u USERNAME:AUTH_TOKEN 'https://vidicenter.quividi.com/api/v1/data/?locations=8264&start=2018-01-29T00:00:00&end=2018-01-29T02:00:00&data_type=persons&time_resolution=finest'
+    {
+        "state":"finished",
+        "data":[
+            {
+                "dwell_time":41,
+                "period_start":"2018-01-29T00:00:27",
+                "location_id":8264,
+            },
+            {
+                "dwell_time":54,
+                "period_start":"2018-01-29T00:03:57",
+                "location_id":8264,
+            }
+        ],
+        "creation_date":"2018-01-29 09:24:18"
+    }
+
+Aggregated persons export
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Expected keys
+"""""""""""""
+* ``location_id``: the ID of the location the data comes from.
+* ``period_start``: the start of the aggregate.
+* ``person_count``: the number of persons in the current aggregate.
+* ``dwell_time``: the cumulated dwell time for the current aggregate in **tenths of seconds**.
+
+Example
+"""""""
+
+ ::
+
+    curl -u USERNAME:AUTH_TOKEN 'https://vidicenter.quividi.com/api/v1/data/?locations=4636&start=2018-01-29T02:00:00&end=2018-01-29T04:59:59&data_type=persons&time_resolution=1h'
+    {
+        "state":"finished",
+        "data":[
+            {
+                "dwell_time":12,
+                "person_count":1,
+                "period_start":"2018-01-29 02:00:00",
+                "location_id":4636
+            },
+            {
+                "dwell_time":0,
+                "person_count":0,
+                "period_start":"2018-01-29 03:00:00",
+                "location_id":4636
+            },
+            {
+                "dwell_time":83,
+                "person_count":3,
+                "period_start":"2018-01-29 04:00:00",
+                "location_id":4636
+            },
+        ],
+        "creation_date":"2018-01-29 10:06:09"
+    }
 
 Placeholder data and null values
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
