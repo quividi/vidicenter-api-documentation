@@ -76,6 +76,42 @@ Example
     ]
 
 
+Sites list with vehicles factor
+###############################
+
+Returns a list of your sites with vehicles factors
+
+URL
+---
+
+``https://vidicenter.quividi.com/api/v1/sites/vehicles/``
+
+Example
+-------
+
+::
+
+    curl -u USERNAME:AUTH_TOKEN https://vidicenter.quividi.com/api/v1/sites/vehicles/
+    [
+        {
+            "id": 4200,
+            "label": "My only site",
+            "active": true,
+            "network_id": 567,
+            "vehicles_factors": {
+                "factor_pedestrian": 1.0,
+                "factor_car": 1.6,
+                "factor_van": 3.5,
+                "factor_bus": 9.5,
+                "factor_truck": 1.2,
+                "factor_bike": 1.1,
+                "factor_others": 1.0
+            }
+        },
+    ]
+
+
+
 Network's sites list
 ####################
 
@@ -105,6 +141,41 @@ Example
             "label":"Another site",
             "active":true,
         }
+    ]
+
+
+Network's sites list with vehicles factors
+##########################################
+
+Returns a list of a network's sites with vehicles factors
+
+URL
+---
+
+``https://vidicenter.quividi.com/api/v1/network/{network_id}/sites/vehicles``
+
+Example
+-------
+
+ ::
+
+    curl -u USERNAME:AUTH_TOKEN https://vidicenter.quividi.com/api/v1/network/567/sites/vehicles
+    [
+        {
+            "id": 4200,
+            "label": "My only site",
+            "active": true,
+            "network_id": 567,
+            "vehicles_factors": {
+                "factor_pedestrian": 1.0,
+                "factor_car": 1.6,
+                "factor_van": 3.5,
+                "factor_bus": 9.5,
+                "factor_truck": 1.2,
+                "factor_bike": 1.1,
+                "factor_others": 1.0
+            }
+        },
     ]
 
 
