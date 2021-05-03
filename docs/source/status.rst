@@ -33,6 +33,8 @@ Notable data keys
     * 8: Refused Events Alert
     * 9: Session ID Alert
     * 10: Timezone Change Alert
+    * 11: Camera Not Found Alert
+    * 12: Unsupported Option Alert
 
 * ``label``: A string representing the type of the alert. May be subject to changes.
 * ``status``: The status of the alert ("raised" or "terminated").
