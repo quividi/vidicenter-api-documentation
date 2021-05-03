@@ -38,7 +38,21 @@ Notable data keys
 
 * ``label``: A string representing the type of the alert. May be subject to changes.
 * ``status``: The status of the alert ("raised" or "terminated").
-* ``extra_data``: In case of Input or License Errors Alerts, contains more info on the alert.
+* ``extra_data``: In case of Input or License Errors Alerts, contains more info on the alert. This can be a combination of the following keywords:
+
+    * Unknown
+    * Idle
+    * Processing
+    * Waiting Input
+    * Input Lost
+    * On Error
+    * Terminating
+    * Restricted
+    * Disabled
+    * VidiProof
+    * License Error
+    * Black Input
+
 * ``linked_alerthistory``: The ID of the alert the current alert is terminating.
 
 Optional arguments
