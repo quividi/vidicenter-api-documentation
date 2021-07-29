@@ -30,7 +30,7 @@ Mandatory arguments
 
 * ``time_resolution``: The time resolution used in the aggregation. Allowed values:
 
-    * ``finest``: Do not aggregate, display all raw objects (unavailable for OTS and Gate exports).
+    * ``finest``: Do not aggregate, display all raw objects (unavailable for OTS, Gate and proof of play exports).
     * ``5m``: 5 minutes aggregates.
     * ``10m``: 10 minutes aggregates.
     * ``15m``: 15 minutes aggregates.
