@@ -851,8 +851,17 @@ Expected keys
 * ``location_id``: the ID of the location the data comes from.
 * ``period_start``: the start of the current vehicle event.
 * ``type``: vehicle type
+    * ``0``: pedestrian
+    * ``1``: car
+    * ``2``: van
+    * ``3``: bus
+    * ``4``: truck
+    * ``5``: bike
+    * ``6``: other
 * ``color``: vehicle color
 * ``dwell_time``: the dwell time of the current vehicle in **tenths of seconds**.
+* ``impressions``: the number of impressions
+* ``impressions_per_vehicle``: the number of impressions per vehicle
 
 Example
 """""""""""
@@ -869,6 +878,8 @@ Example
                 "type":4,
                 "location_id":8264,
                 "color":null,
+                "impressions":1.83,
+                "impressions_per_vehicle":1.83,
             },
             {
                 "dwell_time":54,
@@ -876,6 +887,8 @@ Example
                 "type":3,
                 "location_id":8264,
                 "color":12356,
+                "impressions":1.72,
+                "impressions_per_vehicle":1.72,
             }
         ],
         "creation_date":"2018-01-29 09:24:18"
@@ -890,6 +903,8 @@ Expected keys
 * ``period_start``: the start of the aggregate.
 * ``vehicle_count``: the number of vehicles in the current aggregate.
 * ``dwell_time``: the cumulated dwell time for the current aggregate in **tenths of seconds**.
+* ``impressions``: the number of impressions
+* ``impressions_per_vehicle``: the number of impressions per vehicle
 
 Example
 """""""
@@ -905,18 +920,24 @@ Example
                 "vehicle_count":1,
                 "period_start":"2018-01-29 02:00:00",
                 "location_id":4636
+                "impressions":1.72,
+                "impressions_per_vehicle":1.72,
             },
             {
                 "dwell_time":0,
                 "vehicle_count":0,
                 "period_start":"2018-01-29 03:00:00",
                 "location_id":4636
+                "impressions":0,
+                "impressions_per_vehicle":0,
             },
             {
                 "dwell_time":83,
                 "vehicle_count":3,
                 "period_start":"2018-01-29 04:00:00",
                 "location_id":4636
+                "impressions":6.04,
+                "impressions_per_vehicle":2.01,
             },
         ],
         "creation_date":"2018-01-29 10:06:09"
