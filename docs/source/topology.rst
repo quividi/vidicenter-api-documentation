@@ -99,13 +99,10 @@ Example
             "active": true,
             "network_id": 567,
             "vehicles_factors": {
-                "factor_pedestrian": 1.0,
                 "factor_car": 1.6,
                 "factor_van": 3.5,
                 "factor_bus": 9.5,
                 "factor_truck": 1.2,
-                "factor_bike": 1.1,
-                "factor_others": 1.0
             }
         },
     ]
@@ -167,13 +164,10 @@ Example
             "active": true,
             "network_id": 567,
             "vehicles_factors": {
-                "factor_pedestrian": 1.0,
                 "factor_car": 1.6,
                 "factor_van": 3.5,
                 "factor_bus": 9.5,
                 "factor_truck": 1.2,
-                "factor_bike": 1.1,
-                "factor_others": 1.0
             }
         },
     ]

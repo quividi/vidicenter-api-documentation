@@ -851,14 +851,20 @@ Expected keys
 * ``location_id``: the ID of the location the data comes from.
 * ``period_start``: the start of the current vehicle event.
 * ``type``: vehicle type
-    * ``0``: pedestrian
+    * ``0``: unknown
     * ``1``: car
-    * ``2``: van
-    * ``3``: bus
-    * ``4``: truck
-    * ``5``: bike
-    * ``6``: other
+    * ``2``: bus
+    * ``3``: truck
+    * ``4``: van
 * ``color``: vehicle color
+    * ``0``: unknown
+    * ``1``: white
+    * ``2``: gray
+    * ``3``: yellow
+    * ``4``: red
+    * ``5``: green
+    * ``6``: blue
+    * ``7``: black
 * ``dwell_time``: the dwell time of the current vehicle in **tenths of seconds**.
 * ``impressions``: the number of impressions
 * ``impressions_per_vehicle``: the number of impressions per vehicle
