@@ -854,7 +854,7 @@ Expected keys
     * ``0``: unknown
     * ``1``: car
     * ``2``: bus
-    * ``3``: truck
+    * ``3``: truck and SUV
     * ``4``: van
 * ``color``: vehicle color
     * ``0``: unknown
