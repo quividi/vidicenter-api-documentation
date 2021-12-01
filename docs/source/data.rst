@@ -178,8 +178,8 @@ Expected keys
     * ``2``: beard
 
 * ``age_value``: the viewer's numeric age in years (expert only).
-* ``dwell_time``: the dwell time of the current viewer in **tenths of seconds**.
-* ``attention_time``: the attention time of the current viewer in **tenths of seconds**.
+* ``dwell_time_in_tenths_of_sec``: the dwell time of the current viewer in **tenths of seconds**.
+* ``attention_time_in_tenths_of_sec``: the attention time of the current viewer in **tenths of seconds**.
 * Mood values (expert only) are given in percentage, they represent the distribution of a viewer's mood over time. The sum of the five moods totals 100. Each mood is a key:
 
     * ``very_happy``
@@ -201,14 +201,14 @@ Expert keys are present, but are filled with ``null`` values.
         "data":[
             {
                 "happy":null,
-                "dwell_time":41,
+                "dwell_time_in_tenths_of_sec":41,
                 "gender":1,
                 "age":3,
                 "age_value":null,
                 "neutral":null,
                 "unhappy":null,
                 "very_unhappy":null,
-                "attention_time":16,
+                "attention_time_in_tenths_of_sec":16,
                 "period_start":"2018-01-29T00:00:27",
                 "glasses":null,
                 "location_id":8264,
@@ -218,14 +218,14 @@ Expert keys are present, but are filled with ``null`` values.
             },
             {
                 "happy":null,
-                "dwell_time":54,
+                "dwell_time_in_tenths_of_sec":54,
                 "gender":1,
                 "age":2,
                 "age_value":null,
                 "neutral":null,
                 "unhappy":null,
                 "very_unhappy":null,
-                "attention_time":39,
+                "attention_time_in_tenths_of_sec":39,
                 "period_start":"2018-01-29T00:03:57",
                 "glasses":null,
                 "location_id":8264,
@@ -250,14 +250,14 @@ Expert values are present.
         "data":[
             {
                 "happy":0.0,
-                "dwell_time":24,
+                "dwell_time_in_tenths_of_sec":24,
                 "gender":2,
                 "age":2,
                 "age_value":19,
                 "neutral":66.66666666666666,
                 "unhappy":0.0,
                 "very_unhappy":0.0,
-                "attention_time":8,
+                "attention_time_in_tenths_of_sec":8,
                 "period_start":"2018-01-29T01:28:52",
                 "glasses":1,
                 "location_id":8866,
@@ -267,14 +267,14 @@ Expert values are present.
             },
             {
                 "happy":49.80392156862745,
-                "dwell_time":37,
+                "dwell_time_in_tenths_of_sec":37,
                 "gender":1,
                 "age":3,
                 "age_value":57,
                 "neutral":0.39215686274509665,
                 "unhappy":49.80392156862745,
                 "very_unhappy":0.0,
-                "attention_time":3,
+                "attention_time_in_tenths_of_sec":3,
                 "period_start":"2018-01-29T00:25:18",
                 "glasses":3,
                 "location_id":8866,
@@ -301,8 +301,8 @@ Viewers APC exports contain the same keys than `Finest viewers export`_, and a f
     * ``content_id``: the id of the content
     * ``app_id``: the app_id of the content
     * ``campaign_id``: the campaign_id of the content
-    * ``dwell_time``: the cumulated dwell time by this watcher for this content in **milliseconds**
-    * ``attention_time``: the cumulated attention time by this watcher for this content in **milliseconds**
+    * ``dwell_time_in_milliseconds``: the cumulated dwell time by this watcher for this content in **milliseconds**
+    * ``attention_time_in_milliseconds``: the cumulated attention time by this watcher for this content in **milliseconds**
     * Mood time values (expert only), given in **milliseconds**:
         * ``very_happy_time``
         * ``happy_time``
@@ -321,7 +321,7 @@ Example
         "data":[
             {
                 "beard":1,
-                "dwell_time":29,
+                "dwell_time_in_tenths_of_sec":29,
                 "start_time":"2018-01-14T09:29:10",
                 "gender":2,
                 "age":1,
@@ -329,7 +329,7 @@ Example
                 "neutral":70.19607843137254,
                 "mustache":1,
                 "unhappy":0.0,
-                "attention_time":12,
+                "attention_time_in_tenths_of_sec":12,
                 "location_id":38918,
                 "glasses":1,
                 "very_unhappy":0.0,
@@ -337,25 +337,25 @@ Example
                 "contents":[
                     {
                         "campaign_id":null,
-                        "dwell_time":928,
+                        "dwell_time_in_milliseconds":928,
                         "unhappy_time":0,
                         "happy_time":0,
                         "very_happy_time":0,
                         "app_id":"my_app_id",
                         "very_unhappy_time":0,
-                        "attention_time":192,
+                        "attention_time_in_milliseconds":192,
                         "content_id":"my_very_own_content_id",
                         "neutral_time":192
                     },
                     {
                         "campaign_id":"A campaign id",
-                        "dwell_time":925,
+                        "dwell_time_in_milliseconds":925,
                         "unhappy_time":0,
                         "happy_time":0,
                         "very_happy_time":0,
                         "app_id":"my_app_id",
                         "very_unhappy_time":0,
-                        "attention_time":925,
+                        "attention_time_in_milliseconds":925,
                         "content_id":"another_content_id",
                         "neutral_time":925
                     }
@@ -364,7 +364,7 @@ Example
             },
             {
                 "beard":1,
-                "dwell_time":10,
+                "dwell_time_in_tenths_of_sec":10,
                 "start_time":"2018-01-14T09:21:54",
                 "gender":2,
                 "age":3,
@@ -372,7 +372,7 @@ Example
                 "neutral":33.33333333333333,
                 "mustache":1,
                 "unhappy":0.0,
-                "attention_time":5,
+                "attention_time_in_tenths_of_sec":5,
                 "location_id":38918,
                 "glasses":1,
                 "very_unhappy":0.0,
@@ -380,13 +380,13 @@ Example
                 "contents":[
                     {
                         "campaign_id":null,
-                        "dwell_time":15,
+                        "dwell_time_in_milliseconds":15,
                         "unhappy_time":0,
                         "happy_time":542,
                         "very_happy_time":0,
                         "app_id":"my_app_id",
                         "very_unhappy_time":0,
-                        "attention_time":542,
+                        "attention_time_in_milliseconds":542,
                         "content_id":"my_very_own_content_id",
                         "neutral_time":0
                     }
@@ -406,8 +406,8 @@ Expected keys
 * ``location_id``: the ID of the location the data comes from.
 * ``period_start``: the start of the aggregate.
 * ``watcher_count``: the number of watchers in the current aggregate.
-* ``dwell_time``: the cumulated dwell time for the current aggregate in **tenths of seconds**.
-* ``attention_time``: the cumulated attention time for the current aggregate in **tenths of seconds**.
+* ``dwell_time_in_tenths_of_sec``: the cumulated dwell time for the current aggregate in **tenths of seconds**.
+* ``attention_time_in_tenths_of_sec``: the cumulated attention time for the current aggregate in **tenths of seconds**.
 * ``conversion_ratio``: the number of watcher divided by the number of OTS in the current aggregate. Not present if grouping by demographics.
 * ``gender``: the gender for the current aggregate if grouping by demographics. Possible values:
 
@@ -433,26 +433,26 @@ Example
         "state":"finished",
         "data":[
             {
-                "dwell_time":12,
+                "dwell_time_in_tenths_of_sec":12,
                 "conversion_ratio":11.11111111111111,
                 "watcher_count":1,
-                "attention_time":3,
+                "attention_time_in_tenths_of_sec":3,
                 "period_start":"2018-01-29 02:00:00",
                 "location_id":4636
             },
             {
-                "dwell_time":0,
+                "dwell_time_in_tenths_of_sec":0,
                 "conversion_ratio":0.0,
                 "watcher_count":0,
-                "attention_time":0,
+                "attention_time_in_tenths_of_sec":0,
                 "period_start":"2018-01-29 03:00:00",
                 "location_id":4636
             },
             {
-                "dwell_time":83,
+                "dwell_time_in_tenths_of_sec":83,
                 "conversion_ratio":27.272727272727273,
                 "watcher_count":3,
-                "attention_time":27,
+                "attention_time_in_tenths_of_sec":27,
                 "period_start":"2018-01-29 04:00:00",
                 "location_id":4636
             },
@@ -471,20 +471,20 @@ Group by demographics example
         "state":"finished",
         "data":[
             {
-                "dwell_time":83,
+                "dwell_time_in_tenths_of_sec":83,
                 "gender":1,
                 "age":3,
                 "watcher_count":3,
-                "attention_time":27,
+                "attention_time_in_tenths_of_sec":27,
                 "period_start":"2018-01-29 04:00:00",
                 "location_id":9876
             },
             {
-                "dwell_time":null,
+                "dwell_time_in_tenths_of_sec":null,
                 "gender":0,
                 "age":0,
                 "watcher_count":0,
-                "attention_time":null,
+                "attention_time_in_tenths_of_sec":null,
                 "period_start":"2018-01-29 04:00:00",
                 "location_id":9876
             },
@@ -744,8 +744,8 @@ Expected keys
 """""""""""""
 * ``period_start``: the start of the aggregate.
 * ``watcher_count``: the number of watchers in the current aggregate.
-* ``dwell_time``: the cumulated dwell time for the current aggregate in **tenths of seconds**.
-* ``attention_time``: the cumulated attention time for the current aggregate in **tenths of seconds**.
+* ``dwell_time_in_tenths_of_sec``: the cumulated dwell time for the current aggregate in **tenths of seconds**.
+* ``attention_time_in_tenths_of_sec``: the cumulated attention time for the current aggregate in **tenths of seconds**.
 
 Mandatory arguments
 """""""""""""""""""
@@ -762,21 +762,21 @@ Example
         "state":"finished",
         "data":[
             {
-                "dwell_time":12,
+                "dwell_time_in_tenths_of_sec":12,
                 "watcher_count":1,
-                "attention_time":3,
+                "attention_time_in_tenths_of_sec":3,
                 "period_start":"2018-01-29 02:00:00",
             },
             {
-                "dwell_time":0,
+                "dwell_time_in_tenths_of_sec":0,
                 "watcher_count":0,
-                "attention_time":0,
+                "attention_time_in_tenths_of_sec":0,
                 "period_start":"2018-01-29 03:00:00",
             },
             {
-                "dwell_time":83,
+                "dwell_time_in_tenths_of_sec":83,
                 "watcher_count":3,
-                "attention_time":27,
+                "attention_time_in_tenths_of_sec":27,
                 "period_start":"2018-01-29 04:00:00",
             },
         ],
@@ -865,7 +865,7 @@ Expected keys
     * ``5``: green
     * ``6``: blue
     * ``7``: black
-* ``dwell_time``: the dwell time of the current vehicle in **tenths of seconds**.
+* ``vehicle_presence_time``: the presence time of the current vehicle in **tenths of seconds**.
 * ``impressions``: the number of impressions
 * ``impressions_per_vehicle``: the number of impressions per vehicle
 
@@ -879,7 +879,7 @@ Example
         "state":"finished",
         "data":[
             {
-                "dwell_time":41,
+                "vehicle_presence_time":41,
                 "period_start":"2018-01-29T00:00:27",
                 "type":4,
                 "location_id":8264,
@@ -888,7 +888,7 @@ Example
                 "impressions_per_vehicle":1.83,
             },
             {
-                "dwell_time":54,
+                "vehicle_presence_time":54,
                 "period_start":"2018-01-29T00:03:57",
                 "type":3,
                 "location_id":8264,
@@ -908,7 +908,7 @@ Expected keys
 * ``location_id``: the ID of the location the data comes from.
 * ``period_start``: the start of the aggregate.
 * ``vehicle_count``: the number of vehicles in the current aggregate.
-* ``dwell_time``: the cumulated dwell time for the current aggregate in **tenths of seconds**.
+* ``vehicle_presence_time``: the cumulated presence time for the current aggregate in **tenths of seconds**.
 * ``impressions``: the number of impressions
 * ``impressions_per_vehicle``: the number of impressions per vehicle
 
@@ -922,7 +922,7 @@ Example
         "state":"finished",
         "data":[
             {
-                "dwell_time":12,
+                "vehicle_presence_time":12,
                 "vehicle_count":1,
                 "period_start":"2018-01-29 02:00:00",
                 "location_id":4636
@@ -930,7 +930,7 @@ Example
                 "impressions_per_vehicle":1.72,
             },
             {
-                "dwell_time":0,
+                "vehicle_presence_time":0,
                 "vehicle_count":0,
                 "period_start":"2018-01-29 03:00:00",
                 "location_id":4636
@@ -938,7 +938,7 @@ Example
                 "impressions_per_vehicle":0,
             },
             {
-                "dwell_time":83,
+                "vehicle_presence_time":83,
                 "vehicle_count":3,
                 "period_start":"2018-01-29 04:00:00",
                 "location_id":4636
@@ -957,7 +957,7 @@ Expected keys
 
 * ``location_id``: the ID of the location the data comes from.
 * ``period_start``: the start of the current person event.
-* ``dwell_time``: the dwell time of the current person in **tenths of seconds**.
+* ``footfall_presence_time``: the presence time of the current person in **tenths of seconds**.
 
 Example
 """""""""""
@@ -969,12 +969,12 @@ Example
         "state":"finished",
         "data":[
             {
-                "dwell_time":41,
+                "footfall_presence_time":41,
                 "period_start":"2018-01-29T00:00:27",
                 "location_id":8264,
             },
             {
-                "dwell_time":54,
+                "footfall_presence_time":54,
                 "period_start":"2018-01-29T00:03:57",
                 "location_id":8264,
             }
@@ -990,7 +990,7 @@ Expected keys
 * ``location_id``: the ID of the location the data comes from.
 * ``period_start``: the start of the aggregate.
 * ``person_count``: the number of persons in the current aggregate.
-* ``dwell_time``: the cumulated dwell time for the current aggregate in **tenths of seconds**.
+* ``footfall_presence_time``: the cumulated presence time for the current aggregate in **tenths of seconds**.
 
 Example
 """""""
@@ -1002,19 +1002,19 @@ Example
         "state":"finished",
         "data":[
             {
-                "dwell_time":12,
+                "footfall_presence_time":12,
                 "person_count":1,
                 "period_start":"2018-01-29 02:00:00",
                 "location_id":4636
             },
             {
-                "dwell_time":0,
+                "footfall_presence_time":0,
                 "person_count":0,
                 "period_start":"2018-01-29 03:00:00",
                 "location_id":4636
             },
             {
-                "dwell_time":83,
+                "footfall_presence_time":83,
                 "person_count":3,
                 "period_start":"2018-01-29 04:00:00",
                 "location_id":4636
