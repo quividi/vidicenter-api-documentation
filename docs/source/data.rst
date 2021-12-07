@@ -26,7 +26,7 @@ Mandatory arguments
     * ``extrapolated_watchers``: Extrapolated Watchers (**BETA**)
     * ``extrapolated_ots``: Extrapolated OTS (**BETA**)
     * ``vehicles``: Vehicles
-    * ``persons``: Persons
+    * ``footfall``: Footfall
 
 * ``time_resolution``: The time resolution used in the aggregation. Allowed values:
 
@@ -866,7 +866,7 @@ Expected keys
     * ``6``: blue
     * ``7``: black
 * ``vehicle_presence_time``: the presence time of the current vehicle in **tenths of seconds**.
-* ``impressions``: the number of impressions
+* ``vehicle_impressions``: the number of impressions for this vehicle (= the number of impressions per vehicle)
 * ``impressions_per_vehicle``: the number of impressions per vehicle
 
 Example
@@ -884,7 +884,7 @@ Example
                 "type":4,
                 "location_id":8264,
                 "color":null,
-                "impressions":1.83,
+                "vehicle_impressions":1.83,
                 "impressions_per_vehicle":1.83,
             },
             {
@@ -893,7 +893,7 @@ Example
                 "type":3,
                 "location_id":8264,
                 "color":12356,
-                "impressions":1.72,
+                "vehicle_impressions":1.72,
                 "impressions_per_vehicle":1.72,
             }
         ],
@@ -909,7 +909,7 @@ Expected keys
 * ``period_start``: the start of the aggregate.
 * ``vehicle_count``: the number of vehicles in the current aggregate.
 * ``vehicle_presence_time``: the cumulated presence time for the current aggregate in **tenths of seconds**.
-* ``impressions``: the number of impressions
+* ``vehicle_impressions``: the number of impressions
 * ``impressions_per_vehicle``: the number of impressions per vehicle
 
 Example
@@ -926,7 +926,7 @@ Example
                 "vehicle_count":1,
                 "period_start":"2018-01-29 02:00:00",
                 "location_id":4636
-                "impressions":1.72,
+                "vehicle_impressions":1.72,
                 "impressions_per_vehicle":1.72,
             },
             {
@@ -934,7 +934,7 @@ Example
                 "vehicle_count":0,
                 "period_start":"2018-01-29 03:00:00",
                 "location_id":4636
-                "impressions":0,
+                "vehicle_impressions":0,
                 "impressions_per_vehicle":0,
             },
             {
@@ -942,14 +942,14 @@ Example
                 "vehicle_count":3,
                 "period_start":"2018-01-29 04:00:00",
                 "location_id":4636
-                "impressions":6.04,
+                "vehicle_impressions":6.04,
                 "impressions_per_vehicle":2.01,
             },
         ],
         "creation_date":"2018-01-29 10:06:09"
     }
 
-Finest persons export
+Finest footfall export
 ^^^^^^^^^^^^^^^^^^^^^
 
 Expected keys
@@ -982,14 +982,14 @@ Example
         "creation_date":"2018-01-29 09:24:18"
     }
 
-Aggregated persons export
+Aggregated footfall export
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Expected keys
 """""""""""""
 * ``location_id``: the ID of the location the data comes from.
 * ``period_start``: the start of the aggregate.
-* ``person_count``: the number of persons in the current aggregate.
+* ``footfall_impressions``: the number of persons in the current aggregate.
 * ``footfall_presence_time``: the cumulated presence time for the current aggregate in **tenths of seconds**.
 
 Example
@@ -1003,25 +1003,134 @@ Example
         "data":[
             {
                 "footfall_presence_time":12,
-                "person_count":1,
+                "footfall_impressions":1,
                 "period_start":"2018-01-29 02:00:00",
                 "location_id":4636
             },
             {
                 "footfall_presence_time":0,
-                "person_count":0,
+                "footfall_impressions":0,
                 "period_start":"2018-01-29 03:00:00",
                 "location_id":4636
             },
             {
                 "footfall_presence_time":83,
-                "person_count":3,
+                "footfall_impressions":3,
                 "period_start":"2018-01-29 04:00:00",
                 "location_id":4636
             },
         ],
         "creation_date":"2018-01-29 10:06:09"
     }
+
+Finest footfall + vehicles export
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Expected keys
+"""""""""""""
+* ``location_id``: the ID of the location the data comes from.
+* ``period_start``: the start of the current person or vehicle event.
+* ``type``: vehicle type (see vehicle finest for details)
+* ``color``: vehicle color (see vehicle finest for details)
+* ``vehicle_impressions``: the number of impressions (= number of impressions per vehicle)
+* ``vehicle_presence_time``: the presence time of the current vehicle in **tenths of seconds**.* `
+* ``impressions_per_vehicle``: the number of impressions per vehicle
+* ``footfall_presence_time``:  the presence time of the current person in **tenths of seconds**.
+
+Note
+"""""""""""""
+This api endpoint returns a combination of vehicles and persons. Each record being either a vehicle or a person, some keys will consequently be void.
+
+Example
+"""""""
+In this example, in a 3 min timeframe, we registered one vehicle (first record) and one person (second record).
+
+ ::
+
+    curl -u USERNAME:AUTH_TOKEN 'https://vidicenter.quividi.com/api/v1/data/?locations=4636&start=2021-11-01T09:03:00&end=2021-11-01T09:06:00&data_type=vehicles_persons&time_resolution=finest'
+    {
+        "state":"finished",
+        "data":[
+            {
+                "type": 3,
+                "color": 6,
+                "location_id": 4636,
+                "period_start": "2021-11-01T09:03:25",
+                "vehicle_presence_time": 29,
+                "vehicle_impressions": 1.85,
+                "impressions_per_vehicle": 1.85,
+                "footfall_presence_time": 0
+            },
+            {
+                "type": 0,
+                "color": 0,
+                "location_id": 4636,
+                "period_start": "2021-11-01T09:05:21",
+                "vehicle_presence_time": 0,
+                "vehicle_impressions": 0.0,
+                "impressions_per_vehicle": 0.0,
+                "footfall_presence_time": 85
+            },
+        ],
+        "creation_date": "2021-12-07 17:30:28",
+    }
+
+Aggregated footfall + vehicles export
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Expected keys
+"""""""""""""
+* ``location_id``: the ID of the location the data comes from.
+* ``period_start``: the start of the aggregate.
+* ``vehicle_count``: the number of vehicles in the current aggregate.
+* ``vehicle_presence_time``: the cumulated presence time for the current aggregate in **tenths of seconds**.
+* ``vehicle_impressions``: the number of impressions
+* ``impressions_per_vehicle``: the number of impressions per vehicle
+* ``footfall_presence_time``: the cumulated presence time for the current aggregate in **tenths of seconds**.
+
+Example
+"""""""
+
+ ::
+
+    curl -u USERNAME:AUTH_TOKEN 'https://vidicenter.quividi.com/api/v1/data/?locations=4636&start=2021-11-01T09:00:00&end=2021-11-01T10:00:00&data_type=vehicles_persons&time_resolution=30m'
+    {
+        "state":"finished",
+        "data":[
+            {
+                "location_id": 4636,
+                "vehicle_impressions": 155,
+                "impressions_per_vehicle": 1.85,
+                "period_start": "2021-11-01 09:00:00",
+                "vehicle_count": 84,
+                "vehicle_presence_time": 23569,
+                "footfall_impressions": 2,
+                "footfall_presence_time": 133
+            },
+            {
+                "location_id": 4636,
+                "vehicle_impressions": 187,
+                "impressions_per_vehicle": 1.85,
+                "period_start": "2021-11-01 09:30:00",
+                "vehicle_count": 101,
+                "vehicle_presence_time": 7634,
+                "footfall_impressions": 1,
+                "footfall_presence_time": 91
+            },
+            {
+                "location_id": 4636,
+                "vehicle_impressions": 0,
+                "impressions_per_vehicle": 0.0,
+                "period_start": "2021-11-01 10:00:00",
+                "vehicle_count": 0,
+                "vehicle_presence_time": 0,
+                "footfall_impressions": 0,
+                "footfall_presence_time": 0
+            }
+        ],
+        "creation_date": "2021-12-07 17:06:28",
+    }
+
 
 Placeholder data and null values
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
