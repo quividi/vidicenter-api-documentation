@@ -27,6 +27,7 @@ Mandatory arguments
     * ``extrapolated_ots``: Extrapolated OTS (**BETA**)
     * ``vehicles``: Vehicles
     * ``footfall``: Footfall
+    * ``im``: Impression multiplier (only available with time_resolution=1h)
 
 * ``time_resolution``: The time resolution used in the aggregation. Allowed values:
 
@@ -612,7 +613,6 @@ Expected keys
 * ``content_duration``: cumulated play duration of the content, in seconds.
 * ``content_id``: the id of the content.
 * ``duration``: total observation time in seconds in the current aggregate.
-* ``estimated_ots``: the estimated amount of OTS calculated using the conversion ratio. (**DEPRECATED** this field will be removed in the future)
 * ``impressions``: the estimated amount of impressions calculated using the conversion ratio.
 * ``impressions_per_play``: the amount of impressions divided by the number of plays.
 * ``location_id``: the ID of the location the data comes from.
@@ -634,7 +634,6 @@ Example
                 "content_duration":12.2,
                 "content_id":"content one",
                 "duration":3600,
-                "estimated_ots":32,
                 "impressions":32,
                 "location_id":4636,
                 "period_start":"2018-01-29 02:00:00",
@@ -646,7 +645,6 @@ Example
                 "content_duration":7.8,
                 "content_id":"content one",
                 "duration":3600,
-                "estimated_ots":96,
                 "impressions":96,
                 "location_id":4636,
                 "period_start":"2018-01-29 03:00:00",
@@ -658,7 +656,6 @@ Example
                 "content_duration":12.2,
                 "content_id":"content one",
                 "duration":3600,
-                "estimated_ots":8,
                 "impressions":8,
                 "location_id":4636,
                 "period_start":"2018-01-29 04:00:00",
@@ -679,7 +676,6 @@ Expected keys
 * ``content_duration``: cumulated play duration of the content, in seconds.
 * ``content_id``: the id of the content.
 * ``duration``: total observation time in seconds in the current aggregate.
-* ``estimated_ots``: the estimated amount of OTS calculated using the conversion ratio. (**DEPRECATED** this field will be removed in the future)
 * ``impressions``: the estimated amount of impressions calculated using the conversion ratio.
 * ``impressions_per_play``: the amount of impressions divided by the number of plays.
 * ``period_start``: the start of the aggregate.
@@ -701,7 +697,6 @@ Example
                 "content_duration":12.2,
                 "content_id":"content one",
                 "duration":3600,
-                "estimated_ots":31,
                 "impressions":31,
                 "period_start":"2018-01-29 02:00:00",
                 "play_count":10,
@@ -713,7 +708,6 @@ Example
                 "content_duration":7.8,
                 "content_id":"content one",
                 "duration":3600,
-                "estimated_ots":28,
                 "impressions":28,
                 "period_start":"2018-01-29 03:00:00",
                 "play_count":22,
@@ -725,7 +719,6 @@ Example
                 "content_duration":12.2,
                 "content_id":"content one",
                 "duration":3600,
-                "estimated_ots":87,
                 "impressions":87,
                 "period_start":"2018-01-29 04:00:00",
                 "play_count":4,
@@ -1131,6 +1124,67 @@ Example
         "creation_date": "2021-12-07 17:06:28",
     }
 
+Impression multiplier export
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Expected keys
+"""""""""""""
+* ``location_id``: the ID of the location the data comes from.
+* ``period_start``: the start of the aggregate.
+* ``vehicle_count``: the number of vehicles in the current aggregate.
+* ``vehicle_total_presence_time``: the cumulated presence time for the current aggregate in **tenths of seconds**.
+* ``vehicle_impressions``: the number of impressions
+* ``impressions_per_vehicle``: the number of impressions per vehicle
+* ``footfall_impressions``: the number of persons in the current aggregate.
+* ``footfall_total_dwell_time``: the cumulated presence time for the current aggregate in **tenths of seconds**.
+* ``im_footfall``: the impression multiplier for footfall
+* ``im_vehicle``: the impression multiplier for vehicles
+* ``im``: the combined impression multiplier
+* ``backup_value``: if this contains "yes" it means a backup im value was calculated based on equivalent data of the previous week
+* ``analysis_window``: the window of time during which the analysis took place in **tenths of seconds**
+
+Example
+"""""""
+
+ ::
+
+    curl -u USERNAME:AUTH_TOKEN 'https://vidicenter.quividi.com/api/v1/data/?locations=4636&start=2018-01-29T02:00:00&end=2018-01-29T04:59:59&data_type=im&time_resolution=1h'
+    {
+        "state":"finished",
+        "data":[
+            {
+              "location_id": 60628,
+              "vehicle_impressions": 50,
+              "impressions_per_vehicle": 1.85,
+              "footfall_impressions": 76,
+              "footfall_total_dwell_time": 23482,
+              "im": 0.79,
+              "im_footfall": 0.65,
+              "im_vehicle": 0.14,
+              "analysis_window": 36000,
+              "backup_value": "",
+              "period_start": "2021-11-14 21:00:00",
+              "vehicle_count": 27,
+              "vehicle_total_presence_time": 2696
+            },
+            {
+              "location_id": 60628,
+              "vehicle_impressions": 70,
+              "impressions_per_vehicle": 1.94,
+              "footfall_impressions": 49,
+              "footfall_total_dwell_time": 6662,
+              "im": 0.4,
+              "im_footfall": 0.19,
+              "im_vehicle": 0.21,
+              "analysis_window": 36000,
+              "backup_value": "yes",
+              "period_start": "2021-11-14 22:00:00",
+              "vehicle_count": 36,
+              "vehicle_total_presence_time": 3989
+            },
+        ],
+        "creation_date":"2018-01-29 10:06:09"
+    }
 
 Placeholder data and null values
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
