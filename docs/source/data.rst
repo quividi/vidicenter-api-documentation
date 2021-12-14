@@ -1079,6 +1079,7 @@ Expected keys
 * ``vehicle_presence_time``: the cumulated presence time for the current aggregate in **tenths of seconds**.
 * ``vehicle_impressions``: the number of impressions
 * ``impressions_per_vehicle``: the number of impressions per vehicle
+* ``footfall_impressions``: the number of persons in the current aggregate.
 * ``footfall_presence_time``: the cumulated presence time for the current aggregate in **tenths of seconds**.
 
 Example
