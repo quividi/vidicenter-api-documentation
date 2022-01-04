@@ -25,6 +25,7 @@ Contents:
    tags
    data
    clip_metadata
+   chart
 
 
 .. Indices and tables
