@@ -31,10 +31,7 @@ This api endpoint returns a binary image file in PNG format.
 curl examples
 -------------
 
-Here are some examples on how to make calls against the chart API.
-
-First call starts the export
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Here is an examples on how to make calls against the chart API.
 
  ::
 
