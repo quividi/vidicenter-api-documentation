@@ -17,7 +17,14 @@ Mandatory arguments
 
 * ``chart_type``: The type of chart you want to generate. Allowed values:
 
-    * ``test``: Test chart.
+    * ``0``: Test chart.
+    * ``1``: Total Impressions and viewers for the period.
+
+* ``chart_period``: The period of the chart you want to generate. Allowed values:
+
+    * ``day``: The previous full day.
+    * ``week``: The past week.
+    * ``month``: The past month.
 
 * ``network_id``: The id of the network for which the chart should be generated.
 
@@ -35,4 +42,4 @@ Here is an examples on how to make calls against the chart API.
 
  ::
 
-    curl -u USERNAME:AUTH_TOKEN 'https://vidicenter.quividi.com/api/v1/chart/?chart_type=test&network_id=123'
+    curl -u USERNAME:AUTH_TOKEN 'https://vidicenter.quividi.com/api/v1/chart/?chart_type=1&chart_period=day&network_id=123'
