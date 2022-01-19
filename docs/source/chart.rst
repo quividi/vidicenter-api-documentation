@@ -26,6 +26,11 @@ Mandatory arguments
     * ``week``: The past week.
     * ``month``: The past month.
 
+* ``chart_format``: The type of response expected. Allowed values:
+
+    * ``image``: A binary image file in PNG format.
+    * ``json``: The raw numbers representing the chart in JSON format, useful to generate your own charts.
+
 * ``network_id``: The id of the network for which the chart should be generated.
 
 
@@ -42,4 +47,4 @@ Here is an examples on how to make calls against the chart API.
 
  ::
 
-    curl -u USERNAME:AUTH_TOKEN 'https://vidicenter.quividi.com/api/v1/chart/?chart_type=1&chart_period=day&network_id=123'
+    curl -u USERNAME:AUTH_TOKEN 'https://vidicenter.quividi.com/api/v1/chart/?chart_type=1&chart_period=day&chart_format=image&network_id=123'
