@@ -14,6 +14,8 @@ Please be aware that any abuse of service (excessive number of requests per minu
 
 If we feel the volume of your requests may impact the performance of our service, the API may return responses with the 429 HTTP status code.
 
+Additional information can be found in the related support article `here <https://help.quividi.com/en/support/solutions/articles/6000064594>`_
+
 Contents:
 
 .. toctree::
