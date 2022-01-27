@@ -212,7 +212,7 @@ URL
 Notable data keys
 -----------------
 
-* ``last_timezone``: The timezone of the latest upload to this location. It is an integer representing the offset in minutes to the UTC timezone, more info can be found `here <https://en.wikipedia.org/wiki/UTC%C2%B100:00>`_.
+* ``last_timezone``: timezone of the latest upload to this location. It is an integer representing the offset in minutes to the UTC timezone, more info can be found `here <https://en.wikipedia.org/wiki/UTC%C2%B100:00>`_.
 
 Example
 -------

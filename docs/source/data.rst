@@ -31,7 +31,7 @@ Mandatory arguments
 
 * ``time_resolution``: The time resolution used in the aggregation. Allowed values:
 
-    * ``finest``: Do not aggregate, display all raw objects (unavailable for OTS, Gate and proof of play exports).
+    * ``finest``: Do not aggregate, display all raw objects (unavailable for OTS, Gate, Proof of play, Footfall and Vehicle exports).
     * ``5m``: 5 minutes aggregates.
     * ``10m``: 10 minutes aggregates.
     * ``15m``: 15 minutes aggregates.
@@ -155,32 +155,47 @@ Finest viewers export
 Expected keys
 """""""""""""
 
-* ``location_id``: the ID of the location the data comes from.
-* ``period_start``: the start of the current viewer event.
-* ``gender``: the gender of the current viewer.
-* ``age``: the age of the current viewer.
-* ``glasses``: viewer's glasses information (expert only):
+* ``location_id``: unique numeric identifier of the data source.
+* ``period_start``: starting time for the current viewer event.
+
+And the following metrics, which apply to the current viewer event:
+
+* ``gender``: numeric identifier for gender. Possible values:
+
+    * ``0``: unknown
+    * ``1``: male
+    * ``2``: female
+
+* ``age``: numeric identifier for age group. Possible values:
+
+    * ``0``: unknown
+    * ``1``: child
+    * ``2``: young adult
+    * ``3``: adult
+    * ``4``: senior
+
+* ``glasses``: glasses information (expert only):
 
     * ``0``: unknown
     * ``1``: no glasses
     * ``2``: glasses
     * ``3``: sunglasses
 
-* ``mustache``: viewer's mustache information (expert only):
+* ``mustache``: mustache information (expert only):
 
     * ``0``: unknown
     * ``1``: no mustache
     * ``2``: mustache
 
-* ``beard``: viewer's beard information (expert only):
+* ``beard``: beard information (expert only):
 
     * ``0``: unknown
     * ``1``: no beard
     * ``2``: beard
 
-* ``age_value``: the viewer's numeric age in years (expert only).
-* ``dwell_time_in_tenths_of_sec``: the dwell time of the current viewer in **tenths of seconds**.
-* ``attention_time_in_tenths_of_sec``: the attention time of the current viewer in **tenths of seconds**.
+* ``age_value``: numeric age in years (expert only).
+* ``dwell_time_in_tenths_of_sec``: dwell time in **tenths of seconds**.
+* ``attention_time_in_tenths_of_sec``: attention time in **tenths of seconds**.
 * Mood values (expert only) are given in percentage, they represent the distribution of a viewer's mood over time. The sum of the five moods totals 100. Each mood is a key:
 
     * ``very_happy``
@@ -297,14 +312,17 @@ Expected keys
 
 Viewers APC exports contain the same keys than `Finest viewers export`_, and a few more:
 
-* ``contents``: contains the list of contents played while the watcher was in front of the camera. Each content has the following keys:
+* ``contents``: contains the list of contents played while the viewer was in front of the camera. Each content has the following keys:
 
-    * ``content_id``: the id of the content
-    * ``app_id``: the app_id of the content
-    * ``campaign_id``: the campaign_id of the content
-    * ``dwell_time_in_milliseconds``: the cumulated dwell time by this watcher for this content in **milliseconds**
-    * ``attention_time_in_milliseconds``: the cumulated attention time by this watcher for this content in **milliseconds**
-    * Mood time values (expert only), given in **milliseconds**:
+    * ``content_id``: identifier of the content played.
+    * ``app_id``: app_id of the content.
+    * ``campaign_id``: campaign_id of the content.
+
+    And the following metrics, which apply to the current viewer event for this content:
+
+    * ``dwell_time_in_milliseconds``: cumulated dwell time, in **milliseconds**.
+    * ``attention_time_in_milliseconds``: cumulated attention time, in **milliseconds**.
+    * Mood time values (expert only), in **milliseconds**:
         * ``very_happy_time``
         * ``happy_time``
         * ``neutral_time``
@@ -404,19 +422,22 @@ Aggregated viewers export
 
 Expected keys
 """""""""""""
-* ``location_id``: the ID of the location the data comes from.
-* ``period_start``: the start of the aggregate.
-* ``watcher_count``: the number of watchers in the current aggregate.
-* ``dwell_time_in_tenths_of_sec``: the cumulated dwell time for the current aggregate in **tenths of seconds**.
-* ``attention_time_in_tenths_of_sec``: the cumulated attention time for the current aggregate in **tenths of seconds**.
-* ``conversion_ratio``: the number of watcher divided by the number of OTS in the current aggregate. Not present if grouping by demographics.
-* ``gender``: the gender for the current aggregate if grouping by demographics. Possible values:
+* ``location_id``: unique numeric identifier of the data source.
+* ``period_start``: starting time for data aggregation.
+
+And the following metrics, which apply to the current aggregate:
+
+* ``watcher_count``: number of watchers.
+* ``dwell_time_in_tenths_of_sec``: cumulated dwell time, in **tenths of seconds**.
+* ``attention_time_in_tenths_of_sec``: cumulated attention time, in **tenths of seconds**.
+* ``conversion_ratio``: number of watcher divided by the number of OTS. Not present if grouping by demographics.
+* ``gender``: numeric identifier for gender, if grouping by demographics. Possible values:
 
     * ``0``: unknown
     * ``1``: male
     * ``2``: female
 
-* ``age``: the age for the current aggregate if grouping by demographics. Possible values:
+* ``age``: numeric identifier for age, if grouping by demographics. Possible values:
 
     * ``0``: unknown
     * ``1``: child
@@ -500,11 +521,14 @@ Aggregated OTS export
 
 Expected keys
 """""""""""""
-* ``location_id``: the ID of the location the data comes from.
-* ``period_start``: the start of the aggregate.
-* ``ots_count``: the cumulated number of OTS in the current aggregate.
-* ``duration``: the cumulated duration of the OTS events in seconds in the current aggregate.
-* ``watcher_count``: the cumulated number of watchers in the current aggregate.
+* ``location_id``: unique numeric identifier of the data source.
+* ``period_start``: starting time for data aggregation.
+
+And the following metrics, which apply to the current aggregate:
+
+* ``ots_count``: cumulated number of OTS.
+* ``duration``: cumulated duration of the OTS events, in seconds.
+* ``watcher_count``: cumulated number of watchers.
 
 Example
 """""""
@@ -560,12 +584,15 @@ Aggregated gate export
 
 Expected keys
 """""""""""""
-* ``location_id``: the ID of the location the data comes from.
-* ``period_start``: the start of the aggregate.
-* ``gate_id``: the ID of the gate the data comes from.
-* ``in_count``: the cumulated number of people who entered the gate.
-* ``out_count``: the cumulated number of people who exited the gate.
-* ``duration``: the cumulated duration of the gate events in seconds in the current aggregate.
+* ``location_id``: unique numeric identifier of the data source.
+* ``period_start``: starting time for data aggregation.
+
+And the following metrics, which apply to the current aggregate:
+
+* ``gate_id``: unique numeric identifier of the gate.
+* ``in_count``: cumulated number of people who entered the gate.
+* ``out_count``: cumulated number of people who exited the gate.
+* ``duration``: cumulated duration of the gate events, in seconds.
 
 Example
 """""""
@@ -610,16 +637,21 @@ Proof of play by location export
 
 Expected keys
 """""""""""""
+* ``location_id``: unique numeric identifier of the data source.
+* ``period_start``: starting time for data aggregation.
+* ``content_id``: identifier of the content played.
+
+And the following metrics, which apply to the current aggregate:
+
 * ``content_duration``: cumulated play duration of the content, in seconds.
-* ``content_id``: the id of the content.
-* ``duration``: total observation time in seconds in the current aggregate.
-* ``impressions``: the estimated amount of impressions calculated using the conversion ratio.
-* ``impressions_per_play``: the amount of impressions divided by the number of plays.
-* ``location_id``: the ID of the location the data comes from.
-* ``period_start``: the start of the aggregate.
+* ``duration``: total observation time, in seconds.
+* ``impressions``: estimated amount of impressions calculated using the conversion ratio.
 * ``play_count``: how many times the content was played.
-* ``watchers``: the number of watchers for this content item.
-* ``watchers_2sec``: the number of watchers for this content item with an attention time > 2 seconds.
+* ``impressions_per_play``: number of impressions divided by number of plays.
+* ``watchers``: number of watchers.
+* ``watchers_2sec``: number of watchers with an attention time > 2 seconds.
+* ``total_dwell_time``: total dwell time, in seconds.
+* ``total_attention_time``: total attention time, in seconds.
 
 Example
 """""""
@@ -638,8 +670,11 @@ Example
                 "location_id":4636,
                 "period_start":"2018-01-29 02:00:00",
                 "play_count":12,
+                "impressions_per_play":2.67,
                 "watchers":8,
                 "watchers_2sec":6,
+                "total_dwell_time": 5432.1,
+                "total_attention_time": 1293.9,
             },
             {
                 "content_duration":7.8,
@@ -649,8 +684,11 @@ Example
                 "location_id":4636,
                 "period_start":"2018-01-29 03:00:00",
                 "play_count":22,
+                "impressions_per_play":4.36,
                 "watchers":64,
                 "watchers_2sec":20,
+                "total_dwell_time": 8535.1,
+                "total_attention_time": 3833.5,
             },
             {
                 "content_duration":12.2,
@@ -660,8 +698,11 @@ Example
                 "location_id":4636,
                 "period_start":"2018-01-29 04:00:00",
                 "play_count":33,
+                "impressions_per_play":0.24,
                 "watchers":4,
                 "watchers_2sec":1,
+                "total_dwell_time": 637.3,
+                "total_attention_time": 304.4,
             },
         ],
         "creation_date":"2018-01-29 10:06:09"
@@ -673,16 +714,21 @@ Proof of play by site export
 
 Expected keys
 """""""""""""
+* ``site_id``: unique numeric identifier of the data source.
+* ``period_start``: starting time for data aggregation.
+* ``content_id``: identifier of the content played.
+
+And the following metrics, which apply to the current aggregate:
+
 * ``content_duration``: cumulated play duration of the content, in seconds.
-* ``content_id``: the id of the content.
-* ``duration``: total observation time in seconds in the current aggregate.
-* ``impressions``: the estimated amount of impressions calculated using the conversion ratio.
-* ``impressions_per_play``: the amount of impressions divided by the number of plays.
-* ``period_start``: the start of the aggregate.
+* ``duration``: total observation time, in seconds.
+* ``impressions``: estimated amount of impressions calculated using the conversion ratio.
 * ``play_count``: how many times the content was played.
-* ``site_id``: the ID of the site the data comes from.
-* ``watchers``: the number of watchers for this content item.
-* ``watchers_2sec``: the number of watchers for this content item with an attention time > 2 seconds.
+* ``impressions_per_play``: number of impressions divided by number of plays.
+* ``watchers``: number of watchers.
+* ``watchers_2sec``: number of watchers with an attention time > 2 seconds.
+* ``total_dwell_time``: total dwell time, in seconds.
+* ``total_attention_time``: total attention time, in seconds.
 
 Example
 """""""
@@ -700,9 +746,12 @@ Example
                 "impressions":31,
                 "period_start":"2018-01-29 02:00:00",
                 "play_count":10,
+                "impressions_per_play":3.10,
                 "site_id":178,
                 "watchers":7,
                 "watchers_2sec":5,
+                "total_dwell_time": 937.3,
+                "total_attention_time": 504.4,
             },
             {
                 "content_duration":7.8,
@@ -711,9 +760,12 @@ Example
                 "impressions":28,
                 "period_start":"2018-01-29 03:00:00",
                 "play_count":22,
+                "impressions_per_play":1.27,
                 "site_id":178,
                 "watchers":14,
                 "watchers_2sec":14,
+                "total_dwell_time": 3637.3,
+                "total_attention_time": 1981.5,
             },
             {
                 "content_duration":12.2,
@@ -722,9 +774,12 @@ Example
                 "impressions":87,
                 "period_start":"2018-01-29 04:00:00",
                 "play_count":4,
+                "impressions_per_play":21.75,
                 "site_id":178,
                 "watchers":42,
                 "watchers_2sec":12,
+                "total_dwell_time": 4555.1,
+                "total_attention_time": 2209.2,
             },
         ],
         "creation_date":"2018-01-29 10:08:12"
@@ -735,15 +790,18 @@ Extrapolated watchers export
 
 Expected keys
 """""""""""""
-* ``period_start``: the start of the aggregate.
-* ``watcher_count``: the number of watchers in the current aggregate.
-* ``dwell_time_in_tenths_of_sec``: the cumulated dwell time for the current aggregate in **tenths of seconds**.
-* ``attention_time_in_tenths_of_sec``: the cumulated attention time for the current aggregate in **tenths of seconds**.
+* ``period_start``: starting time for data aggregation.
+
+And the following metrics, which apply to the current aggregate:
+
+* ``watcher_count``: number of watchers.
+* ``dwell_time_in_tenths_of_sec``: cumulated dwell time, in **tenths of seconds**.
+* ``attention_time_in_tenths_of_sec``: cumulated attention time, in **tenths of seconds**.
 
 Mandatory arguments
 """""""""""""""""""
 
-* ``extrapolation_amount``: An integer value that defines to how many locations we should extrapolate. Leave this empty to get the average of the sampled locations.
+* ``extrapolation_amount``: integer value that defines to how many locations we should extrapolate. Leave this empty to get the average of the sampled locations.
 
 Example
 """""""
@@ -782,15 +840,18 @@ Extrapolated OTS export
 
 Expected keys
 """""""""""""
-* ``period_start``: the start of the aggregate.
-* ``ots_count``: the cumulated number of OTS in the current aggregate.
-* ``duration``: the cumulated duration of the OTS events in seconds in the current aggregate.
-* ``watcher_count``: the cumulated number of watchers in the current aggregate.
+* ``period_start``: starting time for data aggregation.
+
+And the following metrics, which apply to the current aggregate:
+
+* ``ots_count``: cumulated number of OTS.
+* ``duration``: cumulated duration of the OTS events, in seconds.
+* ``watcher_count``: cumulated number of watchers.
 
 Mandatory arguments
 """""""""""""""""""
 
-* ``extrapolation_amount``: An integer value that defines to how many locations we should extrapolate. Leave this empty to get the average of the sampled locations.
+* ``extrapolation_amount``: integer value that defines to how many locations we should extrapolate. Leave this empty to get the average of the sampled locations.
 
 Example
 """""""
@@ -841,15 +902,18 @@ Finest vehicles export
 Expected keys
 """""""""""""
 
-* ``location_id``: the ID of the location the data comes from.
-* ``period_start``: the start of the current vehicle event.
-* ``type``: vehicle type
+* ``location_id``: unique numeric identifier of the data source.
+* ``period_start``: starting time for data aggregation.
+
+And the following metrics, which apply to the current vehicle event:
+
+* ``type``: vehicle type. Possible values:
     * ``0``: unknown
     * ``1``: car
     * ``2``: bus
     * ``3``: truck and SUV
     * ``4``: van
-* ``color``: vehicle color
+* ``color``: vehicle color. Possible values:
     * ``0``: unknown
     * ``1``: white
     * ``2``: gray
@@ -858,9 +922,9 @@ Expected keys
     * ``5``: green
     * ``6``: blue
     * ``7``: black
-* ``vehicle_presence_time``: the presence time of the current vehicle in **tenths of seconds**.
-* ``vehicle_impressions``: the number of impressions for this vehicle (= the number of impressions per vehicle)
-* ``impressions_per_vehicle``: the number of impressions per vehicle
+* ``vehicle_presence_time``: vehicle presence time, in **tenths of seconds**.
+* ``vehicle_impressions``: number of impressions (= the number of impressions per vehicle).
+* ``impressions_per_vehicle``: number of impressions per vehicle.
 
 Example
 """""""""""
@@ -898,12 +962,15 @@ Aggregated vehicles export
 
 Expected keys
 """""""""""""
-* ``location_id``: the ID of the location the data comes from.
-* ``period_start``: the start of the aggregate.
-* ``vehicle_count``: the number of vehicles in the current aggregate.
-* ``vehicle_presence_time``: the cumulated presence time for the current aggregate in **tenths of seconds**.
-* ``vehicle_impressions``: the number of impressions
-* ``impressions_per_vehicle``: the number of impressions per vehicle
+* ``location_id``: unique numeric identifier of the data source.
+* ``period_start``: starting time for data aggregation.
+
+And the following metrics, which apply to the current aggregate:
+
+* ``vehicle_count``: number of vehicles.
+* ``vehicle_presence_time``: cumulated presence time, in **tenths of seconds**.
+* ``vehicle_impressions``: number of impressions.
+* ``impressions_per_vehicle``: number of impressions per vehicle.
 
 Example
 """""""
@@ -948,9 +1015,9 @@ Finest footfall export
 Expected keys
 """""""""""""
 
-* ``location_id``: the ID of the location the data comes from.
-* ``period_start``: the start of the current person event.
-* ``footfall_presence_time``: the presence time of the current person in **tenths of seconds**.
+* ``location_id``: unique numeric identifier of the data source.
+* ``period_start``: starting time for the current footfall event.
+* ``footfall_presence_time``: presence time of the current person, in **tenths of seconds**.
 
 Example
 """""""""""
@@ -980,10 +1047,13 @@ Aggregated footfall export
 
 Expected keys
 """""""""""""
-* ``location_id``: the ID of the location the data comes from.
-* ``period_start``: the start of the aggregate.
-* ``footfall_impressions``: the number of persons in the current aggregate.
-* ``footfall_presence_time``: the cumulated presence time for the current aggregate in **tenths of seconds**.
+* ``location_id``: unique numeric identifier of the data source.
+* ``period_start``: starting time for data aggregation.
+
+And the following metrics, which apply to the current aggregate:
+
+* ``footfall_impressions``: number of footfall impressions.
+* ``footfall_presence_time``: cumulated presence time, in **tenths of seconds**.
 
 Example
 """""""
@@ -1019,20 +1089,20 @@ Example
 Finest footfall + vehicles export
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Expected keys
-"""""""""""""
-* ``location_id``: the ID of the location the data comes from.
-* ``period_start``: the start of the current person or vehicle event.
-* ``type``: vehicle type (see vehicle finest for details)
-* ``color``: vehicle color (see vehicle finest for details)
-* ``vehicle_impressions``: the number of impressions (= number of impressions per vehicle)
-* ``vehicle_presence_time``: the presence time of the current vehicle in **tenths of seconds**.* `
-* ``impressions_per_vehicle``: the number of impressions per vehicle
-* ``footfall_presence_time``:  the presence time of the current person in **tenths of seconds**.
-
 Note
 """""""""""""
 This api endpoint returns a combination of vehicles and persons. Each record being either a vehicle or a person, some keys will consequently be void.
+
+Expected keys
+"""""""""""""
+* ``location_id``: unique numeric identifier of the data source.
+* ``period_start``: starting time for the current vehicle or footfall event.
+* ``type``: vehicle type (see "Finest vehicles export" for possible values).
+* ``color``: vehicle color (see "Finest vehicles export" for possible values).
+* ``vehicle_impressions``: number of impressions (= number of impressions per vehicle).
+* ``vehicle_presence_time``: presence time of the current vehicle, in **tenths of seconds**.* `
+* ``impressions_per_vehicle``: number of impressions per vehicle.
+* ``footfall_presence_time``:  presence time of the current person, in **tenths of seconds**.
 
 Example
 """""""
@@ -1073,14 +1143,17 @@ Aggregated footfall + vehicles export
 
 Expected keys
 """""""""""""
-* ``location_id``: the ID of the location the data comes from.
-* ``period_start``: the start of the aggregate.
-* ``vehicle_count``: the number of vehicles in the current aggregate.
-* ``vehicle_presence_time``: the cumulated presence time for the current aggregate in **tenths of seconds**.
-* ``vehicle_impressions``: the number of impressions
-* ``impressions_per_vehicle``: the number of impressions per vehicle
-* ``footfall_impressions``: the number of persons in the current aggregate.
-* ``footfall_presence_time``: the cumulated presence time for the current aggregate in **tenths of seconds**.
+* ``location_id``: unique numeric identifier of the data source.
+* ``period_start``: starting time for the current aggregate.
+
+And the following metrics, which apply to the current aggregate:
+
+* ``vehicle_count``: number of vehicles.
+* ``vehicle_impressions``: number of vehicle impressions.
+* ``vehicle_presence_time``: cumulated vehicle presence time, in **tenths of seconds**.
+* ``impressions_per_vehicle``: average number of impressions per vehicle.
+* ``footfall_impressions``: number of footfall impressions.
+* ``footfall_presence_time``: cumulated footfall presence time, in **tenths of seconds**.
 
 Example
 """""""
@@ -1130,19 +1203,22 @@ Impression multiplier export
 
 Expected keys
 """""""""""""
-* ``location_id``: the ID of the location the data comes from.
-* ``period_start``: the start of the aggregate.
-* ``vehicle_count``: the number of vehicles in the current aggregate.
-* ``vehicle_total_presence_time``: the cumulated presence time for the current aggregate in **tenths of seconds**.
-* ``vehicle_impressions``: the number of impressions
-* ``impressions_per_vehicle``: the number of impressions per vehicle
-* ``footfall_impressions``: the number of persons in the current aggregate.
-* ``footfall_total_dwell_time``: the cumulated presence time for the current aggregate in **tenths of seconds**.
-* ``im_footfall``: the impression multiplier for footfall
-* ``im_vehicle``: the impression multiplier for vehicles
-* ``im``: the combined impression multiplier
-* ``backup_value``: if this contains "yes" it means a backup im value was calculated based on equivalent data of the previous week
-* ``analysis_window``: the window of time during which the analysis took place in **tenths of seconds**
+* ``location_id``: unique numeric identifier of the data source.
+* ``period_start``: starting time for the current aggregate.
+
+And the following metrics, which apply to the current aggregate:
+
+* ``vehicle_count``: number of vehicles.
+* ``vehicle_total_presence_time``: cumulated presence time, in **tenths of seconds**.
+* ``vehicle_impressions``: number of vehicle impressions.
+* ``impressions_per_vehicle``: number of impressions per vehicle.
+* ``footfall_impressions``: number of footfall impressions.
+* ``footfall_total_dwell_time``: cumulated footfall presence time, in **tenths of seconds**.
+* ``im_footfall``: impression multiplier for footfall.
+* ``im_vehicle``: impression multiplier for vehicles.
+* ``im``: combined impression multiplier.
+* ``backup_value``: if this contains "yes" it means a backup im value was calculated based on equivalent data of the previous week.
+* ``analysis_window``: time window during which the analysis took place, in **tenths of seconds**.
 
 Example
 """""""

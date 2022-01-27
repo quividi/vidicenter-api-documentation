@@ -21,7 +21,7 @@ URL
 Notable data keys
 -----------------
 
-* ``alert_type``: An ID representing the type of alert:
+* ``alert_type``: numeric identifier representing the type of alert:
 
     * 1: Upload Period Alert
     * 2: Watchers Rate Alert
@@ -36,9 +36,9 @@ Notable data keys
     * 11: Camera Not Found Alert
     * 12: Unsupported Option Alert
 
-* ``label``: A string representing the type of the alert. May be subject to changes.
-* ``status``: The status of the alert ("raised" or "terminated").
-* ``extra_data``: In case of Input or License Errors Alerts, contains more info on the alert. This can be a combination of the following keywords:
+* ``label``: string representing the type of the alert. May be subject to changes.
+* ``status``: status of the alert ("raised" or "terminated").
+* ``extra_data``: in case of Input or License Errors Alerts, contains more info on the alert. This can be a combination of the following keywords:
 
     * Unknown
     * Idle
@@ -53,12 +53,12 @@ Notable data keys
     * License Error
     * Black Input
 
-* ``linked_alerthistory``: The ID of the alert the current alert is terminating.
+* ``linked_alerthistory``: unique identifier of the alert the current alert is terminating.
 
 Optional arguments
 ------------------
 
-* ``active``: If specified as True, only the currently active alerts will be returned.
+* ``active``: if specified as True, only the currently active alerts will be returned.
 
 Example
 -------
@@ -159,7 +159,7 @@ URL
 Optional arguments
 ------------------
 
-* ``active``: If specified as True, only the currently active alerts will be returned.
+* ``active``: if specified as True, only the currently active alerts will be returned.
 
 
 Site's alerts list
@@ -175,7 +175,7 @@ URL
 Optional arguments
 ------------------
 
-* ``active``: If specified as True, only the currently active alerts will be returned.
+* ``active``: if specified as True, only the currently active alerts will be returned.
 
 
 Site tag's alerts list
@@ -191,7 +191,7 @@ URL
 Optional arguments
 ------------------
 
-* ``active``: If specified as True, only the currently active alerts will be returned.
+* ``active``: if specified as True, only the currently active alerts will be returned.
 
 
 Location's alerts list
@@ -223,7 +223,7 @@ URL
 Optional arguments
 ------------------
 
-* ``active``: If specified as True, only the currently active alerts will be returned.
+* ``active``: if specified as True, only the currently active alerts will be returned.
 
 
 Box's alerts list
@@ -239,7 +239,7 @@ URL
 Optional arguments
 ------------------
 
-* ``active``: If specified as True, only the currently active alerts will be returned.
+* ``active``: if specified as True, only the currently active alerts will be returned.
 
 
 Monitoring messages list

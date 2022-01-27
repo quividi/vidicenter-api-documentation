@@ -15,23 +15,23 @@ URL
 Mandatory arguments
 -------------------
 
-* ``chart_type``: The type of chart you want to generate. Allowed values:
+* ``chart_type``: the type of chart you want to generate. Allowed values:
 
-    * ``0``: Test chart.
-    * ``1``: Total Impressions and viewers for the period.
+    * ``0``: test chart.
+    * ``1``: total impressions and viewers for the period.
 
-* ``chart_period``: The period of the chart you want to generate. Allowed values:
+* ``chart_period``: period of the chart you want to generate. Allowed values:
 
-    * ``day``: The previous full day.
-    * ``week``: The past week.
-    * ``month``: The past month.
+    * ``day``: previous full day.
+    * ``week``: past week.
+    * ``month``: past month.
 
-* ``chart_format``: The type of response expected. Allowed values:
+* ``chart_format``: type of response expected. Allowed values:
 
-    * ``image``: A binary image file in PNG format.
-    * ``json``: The raw numbers representing the chart in JSON format, useful to generate your own charts.
+    * ``image``: a binary image file in PNG format.
+    * ``json``: raw numbers representing the chart in JSON format, useful to generate your own charts.
 
-* ``network_id``: The id of the network for which the chart should be generated.
+* ``network_id``: ID of the network for which the chart should be generated.
 
 
 Response's form
