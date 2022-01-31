@@ -897,7 +897,7 @@ Example
     }
 
 Finest vehicles export
-^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
 
 Expected keys
 """""""""""""
@@ -958,7 +958,7 @@ Example
     }
 
 Aggregated vehicles export
-^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Expected keys
 """""""""""""
@@ -1010,7 +1010,7 @@ Example
     }
 
 Finest footfall export
-^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
 
 Expected keys
 """""""""""""
@@ -1043,7 +1043,7 @@ Example
     }
 
 Aggregated footfall export
-^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Expected keys
 """""""""""""
@@ -1087,7 +1087,7 @@ Example
     }
 
 Finest footfall + vehicles export
-^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Note
 """""""""""""
@@ -1139,7 +1139,7 @@ In this example, in a 3 min timeframe, we registered one vehicle (first record) 
     }
 
 Aggregated footfall + vehicles export
-^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Expected keys
 """""""""""""
