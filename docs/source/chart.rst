@@ -20,6 +20,7 @@ Mandatory arguments
     * ``0``: test chart.
     * ``1``: total impressions and viewers for the period.
     * ``2``: average attention time and presence time.
+    * ``3``: breakdown of watchers per demographics.
 
 * ``chart_period``: period of the chart you want to generate. Allowed values:
 
