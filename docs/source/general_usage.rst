@@ -43,4 +43,16 @@ Test page
 `This page on VidiCenter <http://vidicenter.quividi.com/api/v1/test/>`_ allows you to generate curl commands and query the export API. You can use it to famliarize yourself with the API.
 
 
+
+Rate limiting
+#############
+
+Several measures are in place to protect the API from potential abuse, in the form of different types of rate limiting, please take these into account when using the API:
+
+* no more than 50 API calls per minute per user
+* no more than 2 simultaneous API connections per IP
+* no more than 3 concurrent data exports at any time
+* data limits are 3 million rows for raw exports and 20 million rows for aggregated exports
+
+
 Continue to :ref:`topology`
