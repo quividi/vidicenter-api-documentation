@@ -49,8 +49,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'vidicenter-api-documentation'
-copyright = u'2016, Quividi'
-author = u'Pierre Mourlanne'
+copyright = u'2022, Quividi'
+author = u'web@quividi.com'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -260,7 +260,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'vidicenter-api-documentation.tex', u'vidicenter-api-documentation Documentation',
-     u'Pierre Mourlanne', 'manual'),
+     u'web@quividi.com', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
