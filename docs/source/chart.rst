@@ -18,9 +18,10 @@ Mandatory arguments
 * ``chart_type``: the type of chart you want to generate. Allowed values:
 
     * ``0``: test chart.
-    * ``1``: total impressions and viewers for the period.
+    * ``1``: total impressions and watchers for the period.
     * ``2``: average attention time and presence time.
     * ``3``: breakdown of watchers per demographics.
+    * ``4``: impressions and watchers per day.
 
 * ``chart_period``: period of the chart you want to generate. Allowed values:
 
