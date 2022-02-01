@@ -650,8 +650,8 @@ And the following metrics, which apply to the current aggregate:
 * ``impressions_per_play``: number of impressions divided by number of plays.
 * ``watchers``: number of watchers.
 * ``watchers_2sec``: number of watchers with an attention time > 2 seconds.
-* ``total_dwell_time``: total dwell time, in seconds.
-* ``total_attention_time``: total attention time, in seconds.
+* ``total_dwell_time_in_tenths_of_sec``: total dwell time, in seconds.
+* ``total_attention_time_in_tenths_of_sec``: total attention time, in seconds.
 
 Example
 """""""
@@ -663,7 +663,7 @@ Example
         "state":"finished",
         "data":[
             {
-                "content_duration":12.2,
+                "content_duration":60,
                 "content_id":"content one",
                 "duration":3600,
                 "impressions":32,
@@ -673,11 +673,11 @@ Example
                 "impressions_per_play":2.67,
                 "watchers":8,
                 "watchers_2sec":6,
-                "total_dwell_time": 5432.1,
-                "total_attention_time": 1293.9,
+                "total_dwell_time_in_tenths_of_sec": 54.1,
+                "total_attention_time_in_tenths_of_sec": 12.9,
             },
             {
-                "content_duration":7.8,
+                "content_duration":110,
                 "content_id":"content one",
                 "duration":3600,
                 "impressions":96,
@@ -687,11 +687,11 @@ Example
                 "impressions_per_play":4.36,
                 "watchers":64,
                 "watchers_2sec":20,
-                "total_dwell_time": 8535.1,
-                "total_attention_time": 3833.5,
+                "total_dwell_time_in_tenths_of_sec": 105.1,
+                "total_attention_time_in_tenths_of_sec": 38.5,
             },
             {
-                "content_duration":12.2,
+                "content_duration":165,
                 "content_id":"content one",
                 "duration":3600,
                 "impressions":8,
@@ -701,8 +701,8 @@ Example
                 "impressions_per_play":0.24,
                 "watchers":4,
                 "watchers_2sec":1,
-                "total_dwell_time": 637.3,
-                "total_attention_time": 304.4,
+                "total_dwell_time_in_tenths_of_sec": 6.3,
+                "total_attention_time_in_tenths_of_sec": 3.4,
             },
         ],
         "creation_date":"2018-01-29 10:06:09"
@@ -727,8 +727,8 @@ And the following metrics, which apply to the current aggregate:
 * ``impressions_per_play``: number of impressions divided by number of plays.
 * ``watchers``: number of watchers.
 * ``watchers_2sec``: number of watchers with an attention time > 2 seconds.
-* ``total_dwell_time``: total dwell time, in seconds.
-* ``total_attention_time``: total attention time, in seconds.
+* ``total_dwell_time_in_tenths_of_sec``: total dwell time, in seconds.
+* ``total_attention_time_in_tenths_of_sec``: total attention time, in seconds.
 
 Example
 """""""
@@ -740,7 +740,7 @@ Example
         "state":"finished",
         "data":[
             {
-                "content_duration":12.2,
+                "content_duration":50,
                 "content_id":"content one",
                 "duration":3600,
                 "impressions":31,
@@ -750,11 +750,11 @@ Example
                 "site_id":178,
                 "watchers":7,
                 "watchers_2sec":5,
-                "total_dwell_time": 937.3,
-                "total_attention_time": 504.4,
+                "total_dwell_time_in_tenths_of_sec": 9.3,
+                "total_attention_time_in_tenths_of_sec": 5.4,
             },
             {
-                "content_duration":7.8,
+                "content_duration":110,
                 "content_id":"content one",
                 "duration":3600,
                 "impressions":28,
@@ -764,11 +764,11 @@ Example
                 "site_id":178,
                 "watchers":14,
                 "watchers_2sec":14,
-                "total_dwell_time": 3637.3,
-                "total_attention_time": 1981.5,
+                "total_dwell_time_in_tenths_of_sec": 36.3,
+                "total_attention_time_in_tenths_of_sec": 19.5,
             },
             {
-                "content_duration":12.2,
+                "content_duration":20,
                 "content_id":"content one",
                 "duration":3600,
                 "impressions":87,
@@ -778,8 +778,8 @@ Example
                 "site_id":178,
                 "watchers":42,
                 "watchers_2sec":12,
-                "total_dwell_time": 4555.1,
-                "total_attention_time": 2209.2,
+                "total_dwell_time_in_tenths_of_sec": 95.1,
+                "total_attention_time_in_tenths_of_sec": 42.2,
             },
         ],
         "creation_date":"2018-01-29 10:08:12"
