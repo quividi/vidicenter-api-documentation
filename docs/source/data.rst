@@ -650,8 +650,8 @@ And the following metrics, which apply to the current aggregate:
 * ``impressions_per_play``: number of impressions divided by number of plays.
 * ``watchers``: number of watchers.
 * ``watchers_2sec``: number of watchers with an attention time > 2 seconds.
-* ``total_dwell_time_in_tenths_of_sec``: total dwell time, in seconds.
-* ``total_attention_time_in_tenths_of_sec``: total attention time, in seconds.
+* ``total_dwell_time_in_tenths_of_sec``: total dwell time, in **tenths of seconds**.
+* ``total_attention_time_in_tenths_of_sec``: total attention time, in **tenths of seconds**.
 
 Example
 """""""
@@ -727,8 +727,8 @@ And the following metrics, which apply to the current aggregate:
 * ``impressions_per_play``: number of impressions divided by number of plays.
 * ``watchers``: number of watchers.
 * ``watchers_2sec``: number of watchers with an attention time > 2 seconds.
-* ``total_dwell_time_in_tenths_of_sec``: total dwell time, in seconds.
-* ``total_attention_time_in_tenths_of_sec``: total attention time, in seconds.
+* ``total_dwell_time_in_tenths_of_sec``: total dwell time, in **tenths of seconds**.
+* ``total_attention_time_in_tenths_of_sec``: total attention time, in **tenths of seconds**.
 
 Example
 """""""
