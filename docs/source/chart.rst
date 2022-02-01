@@ -22,6 +22,7 @@ Mandatory arguments
     * ``2``: average attention time and presence time.
     * ``3``: breakdown of watchers per demographics.
     * ``4``: impressions and watchers per day.
+    * ``5``: average attention time and presence time per day.
 
 * ``chart_period``: period of the chart you want to generate. Allowed values:
 
