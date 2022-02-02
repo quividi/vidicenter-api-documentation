@@ -650,8 +650,8 @@ And the following metrics, which apply to the current aggregate:
 * ``impressions_per_play``: number of impressions divided by number of plays.
 * ``watchers``: number of watchers.
 * ``watchers_2sec``: number of watchers with an attention time > 2 seconds.
-* ``total_dwell_time_in_tenths_of_sec``: total dwell time, in **tenths of seconds**.
-* ``total_attention_time_in_tenths_of_sec``: total attention time, in **tenths of seconds**.
+* ``dwell_time_in_tenths_of_sec``: cumulated dwell time, in **tenths of seconds**.
+* ``attention_time_in_tenths_of_sec``: cumulated attention time, in **tenths of seconds**.
 
 Example
 """""""
@@ -673,8 +673,8 @@ Example
                 "impressions_per_play":2.67,
                 "watchers":8,
                 "watchers_2sec":6,
-                "total_dwell_time_in_tenths_of_sec": 54.1,
-                "total_attention_time_in_tenths_of_sec": 12.9,
+                "dwell_time_in_tenths_of_sec": 54,
+                "attention_time_in_tenths_of_sec": 12,
             },
             {
                 "content_duration":110,
@@ -687,8 +687,8 @@ Example
                 "impressions_per_play":4.36,
                 "watchers":64,
                 "watchers_2sec":20,
-                "total_dwell_time_in_tenths_of_sec": 105.1,
-                "total_attention_time_in_tenths_of_sec": 38.5,
+                "dwell_time_in_tenths_of_sec": 105,
+                "attention_time_in_tenths_of_sec": 38,
             },
             {
                 "content_duration":165,
@@ -701,8 +701,8 @@ Example
                 "impressions_per_play":0.24,
                 "watchers":4,
                 "watchers_2sec":1,
-                "total_dwell_time_in_tenths_of_sec": 6.3,
-                "total_attention_time_in_tenths_of_sec": 3.4,
+                "dwell_time_in_tenths_of_sec": 6,
+                "attention_time_in_tenths_of_sec": 3,
             },
         ],
         "creation_date":"2018-01-29 10:06:09"
@@ -727,8 +727,8 @@ And the following metrics, which apply to the current aggregate:
 * ``impressions_per_play``: number of impressions divided by number of plays.
 * ``watchers``: number of watchers.
 * ``watchers_2sec``: number of watchers with an attention time > 2 seconds.
-* ``total_dwell_time_in_tenths_of_sec``: total dwell time, in **tenths of seconds**.
-* ``total_attention_time_in_tenths_of_sec``: total attention time, in **tenths of seconds**.
+* ``dwell_time_in_tenths_of_sec``: cumulated dwell time, in **tenths of seconds**.
+* ``attention_time_in_tenths_of_sec``: cumulated attention time, in **tenths of seconds**.
 
 Example
 """""""
@@ -750,8 +750,8 @@ Example
                 "site_id":178,
                 "watchers":7,
                 "watchers_2sec":5,
-                "total_dwell_time_in_tenths_of_sec": 9.3,
-                "total_attention_time_in_tenths_of_sec": 5.4,
+                "dwell_time_in_tenths_of_sec": 9,
+                "attention_time_in_tenths_of_sec": 5,
             },
             {
                 "content_duration":110,
@@ -764,8 +764,8 @@ Example
                 "site_id":178,
                 "watchers":14,
                 "watchers_2sec":14,
-                "total_dwell_time_in_tenths_of_sec": 36.3,
-                "total_attention_time_in_tenths_of_sec": 19.5,
+                "dwell_time_in_tenths_of_sec": 36,
+                "attention_time_in_tenths_of_sec": 19,
             },
             {
                 "content_duration":20,
@@ -778,8 +778,8 @@ Example
                 "site_id":178,
                 "watchers":42,
                 "watchers_2sec":12,
-                "total_dwell_time_in_tenths_of_sec": 95.1,
-                "total_attention_time_in_tenths_of_sec": 42.2,
+                "dwell_time_in_tenths_of_sec": 95,
+                "attention_time_in_tenths_of_sec": 42,
             },
         ],
         "creation_date":"2018-01-29 10:08:12"
@@ -1209,11 +1209,11 @@ Expected keys
 And the following metrics, which apply to the current aggregate:
 
 * ``vehicle_count``: number of vehicles.
-* ``vehicle_total_presence_time``: cumulated presence time, in **tenths of seconds**.
+* ``vehicle_presence_time``: cumulated presence time, in **tenths of seconds**.
 * ``vehicle_impressions``: number of vehicle impressions.
 * ``impressions_per_vehicle``: number of impressions per vehicle.
 * ``footfall_impressions``: number of footfall impressions.
-* ``footfall_total_dwell_time``: cumulated footfall presence time, in **tenths of seconds**.
+* ``footfall_presence_time``: cumulated footfall presence time, in **tenths of seconds**.
 * ``im_footfall``: impression multiplier for footfall.
 * ``im_vehicle``: impression multiplier for vehicles.
 * ``im``: combined impression multiplier.
