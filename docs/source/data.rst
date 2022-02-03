@@ -17,17 +17,18 @@ Mandatory arguments
 
 * ``data_type``: The type of data you want to extract. Allowed values:
 
+    * ``extrapolated_ots``: Extrapolated OTS.
+    * ``extrapolated_watchers``: Extrapolated Watchers.
+    * ``footfall``: Footfall.
     * ``gate``: Gate data.
+    * ``im``: Impression multiplier (only available with time_resolution=1h).
     * ``ots``: OTS data.
+    * ``proof_of_play_by_location``: Proof of play data grouped by location. This requires APC data.
+    * ``proof_of_play_by_site``: Proof of play data grouped by site.  This requires APC data.
+    * ``vehicles_footfall``: Vehicles + Footfall.
+    * ``vehicles``: Vehicles.
+    * ``viewers_apc``: Viewers with content data. Will only contain viewers who have content data.
     * ``viewers``: Viewers data.
-    * ``viewers_apc``: Viewers with content data (**BETA**). Will only contain viewers who have content data.
-    * ``proof_of_play_by_location``: Proof of play data grouped by location (**BETA**). This requires APC data.
-    * ``proof_of_play_by_site``: Proof of play data grouped by site (**BETA**).  This requires APC data.
-    * ``extrapolated_watchers``: Extrapolated Watchers (**BETA**)
-    * ``extrapolated_ots``: Extrapolated OTS (**BETA**)
-    * ``vehicles``: Vehicles
-    * ``footfall``: Footfall
-    * ``im``: Impression multiplier (only available with time_resolution=1h)
 
 * ``time_resolution``: The time resolution used in the aggregation. Allowed values:
 
@@ -174,29 +175,10 @@ And the following metrics, which apply to the current viewer event:
     * ``3``: adult
     * ``4``: senior
 
-* ``glasses``: glasses information (expert only):
-
-    * ``0``: unknown
-    * ``1``: no glasses
-    * ``2``: glasses
-    * ``3``: sunglasses
-
-* ``mustache``: mustache information (expert only):
-
-    * ``0``: unknown
-    * ``1``: no mustache
-    * ``2``: mustache
-
-* ``beard``: beard information (expert only):
-
-    * ``0``: unknown
-    * ``1``: no beard
-    * ``2``: beard
-
-* ``age_value``: numeric age in years (expert only).
+* ``age_value``: numeric age in years (core only).
 * ``dwell_time_in_tenths_of_sec``: dwell time in **tenths of seconds**.
 * ``attention_time_in_tenths_of_sec``: attention time in **tenths of seconds**.
-* Mood values (expert only) are given in percentage, they represent the distribution of a viewer's mood over time. The sum of the five moods totals 100. Each mood is a key:
+* Mood values (core only) are given in percentage, they represent the distribution of a viewer's mood over time. The sum of the five moods totals 100. Each mood is a key:
 
     * ``very_happy``
     * ``happy``
@@ -207,7 +189,7 @@ And the following metrics, which apply to the current viewer event:
 PRO example
 """""""""""
 
-Expert keys are present, but are filled with ``null`` values.
+Core keys are present, but are filled with ``null`` values.
 
  ::
 
@@ -226,11 +208,8 @@ Expert keys are present, but are filled with ``null`` values.
                 "very_unhappy":null,
                 "attention_time_in_tenths_of_sec":16,
                 "period_start":"2018-01-29T00:00:27",
-                "glasses":null,
                 "location_id":8264,
                 "very_happy":null,
-                "mustache":null,
-                "beard":null
             },
             {
                 "happy":null,
@@ -243,20 +222,17 @@ Expert keys are present, but are filled with ``null`` values.
                 "very_unhappy":null,
                 "attention_time_in_tenths_of_sec":39,
                 "period_start":"2018-01-29T00:03:57",
-                "glasses":null,
                 "location_id":8264,
                 "very_happy":null,
-                "mustache":null,
-                "beard":null
             }
         ],
         "creation_date":"2018-01-29 09:24:18"
     }
 
-Expert example
-""""""""""""""
+Core example
+""""""""""""
 
-Expert values are present.
+Core values are present.
 
  ::
 
@@ -275,11 +251,8 @@ Expert values are present.
                 "very_unhappy":0.0,
                 "attention_time_in_tenths_of_sec":8,
                 "period_start":"2018-01-29T01:28:52",
-                "glasses":1,
                 "location_id":8866,
                 "very_happy":33.333333333333336,
-                "mustache":1,
-                "beard":1
             },
             {
                 "happy":49.80392156862745,
@@ -292,11 +265,8 @@ Expert values are present.
                 "very_unhappy":0.0,
                 "attention_time_in_tenths_of_sec":3,
                 "period_start":"2018-01-29T00:25:18",
-                "glasses":3,
                 "location_id":8866,
                 "very_happy":0.0,
-                "mustache":2,
-                "beard":2
             }
         ],
         "creation_date":"2018-01-29 09:18:53"
@@ -322,7 +292,7 @@ Viewers APC exports contain the same keys than `Finest viewers export`_, and a f
 
     * ``dwell_time_in_milliseconds``: cumulated dwell time, in **milliseconds**.
     * ``attention_time_in_milliseconds``: cumulated attention time, in **milliseconds**.
-    * Mood time values (expert only), in **milliseconds**:
+    * Mood time values (core only), in **milliseconds**:
         * ``very_happy_time``
         * ``happy_time``
         * ``neutral_time``
@@ -339,18 +309,15 @@ Example
         "state":"finished",
         "data":[
             {
-                "beard":1,
                 "dwell_time_in_tenths_of_sec":29,
                 "start_time":"2018-01-14T09:29:10",
                 "gender":2,
                 "age":1,
                 "age_value":8,
                 "neutral":70.19607843137254,
-                "mustache":1,
                 "unhappy":0.0,
                 "attention_time_in_tenths_of_sec":12,
                 "location_id":38918,
-                "glasses":1,
                 "very_unhappy":0.0,
                 "very_happy":9.803921568627452,
                 "contents":[
@@ -382,18 +349,15 @@ Example
                 "happy":20.0
             },
             {
-                "beard":1,
                 "dwell_time_in_tenths_of_sec":10,
                 "start_time":"2018-01-14T09:21:54",
                 "gender":2,
                 "age":3,
                 "age_value":40,
                 "neutral":33.33333333333333,
-                "mustache":1,
                 "unhappy":0.0,
                 "attention_time_in_tenths_of_sec":5,
                 "location_id":38918,
-                "glasses":1,
                 "very_unhappy":0.0,
                 "very_happy":0.0,
                 "contents":[
@@ -896,6 +860,83 @@ Example
         "creation_date":"2018-01-29 10:15:49"
     }
 
+Finest footfall export
+^^^^^^^^^^^^^^^^^^^^^^
+
+Expected keys
+"""""""""""""
+
+* ``location_id``: unique numeric identifier of the data source.
+* ``period_start``: starting time for the current footfall event.
+* ``footfall_presence_time``: presence time of the current person, in **tenths of seconds**.
+
+Example
+"""""""""""
+
+ ::
+
+    curl -u USERNAME:AUTH_TOKEN 'https://vidicenter.quividi.com/api/v1/data/?locations=8264&start=2018-01-29T00:00:00&end=2018-01-29T02:00:00&data_type=persons&time_resolution=finest'
+    {
+        "state":"finished",
+        "data":[
+            {
+                "footfall_presence_time":41,
+                "period_start":"2018-01-29T00:00:27",
+                "location_id":8264,
+            },
+            {
+                "footfall_presence_time":54,
+                "period_start":"2018-01-29T00:03:57",
+                "location_id":8264,
+            }
+        ],
+        "creation_date":"2018-01-29 09:24:18"
+    }
+
+Aggregated footfall export
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Expected keys
+"""""""""""""
+* ``location_id``: unique numeric identifier of the data source.
+* ``period_start``: starting time for data aggregation.
+
+And the following metrics, which apply to the current aggregate:
+
+* ``footfall_impressions``: number of footfall impressions.
+* ``footfall_presence_time``: cumulated presence time, in **tenths of seconds**.
+
+Example
+"""""""
+
+ ::
+
+    curl -u USERNAME:AUTH_TOKEN 'https://vidicenter.quividi.com/api/v1/data/?locations=4636&start=2018-01-29T02:00:00&end=2018-01-29T04:59:59&data_type=persons&time_resolution=1h'
+    {
+        "state":"finished",
+        "data":[
+            {
+                "footfall_presence_time":12,
+                "footfall_impressions":1,
+                "period_start":"2018-01-29 02:00:00",
+                "location_id":4636
+            },
+            {
+                "footfall_presence_time":0,
+                "footfall_impressions":0,
+                "period_start":"2018-01-29 03:00:00",
+                "location_id":4636
+            },
+            {
+                "footfall_presence_time":83,
+                "footfall_impressions":3,
+                "period_start":"2018-01-29 04:00:00",
+                "location_id":4636
+            },
+        ],
+        "creation_date":"2018-01-29 10:06:09"
+    }
+
 Finest vehicles export
 ^^^^^^^^^^^^^^^^^^^^^^
 
@@ -1009,82 +1050,6 @@ Example
         "creation_date":"2018-01-29 10:06:09"
     }
 
-Finest footfall export
-^^^^^^^^^^^^^^^^^^^^^^
-
-Expected keys
-"""""""""""""
-
-* ``location_id``: unique numeric identifier of the data source.
-* ``period_start``: starting time for the current footfall event.
-* ``footfall_presence_time``: presence time of the current person, in **tenths of seconds**.
-
-Example
-"""""""""""
-
- ::
-
-    curl -u USERNAME:AUTH_TOKEN 'https://vidicenter.quividi.com/api/v1/data/?locations=8264&start=2018-01-29T00:00:00&end=2018-01-29T02:00:00&data_type=persons&time_resolution=finest'
-    {
-        "state":"finished",
-        "data":[
-            {
-                "footfall_presence_time":41,
-                "period_start":"2018-01-29T00:00:27",
-                "location_id":8264,
-            },
-            {
-                "footfall_presence_time":54,
-                "period_start":"2018-01-29T00:03:57",
-                "location_id":8264,
-            }
-        ],
-        "creation_date":"2018-01-29 09:24:18"
-    }
-
-Aggregated footfall export
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Expected keys
-"""""""""""""
-* ``location_id``: unique numeric identifier of the data source.
-* ``period_start``: starting time for data aggregation.
-
-And the following metrics, which apply to the current aggregate:
-
-* ``footfall_impressions``: number of footfall impressions.
-* ``footfall_presence_time``: cumulated presence time, in **tenths of seconds**.
-
-Example
-"""""""
-
- ::
-
-    curl -u USERNAME:AUTH_TOKEN 'https://vidicenter.quividi.com/api/v1/data/?locations=4636&start=2018-01-29T02:00:00&end=2018-01-29T04:59:59&data_type=persons&time_resolution=1h'
-    {
-        "state":"finished",
-        "data":[
-            {
-                "footfall_presence_time":12,
-                "footfall_impressions":1,
-                "period_start":"2018-01-29 02:00:00",
-                "location_id":4636
-            },
-            {
-                "footfall_presence_time":0,
-                "footfall_impressions":0,
-                "period_start":"2018-01-29 03:00:00",
-                "location_id":4636
-            },
-            {
-                "footfall_presence_time":83,
-                "footfall_impressions":3,
-                "period_start":"2018-01-29 04:00:00",
-                "location_id":4636
-            },
-        ],
-        "creation_date":"2018-01-29 10:06:09"
-    }
 
 Finest footfall + vehicles export
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1110,7 +1075,7 @@ In this example, in a 3 min timeframe, we registered one vehicle (first record) 
 
  ::
 
-    curl -u USERNAME:AUTH_TOKEN 'https://vidicenter.quividi.com/api/v1/data/?locations=4636&start=2021-11-01T09:03:00&end=2021-11-01T09:06:00&data_type=vehicles_persons&time_resolution=finest'
+    curl -u USERNAME:AUTH_TOKEN 'https://vidicenter.quividi.com/api/v1/data/?locations=4636&start=2021-11-01T09:03:00&end=2021-11-01T09:06:00&data_type=vehicles_footfall&time_resolution=finest'
     {
         "state":"finished",
         "data":[
@@ -1160,7 +1125,7 @@ Example
 
  ::
 
-    curl -u USERNAME:AUTH_TOKEN 'https://vidicenter.quividi.com/api/v1/data/?locations=4636&start=2021-11-01T09:00:00&end=2021-11-01T10:00:00&data_type=vehicles_persons&time_resolution=30m'
+    curl -u USERNAME:AUTH_TOKEN 'https://vidicenter.quividi.com/api/v1/data/?locations=4636&start=2021-11-01T09:00:00&end=2021-11-01T10:00:00&data_type=vehicles_footfall&time_resolution=30m'
     {
         "state":"finished",
         "data":[
