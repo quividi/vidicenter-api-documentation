@@ -616,6 +616,8 @@ And the following metrics, which apply to the current aggregate:
 * ``watchers_2sec``: number of watchers with an attention time > 2 seconds.
 * ``dwell_time_in_tenths_of_sec``: cumulated dwell time, in **tenths of seconds**.
 * ``attention_time_in_tenths_of_sec``: cumulated attention time, in **tenths of seconds**.
+* ``avg_dwell_time_in_tenths_of_sec``: average dwell time per watcher, in **tenths of seconds**.
+* ``avg_attention_time_in_tenths_of_sec``: average attention time per watcher, in **tenths of seconds**.
 
 Example
 """""""
@@ -637,8 +639,10 @@ Example
                 "impressions_per_play":2.67,
                 "watchers":8,
                 "watchers_2sec":6,
-                "dwell_time_in_tenths_of_sec": 54,
-                "attention_time_in_tenths_of_sec": 12,
+                "dwell_time_in_tenths_of_sec": 540,
+                "attention_time_in_tenths_of_sec": 120,
+                "avg_dwell_time_in_tenths_of_sec": 68,
+                "avg_attention_time_in_tenths_of_sec": 15,
             },
             {
                 "content_duration":110,
@@ -651,8 +655,10 @@ Example
                 "impressions_per_play":4.36,
                 "watchers":64,
                 "watchers_2sec":20,
-                "dwell_time_in_tenths_of_sec": 105,
-                "attention_time_in_tenths_of_sec": 38,
+                "dwell_time_in_tenths_of_sec": 1050,
+                "attention_time_in_tenths_of_sec": 380,
+                "avg_dwell_time_in_tenths_of_sec": 16,
+                "avg_attention_time_in_tenths_of_sec": 6,
             },
             {
                 "content_duration":165,
@@ -665,8 +671,10 @@ Example
                 "impressions_per_play":0.24,
                 "watchers":4,
                 "watchers_2sec":1,
-                "dwell_time_in_tenths_of_sec": 6,
-                "attention_time_in_tenths_of_sec": 3,
+                "dwell_time_in_tenths_of_sec": 60,
+                "attention_time_in_tenths_of_sec": 30,
+                "avg_dwell_time_in_tenths_of_sec": 15,
+                "avg_attention_time_in_tenths_of_sec": 8,
             },
         ],
         "creation_date":"2018-01-29 10:06:09"
@@ -693,6 +701,8 @@ And the following metrics, which apply to the current aggregate:
 * ``watchers_2sec``: number of watchers with an attention time > 2 seconds.
 * ``dwell_time_in_tenths_of_sec``: cumulated dwell time, in **tenths of seconds**.
 * ``attention_time_in_tenths_of_sec``: cumulated attention time, in **tenths of seconds**.
+* ``avg_dwell_time_in_tenths_of_sec``: average dwell time per watcher, in **tenths of seconds**.
+* ``avg_attention_time_in_tenths_of_sec``: average attention time per watcher, in **tenths of seconds**.
 
 Example
 """""""
@@ -714,8 +724,10 @@ Example
                 "site_id":178,
                 "watchers":7,
                 "watchers_2sec":5,
-                "dwell_time_in_tenths_of_sec": 9,
-                "attention_time_in_tenths_of_sec": 5,
+                "dwell_time_in_tenths_of_sec": 90,
+                "attention_time_in_tenths_of_sec": 50,
+                "avg_dwell_time_in_tenths_of_sec": 13,
+                "avg_attention_time_in_tenths_of_sec": 7,
             },
             {
                 "content_duration":110,
@@ -728,8 +740,10 @@ Example
                 "site_id":178,
                 "watchers":14,
                 "watchers_2sec":14,
-                "dwell_time_in_tenths_of_sec": 36,
-                "attention_time_in_tenths_of_sec": 19,
+                "dwell_time_in_tenths_of_sec": 360,
+                "attention_time_in_tenths_of_sec": 190,
+                "avg_dwell_time_in_tenths_of_sec": 26,
+                "avg_attention_time_in_tenths_of_sec": 14,
             },
             {
                 "content_duration":20,
@@ -742,8 +756,10 @@ Example
                 "site_id":178,
                 "watchers":42,
                 "watchers_2sec":12,
-                "dwell_time_in_tenths_of_sec": 95,
-                "attention_time_in_tenths_of_sec": 42,
+                "dwell_time_in_tenths_of_sec": 950,
+                "attention_time_in_tenths_of_sec": 420,
+                "avg_dwell_time_in_tenths_of_sec": 23,
+                "avg_attention_time_in_tenths_of_sec": 10,
             },
         ],
         "creation_date":"2018-01-29 10:08:12"
