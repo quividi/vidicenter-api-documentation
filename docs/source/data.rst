@@ -1201,6 +1201,13 @@ And the following metrics, which apply to the current aggregate:
 * ``backup_value``: if this contains "yes" it means a backup im value was calculated based on equivalent data of the previous week.
 * ``analysis_window``: time window during which the analysis took place, in **tenths of seconds**.
 
+Note
+""""
+
+The hourly Impression Multipliers are here calculated following the recommendations of the Interactive Advertising Bureau, ie by following this formula:
+
+Impressions x average dwell time / analysis window.
+
 Example
 """""""
 
