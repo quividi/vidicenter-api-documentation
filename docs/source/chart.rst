@@ -118,3 +118,4 @@ image examples
 .. image:: images/chart_03.png
 .. image:: images/chart_04.png
 .. image:: images/chart_05.png
+.. image:: images/chart_08.png
