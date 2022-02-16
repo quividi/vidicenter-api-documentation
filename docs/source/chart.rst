@@ -23,6 +23,9 @@ Mandatory arguments
     * ``3``: breakdown of watchers per demographics.
     * ``4``: impressions and watchers per day.
     * ``5``: average attention time and presence time per day.
+    * ``6``: top 10 locations for impressions & watchers.
+    * ``7``: top 10 locations for average attention time and presence time.
+    * ``8``: APC table, watchers per content.
 
 * ``chart_period``: period of the chart you want to generate. Allowed values:
 
@@ -118,4 +121,6 @@ image examples
 .. image:: images/chart_03.png
 .. image:: images/chart_04.png
 .. image:: images/chart_05.png
+.. image:: images/chart_06.png
+.. image:: images/chart_07.png
 .. image:: images/chart_08.png
