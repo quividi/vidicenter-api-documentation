@@ -22,6 +22,7 @@ Mandatory arguments
     * ``footfall``: Footfall.
     * ``gate``: Gate data.
     * ``im``: Impression multiplier (only available with time_resolution=1h).
+    * ``im_ccs``: Impression multiplier - CCS variant
     * ``ots``: OTS data.
     * ``proof_of_play_by_location``: Proof of play data grouped by location. This requires APC data.
     * ``proof_of_play_by_site``: Proof of play data grouped by site.  This requires APC data.
@@ -1250,6 +1251,15 @@ Example
         ],
         "creation_date":"2018-01-29 10:06:09"
     }
+
+Impression multiplier export - CCS variant
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Note
+""""
+
+The syntax to request this export and the returned fields are identical to the standard IM export.
+The hourly Impression Multipliers are however calculated according to a specific method for CCS.
 
 Placeholder data and null values
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
