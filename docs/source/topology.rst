@@ -213,7 +213,11 @@ Notable data keys
 -----------------
 
 * ``last_timezone``: timezone of the latest upload to this location. It is an integer representing the offset in minutes to the UTC timezone, more info can be found `here <https://en.wikipedia.org/wiki/UTC%C2%B100:00>`_.
-* ``second_id`` / ``third_id``: optional extra ids to allow identifying links to external systems
+* ``id_pointer``: optional pointer id to a different location
+* ``id_broadsign``: optional extra ids to allow identifying link to BroadSign
+* ``id_hivestack``: optional extra ids to allow identifying link to Hivestack
+* ``id_vistar``: optional extra ids to allow identifying link to Vistar
+* ``id_pladway``: optional extra ids to allow identifying link to Pladway
 
 Example
 -------
@@ -228,8 +232,8 @@ Example
             "box_id":193538,
             "site_id":8654,
             "id":204452,
-            "second_id":"",
-            "third_id":"",
+            "id_broadsign":"",
+            "id_pointer":"",
             "creation_date":"2014-09-11T09:18:32",
             "label":"location-204452",
             "active":true
@@ -240,8 +244,8 @@ Example
             "box_id":192366,
             "site_id":54422,
             "id":27046,
-            "second_id":"",
-            "third_id":"",
+            "id_broadsign":"",
+            "id_pointer":"",
             "creation_date":"2012-07-09T07:05:19",
             "label":"Entrance",
             "active":true
@@ -252,8 +256,8 @@ Example
             "box_id":219354,
             "site_id":66531,
             "id":320453,
-            "second_id":"",
-            "third_id":"",
+            "id_broadsign":"",
+            "id_pointer":"",
             "creation_date":"2014-01-04T19:55:41",
             "label":"Exit screen",
             "active":true
@@ -284,8 +288,8 @@ Example
             "box_id":193538,
             "site_id":8654,
             "id":204452,
-            "second_id":"",
-            "third_id":"",
+            "id_broadsign":"",
+            "id_pointer":"",
             "creation_date":"2014-09-11T09:18:32",
             "label":"location-204452",
             "active":true
@@ -296,8 +300,8 @@ Example
             "box_id":192366,
             "site_id":54422,
             "id":27046,
-            "second_id":"",
-            "third_id":"",
+            "id_broadsign":"",
+            "id_pointer":"",
             "creation_date":"2012-07-09T07:05:19",
             "label":"Entrance",
             "active":true
@@ -328,8 +332,8 @@ Example
             "box_id":193538,
             "site_id":8654,
             "id":204452,
-            "second_id":"",
-            "third_id":"",
+            "id_broadsign":"",
+            "id_pointer":"",
             "creation_date":"2014-09-11T09:18:32",
             "label":"location-204452",
             "active":true
@@ -360,8 +364,8 @@ Example
             "box_id":114242,
             "site_id":54892,
             "id":1330,
-            "second_id":"",
-            "third_id":"",
+            "id_broadsign":"",
+            "id_pointer":"",
             "creation_date":"2014-09-11T09:18:32",
             "label":"A location's name",
             "active":true
@@ -372,8 +376,8 @@ Example
             "box_id":114246,
             "site_id":54892,
             "id":1334,
-            "second_id":"",
-            "third_id":"",
+            "id_broadsign":"",
+            "id_pointer":"",
             "creation_date":"2012-07-09T07:05:19",
             "label":"Another location",
             "active":true
@@ -404,8 +408,8 @@ Example
             "box_id":114242,
             "site_id":54892,
             "id":1330,
-            "second_id":"",
-            "third_id":"",
+            "id_broadsign":"",
+            "id_pointer":"",
             "creation_date":"2014-09-11T09:18:32",
             "label":"A location's name",
             "active":true
@@ -416,8 +420,8 @@ Example
             "box_id":114246,
             "site_id":54892,
             "id":1334,
-            "second_id":"",
-            "third_id":"",
+            "id_broadsign":"",
+            "id_pointer":"",
             "creation_date":"2012-07-09T07:05:19",
             "label":"Another location",
             "active":true
