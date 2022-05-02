@@ -40,6 +40,11 @@ Mandatory arguments
 
 * ``network_id``: ID of the network for which the chart should be generated.
 
+*OR*
+
+* ``vendor_id``: ID of the vendor for which the chart should be generated.
+* ``vendor_network_id``: ID of the vendor network for which the chart should be generated.
+
 
 Response's form
 ---------------
