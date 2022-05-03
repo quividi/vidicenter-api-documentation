@@ -28,6 +28,7 @@ Contents:
    data
    clip_metadata
    chart
+   oem
 
 
 .. Indices and tables
