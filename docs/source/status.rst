@@ -59,6 +59,7 @@ Optional arguments
 ------------------
 
 * ``active``: if specified as True, only the currently active alerts will be returned.
+* ``hours``: an integer value between 1 and 24, returns only alerts from the last X hours (still limited to 1000 maximum)
 
 Example
 -------
@@ -160,6 +161,7 @@ Optional arguments
 ------------------
 
 * ``active``: if specified as True, only the currently active alerts will be returned.
+* ``hours``: an integer value between 1 and 24, returns only alerts from the last X hours (still limited to 1000 maximum)
 
 
 Site's alerts list
@@ -176,6 +178,7 @@ Optional arguments
 ------------------
 
 * ``active``: if specified as True, only the currently active alerts will be returned.
+* ``hours``: an integer value between 1 and 24, returns only alerts from the last X hours (still limited to 1000 maximum)
 
 
 Site tag's alerts list
@@ -192,6 +195,7 @@ Optional arguments
 ------------------
 
 * ``active``: if specified as True, only the currently active alerts will be returned.
+* ``hours``: an integer value between 1 and 24, returns only alerts from the last X hours (still limited to 1000 maximum)
 
 
 Location's alerts list
@@ -208,6 +212,7 @@ Optional arguments
 ------------------
 
 * ``active``: If specified as True, only the currently active alerts will be returned.
+* ``hours``: an integer value between 1 and 24, returns only alerts from the last X hours (still limited to 1000 maximum)
 
 
 Location tag's alerts list
@@ -224,6 +229,7 @@ Optional arguments
 ------------------
 
 * ``active``: if specified as True, only the currently active alerts will be returned.
+* ``hours``: an integer value between 1 and 24, returns only alerts from the last X hours (still limited to 1000 maximum)
 
 
 Box's alerts list
@@ -240,6 +246,7 @@ Optional arguments
 ------------------
 
 * ``active``: if specified as True, only the currently active alerts will be returned.
+* ``hours``: an integer value between 1 and 24, returns only alerts from the last X hours (still limited to 1000 maximum)
 
 
 Monitoring messages list
@@ -251,6 +258,11 @@ URL
 ---
 
 ``https://vidicenter.quividi.com/api/v1/monitoring_msgs/``
+
+Optional arguments
+------------------
+
+* ``hours``: an integer value between 1 and 24, returns only monitoring messages from the last X hours (still limited to 1000 maximum)
 
 Example
 -------
@@ -296,6 +308,11 @@ URL
 
 ``https://vidicenter.quividi.com/api/v1/network/{network_id}/monitoring_msgs/``
 
+Optional arguments
+------------------
+
+* ``hours``: an integer value between 1 and 24, returns only monitoring messages from the last X hours (still limited to 1000 maximum)
+
 
 Site's monitoring messages list
 ###############################
@@ -306,6 +323,11 @@ URL
 ---
 
 ``https://vidicenter.quividi.com/api/v1/site/{site_id}/monitoring_msgs/``
+
+Optional arguments
+------------------
+
+* ``hours``: an integer value between 1 and 24, returns only monitoring messages from the last X hours (still limited to 1000 maximum)
 
 
 Site tag's monitoring messages list
@@ -318,6 +340,11 @@ URL
 
 ``https://vidicenter.quividi.com/api/v1/site_tag/{tag}/monitoring_msgs/``
 
+Optional arguments
+------------------
+
+* ``hours``: an integer value between 1 and 24, returns only monitoring messages from the last X hours (still limited to 1000 maximum)
+
 
 Location's monitoring messages list
 ###################################
@@ -328,6 +355,11 @@ URL
 ---
 
 ``https://vidicenter.quividi.com/api/v1/location/{location_id}/monitoring_msgs/``
+
+Optional arguments
+------------------
+
+* ``hours``: an integer value between 1 and 24, returns only monitoring messages from the last X hours (still limited to 1000 maximum)
 
 
 Location tag's monitoring messages list
@@ -340,6 +372,11 @@ URL
 
 ``https://vidicenter.quividi.com/api/v1/location_tag/{tag}/monitoring_msgs/``
 
+Optional arguments
+------------------
+
+* ``hours``: an integer value between 1 and 24, returns only monitoring messages from the last X hours (still limited to 1000 maximum)
+
 
 Box's monitoring messages list
 ##############################
@@ -350,6 +387,11 @@ URL
 ---
 
 ``https://vidicenter.quividi.com/api/v1/box/{box_id}/monitoring_msgs/``
+
+Optional arguments
+------------------
+
+* ``hours``: an integer value between 1 and 24, returns only monitoring messages from the last X hours (still limited to 1000 maximum)
 
 
 Continue to :ref:`tags`
