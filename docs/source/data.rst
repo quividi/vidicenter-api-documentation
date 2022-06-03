@@ -771,7 +771,7 @@ Example
 
 
 Proof of play by location export for Vehicles & Footfall data
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Expected keys
 """""""""""""
@@ -849,7 +849,7 @@ Example
 
 
 Proof of play by site export for Vehicles & Footfall data
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Expected keys
