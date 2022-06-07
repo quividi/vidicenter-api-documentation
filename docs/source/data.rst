@@ -24,8 +24,10 @@ Mandatory arguments
     * ``im``: Impression multiplier (only available with time_resolution=1h).
     * ``im_ccs``: Impression multiplier - CCS variant
     * ``ots``: OTS data.
-    * ``proof_of_play_by_location``: Proof of play data grouped by location. This requires APC data.
-    * ``proof_of_play_by_site``: Proof of play data grouped by site.  This requires APC data.
+    * ``proof_of_play_by_location``: Proof of play data (Watchers) grouped by location. This requires APC data.
+    * ``proof_of_play_by_site``: Proof of play data (Watchers) grouped by site.  This requires APC data.
+    * ``proof_of_play_vehicle_person_by_location``: Proof of play data (Vehicles + Footfall) grouped by location. This requires APC data.
+    * ``proof_of_play_vehicle_person_by_site``: Proof of play data (Vehicles + Footfall) grouped by site.  This requires APC data.
     * ``vehicles_footfall``: Vehicles + Footfall.
     * ``vehicles``: Vehicles.
     * ``viewers_apc``: Viewers with content data. Will only contain viewers who have content data.
@@ -767,6 +769,164 @@ Example
         "creation_date":"2018-01-29 10:08:12"
     }
 
+
+Proof of play by location export for Vehicles & Footfall data
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Expected keys
+"""""""""""""
+* ``location_id``: unique numeric identifier of the data source.
+* ``period_start``: starting time for data aggregation.
+* ``content_id``: identifier of the content played.
+
+And the following metrics, which apply to the current aggregate:
+
+* ``content_duration``: cumulated play duration of the content, in seconds.
+* ``duration``: total observation time, in seconds.
+* ``play_count``: how many times the content was played.
+* ``vehicle_count``: number of vehicles.
+* ``vehicle_impressions``: number of vehicles impressions.
+* ``vehicle_presence_time``: cumulated presence time for vehicles, in **tenths of seconds**.
+* ``avg_vehicle_presence_time``: average presence time for vehicles, in **tenths of seconds**.
+* ``footfall_impressions``: number of footfall impressions.
+* ``footfall_presence_time``: cumulated presence time for footfall, in **tenths of seconds**.
+* ``avg_footfall_presence_time``: average presence time for footfall, in **tenths of seconds**.
+* ``total_impressions``: sum of footfall and vehicle impressions.
+* ``total_impressions_per_play``: number of impressions divided by number of plays.
+* ``total_presence_time``: total presence time : impressions per vehicle * vehicle_presence_time + footfall_presence_time
+* ``avg_presence_time``: average presence time for footfall and vehicles
+
+Example
+"""""""
+
+ ::
+
+    curl -u USERNAME:AUTH_TOKEN 'https://vidicenter.quividi.com/api/v1/data/?locations=123,124&start=2022-01-01T12:00:00&end=2022-01-01T12:59:59&data_type=proof_of_play_vehicle_person_by_location&time_resolution=1h'
+   {
+        "state":"finished",
+        "data":[
+            {
+                "vehicle_impressions": 153,
+                "period_start": "2022-01-01 12:00:00",
+                "location_id": "123",
+                "content_id": "content one",
+                "vehicle_count": 83,
+                "vehicle_presence_time": 3290,
+                "avg_vehicle_presence_time": 36,
+                "footfall_impressions": 7.0,
+                "footfall_presence_time": 254,
+                "avg_footfall_presence_time": 36,
+                "duration": 3600,
+                "content_duration": 616.45,
+                "play_count": 77,
+                "total_impressions": 160.0,
+                "total_impressions_per_play": 2.08,
+                "total_presence_time": 6321,
+                "avg_presence_time": 39,
+            },
+            {
+                "vehicle_impressions": 155,
+                "period_start": "2022-01-01 12:00:00",
+                "location_id": "124",
+                "content_id": "content two",
+                "vehicle_count": 84,
+                "vehicle_presence_time": 3432,
+                "avg_vehicle_presence_time": 35,
+                "footfall_impressions": 6.0,
+                "footfall_presence_time": 179,
+                "avg_footfall_presence_time": 29,
+                "duration": 3600,
+                "content_duration": 623.67,
+                "play_count": 78,
+                "total_impressions": 161.0,
+                "total_impressions_per_play": 2.06,
+                "total_presence_time": 6514,
+                "avg_presence_time": 40,
+            }
+        ],
+        "creation_date":"2022-05-29 10:00:00"
+    }
+
+
+Proof of play by site export for Vehicles & Footfall data
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+Expected keys
+"""""""""""""
+* ``site_id``: unique numeric identifier of the data source.
+* ``period_start``: starting time for data aggregation.
+* ``content_id``: identifier of the content played.
+
+And the following metrics, which apply to the current aggregate:
+
+* ``content_duration``: cumulated play duration of the content, in seconds.
+* ``duration``: total observation time, in seconds.
+* ``play_count``: how many times the content was played.
+* ``vehicle_count``: number of vehicles.
+* ``vehicle_impressions``: number of vehicles impressions.
+* ``vehicle_presence_time``: cumulated presence time for vehicles, in **tenths of seconds**.
+* ``avg_vehicle_presence_time``: average presence time for vehicles, in **tenths of seconds**.
+* ``footfall_impressions``: number of footfall impressions.
+* ``footfall_presence_time``: cumulated presence time for footfall, in **tenths of seconds**.
+* ``avg_footfall_presence_time``: average presence time for footfall, in **tenths of seconds**.
+* ``total_impressions``: sum of footfall and vehicle impressions.
+* ``total_impressions_per_play``: number of impressions divided by number of plays.
+* ``total_presence_time``: total presence time : impressions per vehicle * vehicle_presence_time + footfall_presence_time
+* ``avg_presence_time``: average presence time for footfall and vehicles
+
+Example
+"""""""
+
+ ::
+
+    curl -u USERNAME:AUTH_TOKEN 'https://vidicenter.quividi.com/api/v1/data/?sites=1234,1235&start=2022-01-01T12:00:00&end=2022-01-01T12:59:59&data_type=proof_of_play_vehicle_person_by_site&time_resolution=1h'
+   {
+        "state":"finished",
+        "data":[
+            {
+                "vehicle_impressions": 153,
+                "period_start": "2022-01-01 12:00:00",
+                "site_id": "1234",
+                "content_id": "content one",
+                "vehicle_count": 83,
+                "vehicle_presence_time": 3290,
+                "avg_vehicle_presence_time": 36,
+                "footfall_impressions": 7.0,
+                "footfall_presence_time": 254,
+                "avg_footfall_presence_time": 36,
+                "duration": 3600,
+                "content_duration": 616.45,
+                "play_count": 77,
+                "total_impressions": 160.0,
+                "total_impressions_per_play": 2.08,
+                "total_presence_time": 6321,
+                "avg_presence_time": 39,
+            },
+            {
+                "vehicle_impressions": 155,
+                "period_start": "2022-01-01 12:00:00",
+                "site_id": "1234",
+                "content_id": "content two",
+                "vehicle_count": 84,
+                "vehicle_presence_time": 3432,
+                "avg_vehicle_presence_time": 35,
+                "footfall_impressions": 6.0,
+                "footfall_presence_time": 179,
+                "avg_footfall_presence_time": 29,
+                "duration": 3600,
+                "content_duration": 623.67,
+                "play_count": 78,
+                "total_impressions": 161.0,
+                "total_impressions_per_play": 2.06,
+                "total_presence_time": 6514,
+                "avg_presence_time": 40,
+            }
+        ],
+        "creation_date":"2022-05-29 10:00:00"
+    }
+
+
 Extrapolated watchers export
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -1137,6 +1297,9 @@ And the following metrics, which apply to the current aggregate:
 * ``impressions_per_vehicle``: average number of impressions per vehicle.
 * ``footfall_impressions``: number of footfall impressions.
 * ``footfall_presence_time``: cumulated footfall presence time, in **tenths of seconds**.
+* ``total_impressions``: sum of footfall and vehicle impressions.
+* ``total_presence_time``: total presence time : impressions per vehicle * vehicle_presence_time + footfall_presence_time
+* ``avg_presence_time``: average presence time for footfall and vehicles
 
 Example
 """""""
@@ -1155,7 +1318,11 @@ Example
                 "vehicle_count": 84,
                 "vehicle_presence_time": 23569,
                 "footfall_impressions": 2,
-                "footfall_presence_time": 133
+                "footfall_presence_time": 133,
+                "total_presence_time": 43735,
+                "total_impressions": 239,
+                "avg_presence_time": 182,
+
             },
             {
                 "location_id": 4636,
@@ -1165,7 +1332,10 @@ Example
                 "vehicle_count": 101,
                 "vehicle_presence_time": 7634,
                 "footfall_impressions": 1,
-                "footfall_presence_time": 91
+                "footfall_presence_time": 91,
+                "total_presence_time": 14214,
+                "total_impressions": 188,
+                "avg_presence_time": 76,
             },
             {
                 "location_id": 4636,
@@ -1176,6 +1346,9 @@ Example
                 "vehicle_presence_time": 0,
                 "footfall_impressions": 0,
                 "footfall_presence_time": 0
+                "total_presence_time": 0,
+                "total_impressions": 0,
+                "avg_presence_time": 0,
             }
         ],
         "creation_date": "2021-12-07 17:06:28",
@@ -1224,7 +1397,7 @@ Example
               "vehicle_impressions": 50,
               "impressions_per_vehicle": 1.85,
               "footfall_impressions": 76,
-              "footfall_total_dwell_time": 23482,
+              "footfall_presence_time": 23482,
               "im": 0.79,
               "im_footfall": 0.65,
               "im_vehicle": 0.14,
@@ -1232,14 +1405,14 @@ Example
               "backup_value": "",
               "period_start": "2021-11-14 21:00:00",
               "vehicle_count": 27,
-              "vehicle_total_presence_time": 2696
+              "vehicle_presence_time": 2696
             },
             {
               "location_id": 60628,
               "vehicle_impressions": 70,
               "impressions_per_vehicle": 1.94,
               "footfall_impressions": 49,
-              "footfall_total_dwell_time": 6662,
+              "footfall_presence_time": 6662,
               "im": 0.4,
               "im_footfall": 0.19,
               "im_vehicle": 0.21,
@@ -1247,7 +1420,7 @@ Example
               "backup_value": "yes",
               "period_start": "2021-11-14 22:00:00",
               "vehicle_count": 36,
-              "vehicle_total_presence_time": 3989
+              "vehicle_presence_time": 3989
             },
         ],
         "creation_date":"2018-01-29 10:06:09"

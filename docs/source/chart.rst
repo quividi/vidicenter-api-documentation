@@ -45,6 +45,9 @@ Mandatory arguments
 * ``vendor_id``: ID of the vendor for which the chart should be generated.
 * ``vendor_network_id``: ID of the vendor network for which the chart should be generated.
 
+Note about APC chart
+--------------------
+APC charts will not have any data if the CMS API is not implemented on the edge. Please visit the `CMS API section <https://vidicenter.quividi.com/vrmanual/prepostbid.html>`_ in the VidiReports manual for more information
 
 Response's form
 ---------------
