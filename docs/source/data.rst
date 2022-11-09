@@ -26,6 +26,8 @@ Mandatory arguments
     * ``ots``: OTS data.
     * ``proof_of_play_by_location``: Proof of play data (Watchers) grouped by location. This requires APC data.
     * ``proof_of_play_by_site``: Proof of play data (Watchers) grouped by site.  This requires APC data.
+    * ``proof_of_play_by_location_footfall_faces``: Proof of play data (Footfall + Faces) grouped by location. This requires APC data.
+    * ``proof_of_play_by_site_footfall_faces``: Proof of play data (Footfall + Faces) grouped by site.  This requires APC data.
     * ``proof_of_play_vehicle_person_by_location``: Proof of play data (Vehicles + Footfall) grouped by location. This requires APC data.
     * ``proof_of_play_vehicle_person_by_site``: Proof of play data (Vehicles + Footfall) grouped by site.  This requires APC data.
     * ``vehicles_footfall``: Vehicles + Footfall.
@@ -822,6 +824,22 @@ Example
         ],
         "creation_date":"2018-01-29 10:08:12"
     }
+
+
+Proof of play by location (footfall + faces) export
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This export is fully identical to the legacy proof of play by location export, except this one field:
+
+* ``impressions``: amount of impressions based on footfall and vehicle tracker
+
+
+Proof of play by site (footfall + faces) export
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This export is fully identical to the legacy proof of play by site export, except this one field:
+
+* ``impressions``: amount of impressions based on footfall and vehicle tracker
 
 
 Proof of play by location export for Vehicles & Footfall data
