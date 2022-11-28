@@ -39,12 +39,12 @@ Mandatory arguments
 * ``clip_id``: The clip id linked to the metadata you are trying to create.
 * ``network``: The network's id in which the clip is used.
 * ``name``: The name of the clip, will be used in VidiCenter. Max length is 64 characters.
-* ``clip_duration``: The duration of the clip, in seconds, between 0 and 999 with up to 2 decimal places.
-* ``advertiser_name``: The advertiser name for the clip. Max length is 255 characters.
 
 Optional arguments
 ******************
 
+* ``clip_duration``: The duration of the clip, in seconds, between 0 and 999 with up to 2 decimal places.
+* ``advertiser_name``: The advertiser name for the clip. Max length is 255 characters.
 * ``description``: Description of the clip. No length limit.
 * ``screenshot``: An image for the clip.
 * ``video``: A video file for the clip.
