@@ -21,13 +21,15 @@ Mandatory arguments
     * ``extrapolated_watchers``: Extrapolated Watchers.
     * ``footfall``: Footfall.
     * ``gate``: Gate data.
-    * ``im``: Impression multiplier (only available with time_resolution=1h).
     * ``im_ccs``: Impression multiplier - CCS variant
+    * ``im``: Impression multiplier (only available with time_resolution=1h).
     * ``ots``: OTS data.
-    * ``proof_of_play_by_location``: Proof of play data (Watchers) grouped by location. This requires APC data.
-    * ``proof_of_play_by_site``: Proof of play data (Watchers) grouped by site.  This requires APC data.
+    * ``pmp_sales_by_demographics``: Product sales by demographics.
+    * ``pmp_sales_funnel``: Sales funnel.
     * ``proof_of_play_by_location_footfall_faces``: Proof of play data (Footfall + Faces) grouped by location. This requires APC data.
+    * ``proof_of_play_by_location``: Proof of play data (Watchers) grouped by location. This requires APC data.
     * ``proof_of_play_by_site_footfall_faces``: Proof of play data (Footfall + Faces) grouped by site.  This requires APC data.
+    * ``proof_of_play_by_site``: Proof of play data (Watchers) grouped by site.  This requires APC data.
     * ``proof_of_play_vehicle_person_by_location``: Proof of play data (Vehicles + Footfall) grouped by location. This requires APC data.
     * ``proof_of_play_vehicle_person_by_site``: Proof of play data (Vehicles + Footfall) grouped by site.  This requires APC data.
     * ``vehicles_footfall``: Vehicles + Footfall.
@@ -1506,6 +1508,188 @@ Note
 
 The syntax to request this export and the returned fields are identical to the standard IM export.
 The hourly Impression Multipliers are however calculated according to a specific method for CCS.
+
+
+Product sales by demographics export
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Expected keys
+"""""""""""""
+* ``location_id``: unique numeric identifier of the data source.
+* ``period_start``: starting time for data aggregation.
+* ``estimated_sales``: total estimated sales.
+* ``product``: name of the product.
+* ``product_touches``: number of times the product was touched.
+* ``put_back``: number of times the product was put back.
+* ``adult_female``: estimated sales for adult female, only available on aggregated export.
+* ``adult_male``: estimated sales for adult male, only available on aggregated export.
+* ``child_female``: estimated sales for child female, only available on aggregated export.
+* ``child_male``: estimated sales for child female, only available on aggregated export.
+* ``senior_female``: estimated sales for senior female, only available on aggregated export.
+* ``senior_male``: estimated sales for senior male, only available on aggregated export.
+* ``young_adult_female``: estimated sales for young adult female, only available on aggregated export.
+* ``young_adult_male``: estimated sales for young adult male, only available on aggregated export.
+* ``masked``: estimated sales for masked or unknown demographics, only available on aggregated export.
+* ``age_absolute``: age in years, only available on finest export.
+* ``gender``: numeric identifier for gender, only available on finest export. Possible values:
+
+    * ``0``: unknown
+    * ``1``: male
+    * ``2``: female
+
+* ``age_bracket``: numeric identifier for age group, only available on finest export. Possible values:
+
+    * ``0``: unknown
+    * ``1``: child
+    * ``2``: young adult
+    * ``3``: adult
+    * ``4``: senior
+
+
+Example
+"""""""
+
+ ::
+
+    curl -u USERNAME:AUTH_TOKEN 'https://vidicenter.quividi.com/api/v1/data/?locations=92304&start=2023-02-22T09:00:00&end=2023-02-23T18:00:00&data_type=pmp_sales_by_demographics&time_resolution=1h'
+    {
+    "creation_date": "2023-03-21 10:48:52",
+    "data": [
+        {
+            "adult_female": 6,
+            "adult_male": 8,
+            "child_female": 0,
+            "child_male": 0,
+            "estimated_sales": 28,
+            "location_id": 92304,
+            "masked": 3,
+            "period_start": "2023-02-22T10:00:00",
+            "product": "Colour",
+            "product_touches": 65,
+            "put_back": 37,
+            "senior_female": 0,
+            "senior_male": 0,
+            "young_adult_female": 0,
+            "young_adult_male": 11
+        },
+        {
+            "adult_female": 3,
+            "adult_male": 9,
+            "child_female": 0,
+            "child_male": 0,
+            "estimated_sales": 29,
+            "location_id": 92304,
+            "masked": 4,
+            "period_start": "2023-02-22T10:00:00",
+            "product": "Repair",
+            "product_touches": 66,
+            "put_back": 37,
+            "senior_female": 0,
+            "senior_male": 0,
+            "young_adult_female": 0,
+            "young_adult_male": 13
+        },
+        {
+            "adult_female": 0,
+            "adult_male": 0,
+            "child_female": 0,
+            "child_male": 0,
+            "estimated_sales": 0,
+            "location_id": 92304,
+            "masked": 0,
+            "period_start": "2023-02-23T18:00:00",
+            "product": "Thicken",
+            "product_touches": 0,
+            "put_back": 0,
+            "senior_female": 0,
+            "senior_male": 0,
+            "young_adult_female": 0,
+            "young_adult_male": 0
+        }
+    ],
+    "state": "finished"
+}
+
+
+Product sales funnel export
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Expected keys
+"""""""""""""
+* ``location_id``: unique numeric identifier of the data source.
+* ``period_start``: starting time for data aggregation.
+* ``dwell_time_in_tenths_of_sec``: dwell time in **tenths of seconds**.
+* ``attention_time_in_tenths_of_sec``: attention time in **tenths of seconds**.
+* ``estimated_sales``: number of estimated sales.
+* ``product_touches``: number of product touches.
+* ``put_back``: number of times a product was put back.
+* ``watcher_count``: number of watchers, only available in aggregated export.
+* ``product``: name of the product, only available in finest export.
+* ``poi_by_passers``: number of POI by passers.
+* ``gender``: numeric identifier for gender. Possible values:
+
+    * ``0``: unknown
+    * ``1``: male
+    * ``2``: female
+
+* ``age``: numeric identifier for age group. Possible values:
+
+    * ``0``: unknown
+    * ``1``: child
+    * ``2``: young adult
+    * ``3``: adult
+    * ``4``: senior
+
+
+Example
+"""""""
+
+ ::
+
+    curl -u USERNAME:AUTH_TOKEN 'https://vidicenter.quividi.com/api/v1/data/?locations=92304&start=2023-02-22T09:00:00&end=2023-02-23T18:00:00&data_type=pmp_sales_funnel&time_resolution=1h'
+    {
+    "creation_date": "2023-03-21 10:48:52",
+    "data": [
+        {
+            "age": 3,
+            "attention_time_in_tenths_of_sec": 2902,
+            "dwell_time_in_tenths_of_sec": 4690,
+            "estimated_sales": 22,
+            "gender": 1,
+            "location_id": 92304,
+            "period_start": "2023-02-22T10:00:00",
+            "product_touches": 25,
+            "put_back": 3,
+            "watcher_count": 7
+        },
+        {
+            "age": 3,
+            "attention_time_in_tenths_of_sec": 1560,
+            "dwell_time_in_tenths_of_sec": 2271,
+            "estimated_sales": 12,
+            "gender": 2,
+            "location_id": 92304,
+            "period_start": "2023-02-22T10:00:00",
+            "product_touches": 12,
+            "put_back": 0,
+            "watcher_count": 6
+        },
+        {
+            "age": 2,
+            "attention_time_in_tenths_of_sec": 4407,
+            "dwell_time_in_tenths_of_sec": 7134,
+            "estimated_sales": 40,
+            "gender": 1,
+            "location_id": 92304,
+            "period_start": "2023-02-22T10:00:00",
+            "product_touches": 55,
+            "put_back": 15,
+            "watcher_count": 11
+        }
+    ],
+    "state": "finished"
+}
+
 
 Placeholder data and null values
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
