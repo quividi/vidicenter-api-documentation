@@ -213,6 +213,9 @@ Notable data keys
 -----------------
 
 * ``last_timezone``: timezone of the latest upload to this location. It is an integer representing the offset in minutes to the UTC timezone, more info can be found `here <https://en.wikipedia.org/wiki/UTC%C2%B100:00>`_.
+* ``last_seen``: last timestamp when the location was in contact with vidicenter.
+* ``last_upload_timestamp``: last timestamp when the location uploaded data to vidicenter.
+* ``last_ots_uploaded``: last timestamp when the location uploaded OTS events to vidicenter.
 * ``id_pointer``: optional pointer id to a different location
 * ``id_broadsign``: optional extra ids to allow identifying link to BroadSign
 * ``id_hivestack``: optional extra ids to allow identifying link to Hivestack
