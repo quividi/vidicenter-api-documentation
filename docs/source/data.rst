@@ -1530,7 +1530,6 @@ Expected keys
 * ``young_adult_female``: estimated sales for young adult female, only available on aggregated export.
 * ``young_adult_male``: estimated sales for young adult male, only available on aggregated export.
 * ``masked``: estimated sales for masked or unknown demographics, only available on aggregated export.
-* ``age_absolute``: age in years, only available on finest export.
 * ``gender``: numeric identifier for gender, only available on finest export. Possible values:
 
     * ``0``: unknown
