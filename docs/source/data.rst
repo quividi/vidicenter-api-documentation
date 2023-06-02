@@ -1206,6 +1206,8 @@ And the following metrics, which apply to the current vehicle event:
     * ``2``: bus
     * ``3``: truck and SUV
     * ``4``: van
+    * ``5``: bike
+
 * ``color``: vehicle color. Possible values:
     * ``0``: unknown
     * ``1``: white
