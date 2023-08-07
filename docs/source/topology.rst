@@ -456,7 +456,8 @@ Example
             "site_id":8654,
             "id":193538,
             "label":"box-193538 (C001680) (box-193538)",
-            "active":true
+            "active":true,
+            "box_mac":123456
         },
         {
             "last_upload_timestamp":"2015-10-27T11:19:32",
@@ -464,7 +465,8 @@ Example
             "site_id":54422,
             "id":192366,
             "label":"box-192366 (C001246) (box-192366)",
-            "active":true
+            "active":true,
+            "box_mac":123457
         },
         {
             "last_upload_timestamp":"2015-10-27T11:26:47",
@@ -472,7 +474,8 @@ Example
             "site_id":66531,
             "id":219354,
             "label":"My third box",
-            "active":false
+            "active":false,
+            "box_mac":123458
         },
     ]
 
@@ -501,7 +504,8 @@ Example
             "site_id":8654,
             "id":193538,
             "label":"box-193538 (C001680) (box-193538)",
-            "active":true
+            "active":true,
+            "box_mac":123456
         },
         {
             "last_upload_timestamp":"2015-10-27T11:19:32",
@@ -509,7 +513,8 @@ Example
             "site_id":54422,
             "id":192366,
             "label":"box-192366 (C001246) (box-192366)",
-            "active":true
+            "active":true,
+            "box_mac":123456
         }
     ]
 
@@ -538,7 +543,8 @@ Example
             "site_id":54422,
             "id":192366,
             "label":"box-192366 (C001246) (box-192366)",
-            "active":true
+            "active":true,
+            "box_mac":123456
         }
     ]
 
@@ -566,7 +572,8 @@ Example
             "site_id":54892,
             "id":114242,
             "label":"A first box",
-            "active":true
+            "active":true,
+            "box_mac":123456
         },
         {
             "last_upload_timestamp":"2015-10-29T12:13:02",
@@ -574,7 +581,8 @@ Example
             "site_id":54892,
             "id":114246,
             "label":"Another box",
-            "active":true
+            "active":true,
+            "box_mac":123456
         }
     ]
 
@@ -602,7 +610,8 @@ Example
             "site_id":54422,
             "id":192366,
             "label":"box-192366 (C001246) (box-192366)",
-            "active":true
+            "active":true,
+            "box_mac":123456
         }
     ]
 
@@ -630,7 +639,8 @@ Example
             "site_id":54892,
             "id":114242,
             "label":"A first box",
-            "active":true
+            "active":true,
+            "box_mac":123456
         },
         {
             "last_upload_timestamp":"2015-10-29T12:13:02",
@@ -638,7 +648,8 @@ Example
             "site_id":54892,
             "id":114246,
             "label":"Another box",
-            "active":true
+            "active":true,
+            "box_mac":123456
         }
     ]
 
