@@ -288,7 +288,7 @@ Finest viewers APC export
 Expected keys
 """""""""""""
 
-Viewers APC exports contain the same keys than `Finest viewers export`_, and a few more:
+Viewers APC exports contain the same keys than `Finest viewers export`_ (the exception being ``start_time`` replacing ``period_start``), and a few more:
 
 * ``contents``: contains the list of contents played while the viewer was in front of the camera. Each content has the following keys:
 
