@@ -1,3 +1,5 @@
+
+
 .. _data:
 
 
@@ -158,6 +160,16 @@ We may ask for VidiCenter to rebuild the exports, to take into accounts recent u
 Data formats
 ------------
 
+.. _data note:
+Note
+^^^^
+
+Data api endpoint which contain a ``period_start`` (*YYYY-MM-DD hh:mm*) key, are also filled with additional keys derivated from the latter:
+
+* ``period_start_date``: date of the current event (*YYYY-MM-DD*)
+* ``period_start_time``: time of the current event (*hh:mm*)
+
+
 Finest viewers export
 ^^^^^^^^^^^^^^^^^^^^^
 
@@ -165,7 +177,7 @@ Expected keys
 """""""""""""
 
 * ``location_id``: unique numeric identifier of the data source.
-* ``period_start``: starting time for the current viewer event.
+* ``period_start``: starting date and time for the current viewer event - see :ref:`data note`.
 
 And the following metrics, which apply to the current viewer event:
 
@@ -395,7 +407,7 @@ Aggregated viewers export
 Expected keys
 """""""""""""
 * ``location_id``: unique numeric identifier of the data source.
-* ``period_start``: starting time for data aggregation.
+* ``period_start``: starting date and time for data aggregation - see :ref:`data note`.
 
 And the following metrics, which apply to the current aggregate:
 
@@ -494,7 +506,7 @@ Aggregated OTS export
 Expected keys
 """""""""""""
 * ``location_id``: unique numeric identifier of the data source.
-* ``period_start``: starting time for data aggregation.
+* ``period_start``: starting date and time for data aggregation - see :ref:`data note`.
 
 And the following metrics, which apply to the current aggregate:
 
@@ -557,7 +569,7 @@ Aggregated gate export
 Expected keys
 """""""""""""
 * ``location_id``: unique numeric identifier of the data source.
-* ``period_start``: starting time for data aggregation.
+* ``period_start``: starting date and time for data aggregation - see :ref:`data note`.
 
 And the following metrics, which apply to the current aggregate:
 
@@ -610,7 +622,7 @@ Proof of play by location export
 Expected keys
 """""""""""""
 * ``location_id``: unique numeric identifier of the data source.
-* ``period_start``: starting time for data aggregation.
+* ``period_start``: starting date and time for data aggregation - see :ref:`data note`.
 * ``content_id``: identifier of the content played.
 
 And the following metrics, which apply to the current aggregate:
@@ -722,7 +734,7 @@ Proof of play by site export
 Expected keys
 """""""""""""
 * ``site_id``: unique numeric identifier of the data source.
-* ``period_start``: starting time for data aggregation.
+* ``period_start``: starting date and time for data aggregation - see :ref:`data note`.
 * ``content_id``: identifier of the content played.
 
 And the following metrics, which apply to the current aggregate:
@@ -850,7 +862,7 @@ Proof of play by location export for Vehicles & Footfall data
 Expected keys
 """""""""""""
 * ``location_id``: unique numeric identifier of the data source.
-* ``period_start``: starting time for data aggregation.
+* ``period_start``: starting date and time for data aggregation - see :ref:`data note`.
 * ``content_id``: identifier of the content played.
 
 And the following metrics, which apply to the current aggregate:
@@ -929,7 +941,7 @@ Proof of play by site export for Vehicles & Footfall data
 Expected keys
 """""""""""""
 * ``site_id``: unique numeric identifier of the data source.
-* ``period_start``: starting time for data aggregation.
+* ``period_start``: starting date and time for data aggregation - see :ref:`data note`.
 * ``content_id``: identifier of the content played.
 
 And the following metrics, which apply to the current aggregate:
@@ -1006,7 +1018,7 @@ Extrapolated watchers export
 
 Expected keys
 """""""""""""
-* ``period_start``: starting time for data aggregation.
+* ``period_start``: starting date and time for data aggregation - see :ref:`data note`.
 
 And the following metrics, which apply to the current aggregate:
 
@@ -1056,7 +1068,7 @@ Extrapolated OTS export
 
 Expected keys
 """""""""""""
-* ``period_start``: starting time for data aggregation.
+* ``period_start``: starting date and time for data aggregation - see :ref:`data note`.
 
 And the following metrics, which apply to the current aggregate:
 
@@ -1119,7 +1131,7 @@ Expected keys
 """""""""""""
 
 * ``location_id``: unique numeric identifier of the data source.
-* ``period_start``: starting time for the current footfall event.
+* ``period_start``: starting date and time for the current footfall event - see :ref:`data note`.
 * ``footfall_presence_time``: presence time of the current person, in **tenths of seconds**.
 
 Example
@@ -1151,7 +1163,7 @@ Aggregated footfall export
 Expected keys
 """""""""""""
 * ``location_id``: unique numeric identifier of the data source.
-* ``period_start``: starting time for data aggregation.
+* ``period_start``: starting date and time for data aggregation - see :ref:`data note`.
 
 And the following metrics, which apply to the current aggregate:
 
@@ -1196,7 +1208,7 @@ Expected keys
 """""""""""""
 
 * ``location_id``: unique numeric identifier of the data source.
-* ``period_start``: starting time for data aggregation.
+* ``period_start``: starting date and time for data aggregation - see :ref:`data note`.
 
 And the following metrics, which apply to the current vehicle event:
 
@@ -1258,7 +1270,7 @@ Aggregated vehicles export
 Expected keys
 """""""""""""
 * ``location_id``: unique numeric identifier of the data source.
-* ``period_start``: starting time for data aggregation.
+* ``period_start``: starting date and time for data aggregation - see :ref:`data note`.
 
 And the following metrics, which apply to the current aggregate:
 
@@ -1315,7 +1327,7 @@ This api endpoint returns a combination of vehicles and persons. Each record bei
 Expected keys
 """""""""""""
 * ``location_id``: unique numeric identifier of the data source.
-* ``period_start``: starting time for the current vehicle or footfall event.
+* ``period_start``: starting date and time for the current vehicle or footfall event - see :ref:`data note`.
 * ``type``: vehicle type (see "Finest vehicles export" for possible values).
 * ``color``: vehicle color (see "Finest vehicles export" for possible values).
 * ``vehicle_impressions``: number of impressions (= number of impressions per vehicle).
@@ -1363,7 +1375,7 @@ Aggregated footfall + vehicles export
 Expected keys
 """""""""""""
 * ``location_id``: unique numeric identifier of the data source.
-* ``period_start``: starting time for the current aggregate.
+* ``period_start``: starting date and time for the current aggregate - see :ref:`data note`.
 
 And the following metrics, which apply to the current aggregate:
 
@@ -1436,7 +1448,7 @@ Impression multiplier export
 Expected keys
 """""""""""""
 * ``location_id``: unique numeric identifier of the data source.
-* ``period_start``: starting time for the current aggregate.
+* ``period_start``: starting date and time for the current aggregate - see :ref:`data note`.
 
 And the following metrics, which apply to the current aggregate:
 
@@ -1518,7 +1530,7 @@ Product sales by demographics export
 Expected keys
 """""""""""""
 * ``location_id``: unique numeric identifier of the data source.
-* ``period_start``: starting time for data aggregation.
+* ``period_start``: starting date and time for data aggregation - see :ref:`data note`.
 * ``estimated_sales``: total estimated sales.
 * ``product``: name of the product.
 * ``product_touches``: number of times the product was touched.
@@ -1618,7 +1630,7 @@ Product sales funnel export
 Expected keys
 """""""""""""
 * ``location_id``: unique numeric identifier of the data source.
-* ``period_start``: starting time for data aggregation.
+* ``period_start``: starting date and time for data aggregation - see :ref:`data note`.
 * ``dwell_time_in_tenths_of_sec``: dwell time in **tenths of seconds**.
 * ``attention_time_in_tenths_of_sec``: attention time in **tenths of seconds**.
 * ``estimated_sales``: number of estimated sales.
