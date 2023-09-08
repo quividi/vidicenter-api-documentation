@@ -164,7 +164,7 @@ Data formats
 Note
 ^^^^
 
-Data api endpoint which contain a ``period_start`` (*YYYY-MM-DD hh:mm*) key, are also filled with additional keys derivated from the latter:
+Data api endpoints which contain a ``period_start`` (*YYYY-MM-DD hh:mm*) key, are also filled with additional keys derivated from the latter:
 
 * ``period_start_date``: date of the current event (*YYYY-MM-DD*)
 * ``period_start_time``: time of the current event (*hh:mm*)
