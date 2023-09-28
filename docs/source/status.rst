@@ -282,7 +282,8 @@ Example
             "status": "running",
             "host_timestamp": "2015-10-27T11:00:00",
             "timestamp": "2015-10-27T12:02:25",
-            "vr_status": "Processing"
+            "vr_status": "Processing",
+            "vr_version": "VidiReports v7.7.4.7"
         },
         {
             "avg_luma": "100.0%",
@@ -295,7 +296,8 @@ Example
             "status": "running",
             "host_timestamp": "2015-10-27T12:00:00",
             "timestamp": "2015-10-27T12:29:25",
-            "vr_status": "Input Lost"
+            "vr_status": "Input Lost",
+            "vr_version": "VidiReports v7.7.5.1"
         }
     ]
 
