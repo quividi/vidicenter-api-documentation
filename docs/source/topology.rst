@@ -217,10 +217,13 @@ Notable data keys
 * ``last_upload_timestamp``: last timestamp when the location uploaded data to vidicenter.
 * ``last_ots_uploaded``: last timestamp when the location uploaded OTS events to vidicenter.
 * ``id_pointer``: optional pointer id to a different location
-* ``id_broadsign``: optional extra ids to allow identifying link to BroadSign
-* ``id_hivestack``: optional extra ids to allow identifying link to Hivestack
-* ``id_vistar``: optional extra ids to allow identifying link to Vistar
-* ``id_pladway``: optional extra ids to allow identifying link to Pladway
+* ``id_broadsign_displayunitid``: optional extra ids to allow identifying link to BroadSign
+* ``id_broadsign_playerid``: optional extra ids to allow identifying link to BroadSign
+* ``id_broadsign_screenid_v1``: optional extra ids to allow identifying link to BroadSign
+* ``id_broadsign_uuid``: optional extra ids to allow identifying link to BroadSign
+* ``location_type``: type describing this location
+* ``venue_type``: venue_type of the site this location belongs to
+* ``venue_subtype``: venue_subtype of the site this location belongs to
 
 Example
 -------
