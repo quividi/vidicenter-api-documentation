@@ -53,7 +53,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'vidicenter-api-documentation'
-copyright = u'2022, Quividi'
+copyright = u'2024, Quividi'
 author = u'web@quividi.com'
 
 # The version info for the project you're documenting, acts as replacement for
