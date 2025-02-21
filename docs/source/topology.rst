@@ -59,19 +59,44 @@ Example
             "network_id":15678,
             "id":8654,
             "label":"VidiReports",
-            "active":true
+            "active":true,
+            "black_input_is_error": true,
+            "daily_watchers_alert_threshold": 0,
+            "description": "VEHICULOS",
+            "exclude_from_network_vrc": false,
+            "max_active_locations": 0,
+            "upload_period_alert": 780,
+            "venue_subtype": "Bowling Center",
+            "venue_type": "Entertainment / hospitality"
+
         },
         {
             "network_id":15678,
             "id":54422,
             "label":"Another site",
-            "active":true
+            "active":true,
+            "black_input_is_error": true,
+            "daily_watchers_alert_threshold": 0,
+            "description": "",
+            "exclude_from_network_vrc": false,
+            "max_active_locations": 0,
+            "upload_period_alert": 780,
+            "venue_subtype": "Bowling Center",
+            "venue_type": "Entertainment / hospitality"
         },
         {
             "network_id":25444,
             "id":66531,
             "label":"VidiReports",
             "active":false
+            "black_input_is_error": true,
+            "daily_watchers_alert_threshold": 0,
+            "description": "",
+            "exclude_from_network_vrc": false,
+            "max_active_locations": 0,
+            "upload_period_alert": 780,
+            "venue_subtype": "Bowling Center",
+            "venue_type": "Entertainment / hospitality"
         }
     ]
 
