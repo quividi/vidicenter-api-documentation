@@ -26,6 +26,7 @@ Mandatory arguments
     * ``6``: top 10 locations for impressions & watchers.
     * ``7``: top 10 locations for average attention time and presence time.
     * ``8``: APC table, watchers per content.
+    * ``9``: Dwell & attention across content duration.
 
 * ``chart_period``: period of the chart you want to generate. Allowed values:
 
@@ -132,3 +133,4 @@ image examples
 .. image:: images/chart_06.png
 .. image:: images/chart_07.png
 .. image:: images/chart_08.png
+.. image:: images/chart_09.png
