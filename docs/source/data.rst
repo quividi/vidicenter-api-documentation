@@ -74,6 +74,7 @@ Optional arguments
 * ``force_rebuild``: Force the reconstruction of the export. See `Asynchronous usage`_. Note that this parameter is active as soon as it is given in the query. Hence both ``force_rebuild=1`` and ``force_rebuild=true`` would force a rebuild, but ``force_rebuild=false`` also does.
 * ``content_ids``: If specified, will filter the results to show only the relevant content id's. Optional argument, only works with viewers_apc and the proof of play exports. Specify one or more content id's separated by a comma.
 * ``average_content_duration``: Only relevant for IM AIB and AUA exports.
+* ``status_only``: Only report on the export status, do not retrieve the data. Note that this parameter is active as soon as it is given in the query. Hence both ``status_only=1`` and ``status_only=true`` would activate this option, but ``status_only=false`` also does.
 
 Response's form
 ---------------
