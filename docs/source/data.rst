@@ -19,6 +19,7 @@ Mandatory arguments
 
 * ``data_type``: The type of data you want to extract. Allowed values:
 
+    * ``compass``: Compass.
     * ``extrapolated_ots``: Extrapolated OTS.
     * ``extrapolated_watchers``: Extrapolated Watchers.
     * ``footfall``: Footfall.
@@ -1700,6 +1701,77 @@ Example
             "put_back": 15,
             "watcher_count": 11
         }
+    ],
+    "state": "finished"
+}
+
+
+Compass export
+^^^^^^^^^^^^^^
+
+Expected keys
+"""""""""""""
+* ``location_id``: unique numeric identifier of the data source.
+* ``period_start``: starting date and time for data aggregation - see :ref:`data note`.
+* ``ots_count``: number of OTS counted for this segment.
+* ``far``: percentage of the ots_count that was detected at a far distance.
+* ``mid_range``: percentage of the ots_count that was detected at a middle range distance.
+* ``near``: percentage of the ots_count that was detected at a near distance.
+* ``north``: percentage of the ots_count that was detected as coming from the north.
+* ``north_east``: percentage of the ots_count that was detected as coming from the north east.
+* ``north_west``: percentage of the ots_count that was detected as coming from the north west.
+* ``south``: percentage of the ots_count that was detected as coming from the south.
+* ``south_east``: percentage of the ots_count that was detected as coming from the south east.
+* ``south_west``: percentage of the ots_count that was detected as coming from the south west.
+* ``west``: percentage of the ots_count that was detected as coming from the west.
+* ``east``: percentage of the ots_count that was detected as coming from the east.
+
+
+Example
+"""""""
+
+ ::
+
+    curl -u USERNAME:AUTH_TOKEN 'https://vidicenter.quividi.com/api/v1/data/?locations=92304&start=2023-02-22T09:00:00&end=2023-02-23T18:00:00&data_type=compass&time_resolution=1h'
+    {
+    "creation_date": "2023-03-21 10:48:52",
+    "data": [
+        {
+            "east": "0.242",
+            "far": "0.000",
+            "location_id": 92304,
+            "mid_range": "0.922",
+            "near": "0.078",
+            "north": "0.273",
+            "north_east": "0.106",
+            "north_west": "0.061",
+            "ots_count": 77,
+            "period_start": "2025-04-02 19:00:00",
+            "period_start_date": "2025-04-02",
+            "period_start_time": "19:00:00",
+            "south": "0.288",
+            "south_east": "0.000",
+            "south_west": "0.015",
+            "west": "0.015"
+        },
+        {
+            "east": "0.000",
+            "far": "0.000",
+            "location_id": 92304,
+            "mid_range": "0.782",
+            "near": "0.218",
+            "north": "0.318",
+            "north_east": "0.045",
+            "north_west": "0.045",
+            "ots_count": 19,
+            "period_start": "2025-04-02 20:00:00",
+            "period_start_date": "2025-04-02",
+            "period_start_time": "20:00:00",
+            "south": "0.318",
+            "south_east": "0.091",
+            "south_west": "0.136",
+            "west": "0.045"
+        },
     ],
     "state": "finished"
 }
