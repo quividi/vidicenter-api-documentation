@@ -1714,17 +1714,18 @@ Expected keys
 * ``location_id``: unique numeric identifier of the data source.
 * ``period_start``: starting date and time for data aggregation - see :ref:`data note`.
 * ``ots_count``: number of OTS counted for this segment.
-* ``far``: percentage of the ots_count that was detected at a far distance.
-* ``mid_range``: percentage of the ots_count that was detected at a middle range distance.
-* ``near``: percentage of the ots_count that was detected at a near distance.
-* ``north``: percentage of the ots_count that was detected as coming from the north.
-* ``north_east``: percentage of the ots_count that was detected as coming from the north east.
-* ``north_west``: percentage of the ots_count that was detected as coming from the north west.
-* ``south``: percentage of the ots_count that was detected as coming from the south.
-* ``south_east``: percentage of the ots_count that was detected as coming from the south east.
-* ``south_west``: percentage of the ots_count that was detected as coming from the south west.
-* ``west``: percentage of the ots_count that was detected as coming from the west.
-* ``east``: percentage of the ots_count that was detected as coming from the east.
+* ``presence_total``: presence time in seconds.
+* ``far``: presence time ratio spent in far range.
+* ``mid_range``: presence time ratio spent in mid range.
+* ``near``: presence time ratio spent in near range.
+* ``north``: percentage of the ots_count that was detected as going to the north.
+* ``north_east``: percentage of the ots_count that was detected as going to the north east.
+* ``north_west``: percentage of the ots_count that was detected as going to the north west.
+* ``south``: percentage of the ots_count that was detected as going to the south.
+* ``south_east``: percentage of the ots_count that was detected as going to the south east.
+* ``south_west``: percentage of the ots_count that was detected as going to the south west.
+* ``west``: percentage of the ots_count that was detected as going to the west.
+* ``east``: percentage of the ots_count that was detected as going to the east.
 
 
 Example
