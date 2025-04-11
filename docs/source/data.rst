@@ -1714,6 +1714,7 @@ Expected keys
 * ``location_id``: unique numeric identifier of the data source.
 * ``period_start``: starting date and time for data aggregation - see :ref:`data note`.
 * ``ots_count``: number of OTS counted for this segment.
+* ``effective_ots_count``: number of OTS counted for this segment, considering only east, west, south, south_west and south_west.
 * ``presence_total``: presence time in seconds.
 * ``far``: presence time ratio spent in far range.
 * ``mid_range``: presence time ratio spent in mid range.
@@ -1747,6 +1748,7 @@ Example
             "north_east": "0.106",
             "north_west": "0.061",
             "ots_count": 77,
+            "effective_ots_count": 43,
             "presence_total": 502,
             "period_start": "2025-04-02 19:00:00",
             "period_start_date": "2025-04-02",
@@ -1766,6 +1768,7 @@ Example
             "north_east": "0.045",
             "north_west": "0.045",
             "ots_count": 19,
+            "effective_ots_count": 11,
             "presence_total": 307,
             "period_start": "2025-04-02 20:00:00",
             "period_start_date": "2025-04-02",
