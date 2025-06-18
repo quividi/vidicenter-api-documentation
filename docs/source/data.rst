@@ -24,8 +24,10 @@ Mandatory arguments
     * ``extrapolated_watchers``: Extrapolated Watchers.
     * ``footfall``: Footfall.
     * ``gate``: Gate data.
-    * ``im_ccs``: Impression multiplier - CCS variant
-    * ``im``: Impression multiplier (only available with time_resolution=1h).
+    * ``im``: Impression multiplier (IAB formula, with daytime backup values).
+    * ``im_nobackup``: Impression multiplier (IAB formumla, without backup values).
+    * ``im_ots``: Impression multiplier (OTS formula, with daytime backup values).
+    * ``im_ots_nobackup``: Impression multiplier (OTS formumla, without backup values).
     * ``ots``: OTS data.
     * ``pmp_sales_by_demographics``: Product sales by demographics.
     * ``pmp_sales_funnel``: Sales funnel.
@@ -1444,8 +1446,8 @@ Example
         "creation_date": "2021-12-07 17:06:28",
     }
 
-Impression multiplier export
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Impression multiplier export (IAB formula)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Expected keys
 """""""""""""
@@ -1469,7 +1471,9 @@ And the following metrics, which apply to the current aggregate:
 Note
 """"
 
-The hourly Impression Multipliers are here calculated following the recommendations of the Interactive Advertising Bureau, ie by following this formula:
+The only time resolution available for this and other IM exports is 1h.
+In case where the IM is zero during the daytime, an attempt is made to use a backup value instead, based eiter on historic data of the location or averaging similar locations.
+The hourly Impression Multipliers are calculated following the recommendations of the Interactive Advertising Bureau, ie by following this formula:
 
 Impressions x average dwell time / analysis window.
 
@@ -1516,14 +1520,94 @@ Example
         "creation_date":"2018-01-29 10:06:09"
     }
 
-Impression multiplier export - CCS variant
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Impression multiplier export (IAB formula) - no backup
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Note
 """"
 
-The syntax to request this export and the returned fields are identical to the standard IM export.
-The hourly Impression Multipliers are however calculated according to a specific method for CCS.
+The syntax to request this export and the returned fields are identical to the standard IM IAB export, the only difference is there are no backup values used.
+
+
+Impression multiplier export (OTS formula)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Expected keys
+"""""""""""""
+* ``location_id``: unique numeric identifier of the data source.
+* ``period_start``: starting date and time for the current aggregate - see :ref:`data note`.
+
+And the following metrics, which apply to the current aggregate:
+
+* ``vehicle_count``: number of vehicles.
+* ``vehicle_presence_time``: cumulated presence time, in **tenths of seconds**.
+* ``vehicle_impressions``: number of vehicle impressions.
+* ``impressions_per_vehicle``: number of impressions per vehicle.
+* ``footfall_impressions``: number of footfall impressions.
+* ``footfall_presence_time``: cumulated footfall presence time, in **tenths of seconds**.
+* ``im_footfall``: impression multiplier for footfall.
+* ``im_vehicle``: impression multiplier for vehicles.
+* ``im``: combined impression multiplier.
+* ``backup_value``: if this contains "yes" it means a backup im value was calculated based on equivalent data of the previous week.
+* ``analysis_window``: time window during which the analysis took place, in **tenths of seconds**.
+
+Note
+""""
+
+The only time resolution available for this and other IM exports is 1h.
+In case where the IM is zero during the daytime, an attempt is made to use a backup value instead, based eiter on historic data of the location or averaging similar locations.
+The hourly Impression Multipliers are calculated using the OTS.
+
+Example
+"""""""
+
+ ::
+
+    curl -u USERNAME:AUTH_TOKEN 'https://vidicenter.quividi.com/api/v1/data/?locations=4636&start=2018-01-29T02:00:00&end=2018-01-29T04:59:59&data_type=im_ots&time_resolution=1h'
+    {
+        "state":"finished",
+        "data":[
+            {
+              "location_id": 60628,
+              "vehicle_impressions": 50,
+              "impressions_per_vehicle": 1.85,
+              "footfall_impressions": 76,
+              "footfall_presence_time": 23482,
+              "im": 0.79,
+              "im_footfall": 0.65,
+              "im_vehicle": 0.14,
+              "analysis_window": 36000,
+              "backup_value": "",
+              "period_start": "2021-11-14 21:00:00",
+              "vehicle_count": 27,
+              "vehicle_presence_time": 2696
+            },
+            {
+              "location_id": 60628,
+              "vehicle_impressions": 70,
+              "impressions_per_vehicle": 1.94,
+              "footfall_impressions": 49,
+              "footfall_presence_time": 6662,
+              "im": 0.4,
+              "im_footfall": 0.19,
+              "im_vehicle": 0.21,
+              "analysis_window": 36000,
+              "backup_value": "yes",
+              "period_start": "2021-11-14 22:00:00",
+              "vehicle_count": 36,
+              "vehicle_presence_time": 3989
+            },
+        ],
+        "creation_date":"2018-01-29 10:06:09"
+    }
+
+Impression multiplier export (OTS formula) - no backup
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Note
+""""
+
+The syntax to request this export and the returned fields are identical to the standard IM OTS export, the only difference is there are no backup values used.
 
 
 Product sales by demographics export
