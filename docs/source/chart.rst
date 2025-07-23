@@ -170,12 +170,13 @@ And one of the following:
 
 *OR*
 
-* ``auto_select_locations``: should be set to ``1`` if provided. Allow to automatically select locations that played the clips provided in the ``clip_ids`` argument.
+* ``auto_select_locations``: should be set to ``1`` if provided. Allow to automatically select locations that played the clips provided in the ``clip_ids`` argument. When this option is used, in combination with the JSON output format, a list of the automatically selected locations will be returned under the key ``auto_select_locations``.
 
 Optional arguments
 ------------------
 
 * ``clip_ids``: IDs of the clips, comma separated, for which the chart should be generated. Mandatory if ``auto_select_locations`` is provided.
+* ``content_duration``: Take into account content durations up to 10, 20 or 60 seconds. Defaults to 10 seconds.
 
 curl examples
 -------------
@@ -184,7 +185,7 @@ curl examples
 
     curl -u USERNAME:AUTH_TOKEN "https://vidicenter.quividi.com/api/v1/adv_chart/?chart_type=0&chart_format=json&start=2025-04-01&end=2025-04-14&auto_select_locations=1&clip_ids=my_clip1,my_clip2"
 
-    {"content_duration": {"0": "1st sec.", "1": "1st sec.", "2": "2nd sec.", "3": "2nd sec.", "4": "3rd sec.", "5": "3rd sec.", "6": "4th sec.", "7": "4th sec.", "8": "5th sec.", "9": "5th sec.", "10": "6th sec.", "11": "6th sec.", "1
+    {"auto_select_locations": [11570, 12331, 12332], "content_duration": {"0": "1st sec.", "1": "1st sec.", "2": "2nd sec.", "3": "2nd sec.", "4": "3rd sec.", "5": "3rd sec.", "6": "4th sec.", "7": "4th sec.", "8": "5th sec.", "9": "5th sec.", "10": "6th sec.", "11": "6th sec.", "1
     2": "7th sec.", "13": "7th sec.", "14": "8th sec.", "15": "8th sec.", "16": "9th sec.", "17": "9th sec.", "18": "10th sec.", "19": "10th sec."}, "metric": {"0": "dwell_time", "1": "attention_time", "2": "dwell_time", "3": "attenti
     on_time", "4": "dwell_time", "5": "attention_time", "6": "dwell_time", "7": "attention_time", "8": "dwell_time", "9": "attention_time", "10": "dwell_time", "11": "attention_time", "12": "dwell_time", "13": "attention_time", "14":
     "dwell_time", "15": "attention_time", "16": "dwell_time", "17": "attention_time", "18": "dwell_time", "19": "attention_time"}, "seconds": {"0": 182142, "1": 164637, "2": 205167, "3": 155492, "4": 219770, "5": 150344, "6": 227601,
