@@ -41,6 +41,7 @@ Mandatory arguments
     * ``vehicles``: Vehicles.
     * ``viewers_apc``: Viewers with content data. Will only contain viewers who have content data.
     * ``viewers``: Viewers data.
+    * ``content_plays``: Content plays.
 
 * ``time_resolution``: The time resolution used in the aggregation. Allowed values:
 
@@ -1865,6 +1866,55 @@ Example
     ],
     "state": "finished"
 }
+
+
+Content plays export
+^^^^^^^^^^^^^^^^^^^^
+
+Expected keys
+"""""""""""""
+* ``location_id``: unique numeric identifier of the data source.
+* ``period_start``: starting date and time for data aggregation - see :ref:`data note`.
+* ``content_id``: identifier of the content played.
+
+And the following metrics, which apply to the current aggregate:
+
+* ``content_duration``: cumulated play duration of the content, in seconds.
+* ``plays``: how many times the content was played.
+
+Example
+"""""""
+
+ ::
+
+    curl -u USERNAME:AUTH_TOKEN 'https://vidicenter.quividi.com/api/v1/data/?locations=4636&start=2018-01-29T02:00:00&end=2018-01-29T04:59:59&data_type=content_plays&time_resolution=1h'
+    {
+        "state":"finished",
+        "data":[
+            {
+                "content_duration":60,
+                "content_id":"content one",
+                "location_id":4636,
+                "period_start":"2018-01-29 02:00:00",
+                "plays":12,
+            },
+            {
+                "content_duration":110,
+                "content_id":"content one",
+                "location_id":4636,
+                "period_start":"2018-01-29 03:00:00",
+                "play_count":22,
+            },
+            {
+                "content_duration":165,
+                "content_id":"content one",
+                "location_id":4636,
+                "period_start":"2018-01-29 04:00:00",
+                "play_count":33,
+            },
+        ],
+        "creation_date":"2018-01-29 10:06:09"
+    }
 
 
 Placeholder data and null values
