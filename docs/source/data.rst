@@ -310,7 +310,6 @@ Viewers APC exports contain the same keys than `Finest viewers export`_ (the exc
 * ``contents``: contains the list of contents played while the viewer was in front of the camera. Each content has the following keys:
 
     * ``content_id``: identifier of the content played.
-    * ``app_id``: app_id of the content.
     * ``campaign_id``: campaign_id of the content.
 
     And the following metrics, which apply to the current viewer event for this content:
@@ -352,7 +351,6 @@ Example
                         "unhappy_time":0,
                         "happy_time":0,
                         "very_happy_time":0,
-                        "app_id":"my_app_id",
                         "very_unhappy_time":0,
                         "attention_time_in_milliseconds":192,
                         "content_id":"my_very_own_content_id",
@@ -364,7 +362,6 @@ Example
                         "unhappy_time":0,
                         "happy_time":0,
                         "very_happy_time":0,
-                        "app_id":"my_app_id",
                         "very_unhappy_time":0,
                         "attention_time_in_milliseconds":925,
                         "content_id":"another_content_id",
@@ -392,7 +389,6 @@ Example
                         "unhappy_time":0,
                         "happy_time":542,
                         "very_happy_time":0,
-                        "app_id":"my_app_id",
                         "very_unhappy_time":0,
                         "attention_time_in_milliseconds":542,
                         "content_id":"my_very_own_content_id",
