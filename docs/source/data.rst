@@ -200,6 +200,9 @@ And the following metrics, which apply to the current viewer event:
     * ``3``: adult
     * ``4``: senior
 
+* ``vr_id``: vidireports id.
+* ``person_id``: vidireports id of the corresponding person/footfall record.
+* ``person_start``: timestamp of the corresponding person/footfall record.
 * ``age_value``: numeric age in years (core only).
 * ``dwell_time_in_tenths_of_sec``: dwell time in **tenths of seconds**.
 * ``attention_time_in_tenths_of_sec``: attention time in **tenths of seconds**.
@@ -1134,6 +1137,9 @@ Expected keys
 * ``location_id``: unique numeric identifier of the data source.
 * ``period_start``: starting date and time for the current footfall event - see :ref:`data note`.
 * ``footfall_presence_time``: presence time of the current person, in **tenths of seconds**.
+* ``vr_id``: vidireports id.
+* ``watcher_id``: vidireports id of the corresponding watcher record.
+* ``watcher_start``: timestamp of the corresponding watcher record.
 
 Example
 """""""""""
