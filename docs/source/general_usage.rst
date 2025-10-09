@@ -37,6 +37,12 @@ In case of error, the response can contain a JSON object explaining the issue::
     {"message": "Invalid API Token", "error": 401}
 
 
+JSON definition updates
+#######################
+
+The structure of the returned JSON object can evolve over time. We reserve the right to *add* new fields without prior warning, as that shouldn't break any existing code. However if we would *remove*, or *change* existing fields, we will make sure to warn you in advance so any existing code can be updated.
+
+
 Test page
 #########
 

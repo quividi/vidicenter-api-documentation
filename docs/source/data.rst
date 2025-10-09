@@ -201,8 +201,8 @@ And the following metrics, which apply to the current viewer event:
     * ``4``: senior
 
 * ``vr_id``: vidireports id.
-* ``person_id``: vidireports id of the corresponding person/footfall record.
-* ``person_start``: timestamp of the corresponding person/footfall record.
+* ``footfall_id``: vidireports id of the corresponding footfall record.
+* ``footfall_start``: timestamp of the corresponding footfall record.
 * ``age_value``: numeric age in years (core only).
 * ``dwell_time_in_tenths_of_sec``: dwell time in **tenths of seconds**.
 * ``attention_time_in_tenths_of_sec``: attention time in **tenths of seconds**.
