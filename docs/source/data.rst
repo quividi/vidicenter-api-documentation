@@ -22,7 +22,7 @@ Mandatory arguments
     * :ref:`compass <compass_export>`: Compass.
     * :ref:`extrapolated_ots <extrapolated_ots_export>`: Extrapolated OTS.
     * :ref:`extrapolated_watchers <extrapolated_watchers_export>`: Extrapolated Watchers.
-    * :ref:`footfall <aggregated_footfall_export>`: Footfall.
+    * :ref:`footfall <finest_footfall_export>`: Footfall.
     * :ref:`gate <aggregated_gate_export>`: Gate data.
     * :ref:`im <impression_multiplier_iab_export>`: Impression multiplier (IAB formula, with daytime backup values).
     * :ref:`im_nobackup <impression_multiplier_iab_nobackup_export>`: Impression multiplier (IAB formumla, without backup values).
@@ -37,10 +37,10 @@ Mandatory arguments
     * :ref:`proof_of_play_by_site <proof_of_play_by_site_export>`: Proof of play data (Watchers) grouped by site.  This requires APC data.
     * :ref:`proof_of_play_vehicle_person_by_location <proof_of_play_vehicle_person_by_location_export>`: Proof of play data (Vehicles + Footfall) grouped by location. This requires APC data.
     * :ref:`proof_of_play_vehicle_person_by_site <proof_of_play_vehicle_person_by_site_export>`: Proof of play data (Vehicles + Footfall) grouped by site.  This requires APC data.
-    * :ref:`vehicles_footfall <aggregated_vehicles_footfall_export>`: Vehicles + Footfall.
-    * :ref:`vehicles <aggregated_vehicles_export>`: Vehicles.
+    * :ref:`vehicles_footfall <finest_vehicles_footfall_export>`: Vehicles + Footfall.
+    * :ref:`vehicles <finest_vehicles_export>`: Vehicles.
     * :ref:`viewers_apc <finest_viewers_apc_export>`: Viewers with content data. Will only contain viewers who have content data.
-    * :ref:`viewers <aggregated_viewers_export>`: Viewers data.
+    * :ref:`viewers <finest_viewers_export>`: Viewers data.
     * :ref:`content_plays <content_plays_export>`: Content plays.
 
 * ``time_resolution``: The time resolution used in the aggregation. Allowed values:
