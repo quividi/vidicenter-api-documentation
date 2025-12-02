@@ -19,29 +19,29 @@ Mandatory arguments
 
 * ``data_type``: The type of data you want to extract. Allowed values:
 
-    * ``compass``: Compass.
-    * ``extrapolated_ots``: Extrapolated OTS.
-    * ``extrapolated_watchers``: Extrapolated Watchers.
-    * ``footfall``: Footfall.
-    * ``gate``: Gate data.
-    * ``im``: Impression multiplier (IAB formula, with daytime backup values).
-    * ``im_nobackup``: Impression multiplier (IAB formumla, without backup values).
-    * ``im_ots``: Impression multiplier (OTS formula, with daytime backup values).
-    * ``im_ots_nobackup``: Impression multiplier (OTS formumla, without backup values).
-    * ``ots``: OTS data.
-    * ``pmp_sales_by_demographics``: Product sales by demographics.
-    * ``pmp_sales_funnel``: Sales funnel.
-    * ``proof_of_play_by_location_footfall_faces``: Proof of play data (Footfall + Faces) grouped by location. This requires APC data.
-    * ``proof_of_play_by_location``: Proof of play data (Watchers) grouped by location. This requires APC data.
-    * ``proof_of_play_by_site_footfall_faces``: Proof of play data (Footfall + Faces) grouped by site.  This requires APC data.
-    * ``proof_of_play_by_site``: Proof of play data (Watchers) grouped by site.  This requires APC data.
-    * ``proof_of_play_vehicle_person_by_location``: Proof of play data (Vehicles + Footfall) grouped by location. This requires APC data.
-    * ``proof_of_play_vehicle_person_by_site``: Proof of play data (Vehicles + Footfall) grouped by site.  This requires APC data.
-    * ``vehicles_footfall``: Vehicles + Footfall.
-    * ``vehicles``: Vehicles.
-    * ``viewers_apc``: Viewers with content data. Will only contain viewers who have content data.
-    * ``viewers``: Viewers data.
-    * ``content_plays``: Content plays.
+    * :ref:`compass <compass_export>`: Compass.
+    * :ref:`extrapolated_ots <extrapolated_ots_export>`: Extrapolated OTS.
+    * :ref:`extrapolated_watchers <extrapolated_watchers_export>`: Extrapolated Watchers.
+    * :ref:`footfall <aggregated_footfall_export>`: Footfall.
+    * :ref:`gate <aggregated_gate_export>`: Gate data.
+    * :ref:`im <impression_multiplier_iab_export>`: Impression multiplier (IAB formula, with daytime backup values).
+    * :ref:`im_nobackup <impression_multiplier_iab_nobackup_export>`: Impression multiplier (IAB formumla, without backup values).
+    * :ref:`im_ots <impression_multiplier_ots_export>`: Impression multiplier (OTS formula, with daytime backup values).
+    * :ref:`im_ots_nobackup <impression_multiplier_ots_nobackup_export>`: Impression multiplier (OTS formumla, without backup values).
+    * :ref:`ots <aggregated_ots_export>`: OTS data.
+    * :ref:`pmp_sales_by_demographics <product_sales_by_demographics_export>`: Product sales by demographics.
+    * :ref:`pmp_sales_funnel <product_sales_funnel_export>`: Sales funnel.
+    * :ref:`proof_of_play_by_location_footfall_faces <proof_of_play_by_location_footfall_faces_export>`: Proof of play data (Footfall + Faces) grouped by location. This requires APC data.
+    * :ref:`proof_of_play_by_location <proof_of_play_by_location_export>`: Proof of play data (Watchers) grouped by location. This requires APC data.
+    * :ref:`proof_of_play_by_site_footfall_faces <proof_of_play_by_site_footfall_faces_export>`: Proof of play data (Footfall + Faces) grouped by site.  This requires APC data.
+    * :ref:`proof_of_play_by_site <proof_of_play_by_site_export>`: Proof of play data (Watchers) grouped by site.  This requires APC data.
+    * :ref:`proof_of_play_vehicle_person_by_location <proof_of_play_vehicle_person_by_location_export>`: Proof of play data (Vehicles + Footfall) grouped by location. This requires APC data.
+    * :ref:`proof_of_play_vehicle_person_by_site <proof_of_play_vehicle_person_by_site_export>`: Proof of play data (Vehicles + Footfall) grouped by site.  This requires APC data.
+    * :ref:`vehicles_footfall <aggregated_vehicles_footfall_export>`: Vehicles + Footfall.
+    * :ref:`vehicles <aggregated_vehicles_export>`: Vehicles.
+    * :ref:`viewers_apc <finest_viewers_apc_export>`: Viewers with content data. Will only contain viewers who have content data.
+    * :ref:`viewers <aggregated_viewers_export>`: Viewers data.
+    * :ref:`content_plays <content_plays_export>`: Content plays.
 
 * ``time_resolution``: The time resolution used in the aggregation. Allowed values:
 
@@ -175,6 +175,8 @@ Data api endpoints which contain a ``period_start`` (*YYYY-MM-DD hh:mm*) key, ar
 * ``period_start_time``: time of the current event (*hh:mm*)
 
 
+.. _finest_viewers_export:
+
 Finest viewers export
 ^^^^^^^^^^^^^^^^^^^^^
 
@@ -302,6 +304,8 @@ Core values are present.
 
 
 
+.. _finest_viewers_apc_export:
+
 Finest viewers APC export
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -405,6 +409,8 @@ Example
     }
 
 
+.. _aggregated_viewers_export:
+
 Aggregated viewers export
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -504,6 +510,8 @@ Group by demographics example
     }
 
 
+.. _aggregated_ots_export:
+
 Aggregated OTS export
 ^^^^^^^^^^^^^^^^^^^^^
 
@@ -567,6 +575,8 @@ Example
     }
 
 
+.. _aggregated_gate_export:
+
 Aggregated gate export
 ^^^^^^^^^^^^^^^^^^^^^^
 
@@ -619,6 +629,8 @@ Example
         "creation_date":"2018-01-29 10:23:23"
     }
 
+
+.. _proof_of_play_by_location_export:
 
 Proof of play by location export
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -732,6 +744,8 @@ Example
     }
 
 
+.. _proof_of_play_by_site_export:
+
 Proof of play by site export
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -844,6 +858,8 @@ Example
     }
 
 
+.. _proof_of_play_by_location_footfall_faces_export:
+
 Proof of play by location (footfall + faces) export
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -852,6 +868,8 @@ This export is fully identical to the legacy proof of play by location export, e
 * ``impressions``: amount of impressions based on footfall and vehicle tracker
 
 
+.. _proof_of_play_by_site_footfall_faces_export:
+
 Proof of play by site (footfall + faces) export
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -859,6 +877,8 @@ This export is fully identical to the legacy proof of play by site export, excep
 
 * ``impressions``: amount of impressions based on footfall and vehicle tracker
 
+
+.. _proof_of_play_vehicle_person_by_location_export:
 
 Proof of play by location export for Vehicles & Footfall data
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -937,6 +957,8 @@ Example
         "creation_date":"2022-05-29 10:00:00"
     }
 
+
+.. _proof_of_play_vehicle_person_by_site_export:
 
 Proof of play by site export for Vehicles & Footfall data
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1017,6 +1039,8 @@ Example
     }
 
 
+.. _extrapolated_watchers_export:
+
 Extrapolated watchers export
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -1066,6 +1090,8 @@ Example
         "creation_date":"2018-01-29 10:06:09"
     }
 
+
+.. _extrapolated_ots_export:
 
 Extrapolated OTS export
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -1128,6 +1154,8 @@ Example
         "creation_date":"2018-01-29 10:15:49"
     }
 
+.. _finest_footfall_export:
+
 Finest footfall export
 ^^^^^^^^^^^^^^^^^^^^^^
 
@@ -1163,6 +1191,8 @@ Example
         ],
         "creation_date":"2018-01-29 09:24:18"
     }
+
+.. _aggregated_footfall_export:
 
 Aggregated footfall export
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1207,6 +1237,8 @@ Example
         ],
         "creation_date":"2018-01-29 10:06:09"
     }
+
+.. _finest_vehicles_export:
 
 Finest vehicles export
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -1271,6 +1303,8 @@ Example
         "creation_date":"2018-01-29 09:24:18"
     }
 
+.. _aggregated_vehicles_export:
+
 Aggregated vehicles export
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -1299,30 +1333,32 @@ Example
                 "vehicle_presence_time":12,
                 "vehicle_count":1,
                 "period_start":"2018-01-29 02:00:00",
-                "location_id":4636
+                "location_id":4636,
                 "vehicle_impressions":1.72,
-                "impressions_per_vehicle":1.72,
+                "impressions_per_vehicle":1.72
             },
             {
                 "vehicle_presence_time":0,
                 "vehicle_count":0,
                 "period_start":"2018-01-29 03:00:00",
-                "location_id":4636
+                "location_id":4636,
                 "vehicle_impressions":0,
-                "impressions_per_vehicle":0,
+                "impressions_per_vehicle":0
             },
             {
                 "vehicle_presence_time":83,
                 "vehicle_count":3,
                 "period_start":"2018-01-29 04:00:00",
-                "location_id":4636
+                "location_id":4636,
                 "vehicle_impressions":6.04,
-                "impressions_per_vehicle":2.01,
-            },
+                "impressions_per_vehicle":2.01
+            }
         ],
         "creation_date":"2018-01-29 10:06:09"
     }
 
+
+.. _finest_vehicles_footfall_export:
 
 Finest footfall + vehicles export
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1376,6 +1412,8 @@ In this example, in a 3 min timeframe, we registered one vehicle (first record) 
         "creation_date": "2021-12-07 17:30:28",
     }
 
+.. _aggregated_vehicles_footfall_export:
+
 Aggregated footfall + vehicles export
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -1393,8 +1431,8 @@ And the following metrics, which apply to the current aggregate:
 * ``footfall_impressions``: number of footfall impressions.
 * ``footfall_presence_time``: cumulated footfall presence time, in **tenths of seconds**.
 * ``total_impressions``: sum of footfall and vehicle impressions.
-* ``total_presence_time``: total presence time : impressions per vehicle * vehicle_presence_time + footfall_presence_time
-* ``avg_presence_time``: average presence time for footfall and vehicles
+* ``total_presence_time``: total presence time : impressions per vehicle * vehicle_presence_time + footfall_presence_time.
+* ``avg_presence_time``: average presence time for footfall and vehicles.
 
 Example
 """""""
@@ -1440,7 +1478,7 @@ Example
                 "vehicle_count": 0,
                 "vehicle_presence_time": 0,
                 "footfall_impressions": 0,
-                "footfall_presence_time": 0
+                "footfall_presence_time": 0,
                 "total_presence_time": 0,
                 "total_impressions": 0,
                 "avg_presence_time": 0,
@@ -1448,6 +1486,8 @@ Example
         ],
         "creation_date": "2021-12-07 17:06:28",
     }
+
+.. _impression_multiplier_iab_export:
 
 Impression multiplier export (IAB formula)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1523,6 +1563,8 @@ Example
         "creation_date":"2018-01-29 10:06:09"
     }
 
+.. _impression_multiplier_iab_nobackup_export:
+
 Impression multiplier export (IAB formula) - no backup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -1531,6 +1573,8 @@ Note
 
 The syntax to request this export and the returned fields are identical to the standard IM IAB export, the only difference is there are no backup values used.
 
+
+.. _impression_multiplier_ots_export:
 
 Impression multiplier export (OTS formula)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1604,6 +1648,8 @@ Example
         "creation_date":"2018-01-29 10:06:09"
     }
 
+.. _impression_multiplier_ots_nobackup_export:
+
 Impression multiplier export (OTS formula) - no backup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -1612,6 +1658,8 @@ Note
 
 The syntax to request this export and the returned fields are identical to the standard IM OTS export, the only difference is there are no backup values used.
 
+
+.. _product_sales_by_demographics_export:
 
 Product sales by demographics export
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1713,6 +1761,8 @@ Example
 }
 
 
+.. _product_sales_funnel_export:
+
 Product sales funnel export
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -1793,6 +1843,8 @@ Example
 }
 
 
+.. _compass_export:
+
 Compass export
 ^^^^^^^^^^^^^^
 
@@ -1869,6 +1921,8 @@ Example
     "state": "finished"
 }
 
+
+.. _content_plays_export:
 
 Content plays export
 ^^^^^^^^^^^^^^^^^^^^
