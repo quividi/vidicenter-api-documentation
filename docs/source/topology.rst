@@ -682,4 +682,150 @@ Example
     ]
 
 
+Zones list
+##########
+
+Returns a list of zones from your locations
+
+URL
+---
+
+``https://vidicenter.quividi.com/api/v1/zones/``
+
+Notable keys
+-------------------
+
+* ``type``: The type of the zone:
+
+    * ``0``: Regular
+    * ``1``: Doorway IN
+    * ``2``: Doorway OUT
+    * ``3``: Carpet
+
+* ``coordinates``: The coordinate of each point of the zone between 0 and 1, relative to the width and height of the image:
+* ``presence_threshold``: The presence time threshold to count footfall in the zone, in seconds:
+
+Example
+-------
+
+ ::
+
+    curl -u USERNAME:AUTH_TOKEN https://vidicenter.quividi.com/api/v1/zones/
+    [
+        {
+            "id": 31,
+            "location_id": 1330,
+            "name": "My Carpet zone",
+            "description": "",
+            "type": 3,
+            "created_at": "2025-03-11T09:27:41.120",
+            "updated_at": "2025-09-23T18:42:59.554",
+            "coordinates": [
+                { "x": 0.6491123040935672, "y": 0.3528421052631579 },
+                { "x": 0.6027134502923977, "y": 0.2134028589993502 },
+                { "x": 0.5775906432748538, "y": 0.248037037037037 },
+                { "x": 0.5859824561403508, "y": 0.3278421052631579 }
+            ],
+            "presence_threshold": 2.0
+        },
+        {
+            "id": 32,
+            "location_id": 1330,
+            "name": "My Regular zone",
+            "description": "",
+            "type": 0,
+            "created_at": "2025-02-06T12:14:22.874",
+            "updated_at": "2025-07-19T21:05:11.332",
+            "coordinates": [
+                { "x": 0.10371929824561403, "y": 0.3183664717348928 },
+                { "x": 0.07439766081871345, "y": 0.6522878492527615 },
+                { "x": 0.2399707602339181, "y": 0.6729707602339181 },
+                { "x": 0.2654795321637427, "y": 0.2894944769330734 }
+            ],
+            "presence_threshold": 0.0
+        },
+        {
+            "id": 33,
+            "location_id": 1334,
+            "name": "My Doorway in",
+            "description": "",
+            "type": 1,
+            "created_at": "2025-05-29T08:51:10.402",
+            "updated_at": "2025-08-17T15:38:19.917",
+            "coordinates": [
+                { "x": 0.5591137724550899, "y": 0.09615502328675981 },
+                { "x": 0.42692814371257486, "y": 0.31868396540252825 },
+                { "x": 0.6886407185628742, "y": 0.41254025282767796 },
+                { "x": 0.7427724550898204, "y": 0.1979234863606121 }
+            ],
+            "presence_threshold": 0.0
+        }
+    ]
+
+
+Location's zones list
+#####################
+
+Returns a list of zones from a location
+
+URL
+---
+
+``https://vidicenter.quividi.com/api/v1/location/{location_id}/zones/``
+
+Notable keys
+-------------------
+
+* ``type``: The type of the zone:
+
+    * ``0``: Regular
+    * ``1``: Doorway IN
+    * ``2``: Doorway OUT
+    * ``3``: Carpet
+
+* ``coordinates``: The coordinate of each point of the zone between 0 and 1, relative to the width and height of the image:
+* ``presence_threshold``: The presence time threshold to count footfall in the zone, in seconds:
+
+Example
+-------
+
+ ::
+
+    curl -u USERNAME:AUTH_TOKEN https://vidicenter.quividi.com/api/v1/location/1330/zones/
+    [
+        {
+            "id": 31,
+            "location_id": 1330,
+            "name": "My Carpet zone",
+            "description": "",
+            "type": 3,
+            "created_at": "2025-03-11T09:27:41.120",
+            "updated_at": "2025-09-23T18:42:59.554",
+            "coordinates": [
+                { "x": 0.6491123040935672, "y": 0.3528421052631579 },
+                { "x": 0.6027134502923977, "y": 0.2134028589993502 },
+                { "x": 0.5775906432748538, "y": 0.248037037037037 },
+                { "x": 0.5859824561403508, "y": 0.3278421052631579 }
+            ],
+            "presence_threshold": 2.0
+        },
+        {
+            "id": 32,
+            "location_id": 1330,
+            "name": "My Regular zone",
+            "description": "",
+            "type": 0,
+            "created_at": "2025-02-06T12:14:22.874",
+            "updated_at": "2025-07-19T21:05:11.332",
+            "coordinates": [
+                { "x": 0.10371929824561403, "y": 0.3183664717348928 },
+                { "x": 0.07439766081871345, "y": 0.6522878492527615 },
+                { "x": 0.2399707602339181, "y": 0.6729707602339181 },
+                { "x": 0.2654795321637427, "y": 0.2894944769330734 }
+            ],
+            "presence_threshold": 0.0
+        },
+    ]
+
+
 Continue to :ref:`status`
