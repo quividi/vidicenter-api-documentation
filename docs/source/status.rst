@@ -35,6 +35,7 @@ Notable data keys
     * 10: Timezone Change Alert
     * 11: Camera Not Found Alert
     * 12: Unsupported Option Alert
+    * 13: Low FPS Alert
 
 * ``label``: string representing the type of the alert. May be subject to changes.
 * ``status``: status of the alert ("raised" or "terminated").
