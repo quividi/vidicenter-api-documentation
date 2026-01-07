@@ -175,7 +175,7 @@ And one of the following:
 Optional arguments
 ------------------
 
-* ``clip_ids``: IDs of the clips, comma separated, for which the chart should be generated. Mandatory if ``auto_select_locations`` is provided.
+* ``clip_ids``: IDs of the clips, comma separated, for which the chart should be generated. Mandatory if ``auto_select_locations`` is provided. It is important that any comma (,) in the clip_id should be replaced by `%252C` to allow correct parsing of multiple clips, of which some contain commas.
 * ``content_duration``: Take into account content durations up to 10, 20 or 60 seconds. Defaults to 10 seconds.
 
 curl examples
