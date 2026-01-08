@@ -766,7 +766,7 @@ Example
 Location's zones list
 #####################
 
-Returns a list of zones from a location
+Returns a list of zones from a location, along with image metadata.
 
 URL
 ---
@@ -776,6 +776,18 @@ URL
 Notable keys
 -------------------
 
+* ``zones``: List of zone objects for this location
+* ``input_mask``: Image positive mask metadata. Empty object if not available.
+
+    * ``x``, ``y``: Top and left corner offset of the visible area in pixels
+    * ``width``, ``height``: Image dimensions in pixels
+
+* ``input_original_size``: Original frame dimensions. Empty object if not available.
+
+    * ``width``, ``height``: Original frame dimensions in pixels
+
+**Zone object keys:**
+
 * ``type``: The type of the zone:
 
     * ``0``: Regular
@@ -783,8 +795,8 @@ Notable keys
     * ``2``: Doorway OUT
     * ``3``: Carpet
 
-* ``coordinates``: The coordinate of each point of the zone between 0 and 1, relative to the width and height of the image:
-* ``presence_threshold``: The presence time threshold to count footfall in the zone, in seconds:
+* ``coordinates``: The coordinate of each point of the zone between 0 and 1, relative to the width and height of the image
+* ``presence_threshold``: The presence time threshold to count footfall in the zone, in seconds
 
 Example
 -------
@@ -792,40 +804,52 @@ Example
  ::
 
     curl -u USERNAME:AUTH_TOKEN https://vidicenter.quividi.com/api/v1/location/1330/zones/
-    [
-        {
-            "id": 31,
-            "location_id": 1330,
-            "name": "My Carpet zone",
-            "description": "",
-            "type": 3,
-            "created_at": "2025-03-11T09:27:41.120",
-            "updated_at": "2025-09-23T18:42:59.554",
-            "coordinates": [
-                { "x": 0.6491123040935672, "y": 0.3528421052631579 },
-                { "x": 0.6027134502923977, "y": 0.2134028589993502 },
-                { "x": 0.5775906432748538, "y": 0.248037037037037 },
-                { "x": 0.5859824561403508, "y": 0.3278421052631579 }
-            ],
-            "presence_threshold": 2.0
+    {
+        "zones": [
+            {
+                "id": 31,
+                "location_id": 1330,
+                "name": "My Carpet zone",
+                "description": "",
+                "type": 3,
+                "created_at": "2025-03-11T09:27:41.120",
+                "updated_at": "2025-09-23T18:42:59.554",
+                "coordinates": [
+                    { "x": 0.6491123040935672, "y": 0.3528421052631579 },
+                    { "x": 0.6027134502923977, "y": 0.2134028589993502 },
+                    { "x": 0.5775906432748538, "y": 0.248037037037037 },
+                    { "x": 0.5859824561403508, "y": 0.3278421052631579 }
+                ],
+                "presence_threshold": 2.0
+            },
+            {
+                "id": 32,
+                "location_id": 1330,
+                "name": "My Regular zone",
+                "description": "",
+                "type": 0,
+                "created_at": "2025-02-06T12:14:22.874",
+                "updated_at": "2025-07-19T21:05:11.332",
+                "coordinates": [
+                    { "x": 0.10371929824561403, "y": 0.3183664717348928 },
+                    { "x": 0.07439766081871345, "y": 0.6522878492527615 },
+                    { "x": 0.2399707602339181, "y": 0.6729707602339181 },
+                    { "x": 0.2654795321637427, "y": 0.2894944769330734 }
+                ],
+                "presence_threshold": 0.0
+            }
+        ],
+        "input_mask": {
+            "height": 337,
+            "width": 712,
+            "x": 213,
+            "y": 88
         },
-        {
-            "id": 32,
-            "location_id": 1330,
-            "name": "My Regular zone",
-            "description": "",
-            "type": 0,
-            "created_at": "2025-02-06T12:14:22.874",
-            "updated_at": "2025-07-19T21:05:11.332",
-            "coordinates": [
-                { "x": 0.10371929824561403, "y": 0.3183664717348928 },
-                { "x": 0.07439766081871345, "y": 0.6522878492527615 },
-                { "x": 0.2399707602339181, "y": 0.6729707602339181 },
-                { "x": 0.2654795321637427, "y": 0.2894944769330734 }
-            ],
-            "presence_threshold": 0.0
-        },
-    ]
+        "input_original_size": {
+            "height": 576,
+            "width": 1024
+        }
+    }
 
 
 Continue to :ref:`status`
