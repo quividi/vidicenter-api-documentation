@@ -42,6 +42,7 @@ Mandatory arguments
     * :ref:`viewers_apc <finest_viewers_apc_export>`: Viewers with content data. Will only contain viewers who have content data.
     * :ref:`viewers <finest_viewers_export>`: Viewers data.
     * :ref:`content_plays <content_plays_export>`: Content plays.
+    * :ref:`retail_analytics_footfall <retail_analytics_footfall>`: Retail analytics zones footfall.
 
 * ``time_resolution``: The time resolution used in the aggregation. Allowed values:
 
@@ -1970,6 +1971,92 @@ Example
             },
         ],
         "creation_date":"2018-01-29 10:06:09"
+    }
+
+.. _retail_analytics_footfall:
+
+Retail analytics zones footfall export
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Expected keys
+"""""""""""""
+
+* ``location_id``: unique numeric identifier of the data source.
+* ``period_start``: starting date and time for the current footfall event - see :ref:`data note`.
+* ``footfall_presence_time``: presence time of the current person, in **tenths of seconds**.
+* ``vr_id``: vidireports id.
+* ``watcher_id``: vidireports id of the corresponding watcher record.
+* ``watcher_start``: timestamp of the corresponding watcher record.
+* ``nb_visits``: number of registered zone visits
+* ``visits``: the visits data, containing the zone id, and a set of timings (start and duration both in milliseconds), start relative to period_start
+
+
+Example
+"""""""""""
+
+ ::
+
+    curl -u USERNAME:AUTH_TOKEN 'https://vidicenter.quividi.com/api/v1/data/?locations=8264&start=2018-01-29T00:00:00&end=2018-01-29T02:00:00&data_type=retail_analytics_footfall&time_resolution=finest'
+    {
+        "state":"finished",
+        "data":[
+            {
+                "location_id": 136558,
+                "tracking_mode": 0,
+                "vr_id": 108451,
+                "watcher_id": 108452,
+                "watcher_start": "2025-12-23T12:59:04.208000",
+                "visits": [
+                    {
+                        "id": 60,
+                        "timings": [
+                            {
+                                "start": 0,
+                                "duration": 40984
+                            }
+                        ]
+                    }
+                ],
+                "nb_visits": 1.0,
+                "period_start": "2025-12-23T12:59:04",
+                "period_start_date": "2025-12-23",
+                "period_start_time": "12:59:04",
+                "footfall_presence_time": 410
+            },
+            {
+                "location_id": 136558,
+                "tracking_mode": 0,
+                "vr_id": 108956,
+                "watcher_id": 0,
+                "watcher_start": null,
+                "visits": [
+                    {
+                        "id": 61,
+                        "timings": [
+                            {
+                                "start": 200,
+                                "duration": 2495
+                            }
+                        ]
+                    },
+                    {
+                        "id": 60,
+                        "timings": [
+                            {
+                                "start": 0,
+                                "duration": 134
+                            }
+                        ]
+                    }
+                ],
+                "nb_visits": 2.0,
+                "period_start": "2025-12-23T12:59:58",
+                "period_start_date": "2025-12-23",
+                "period_start_time": "12:59:58",
+                "footfall_presence_time": 27
+            }
+        ],
+        "creation_date":"2018-01-29 09:24:18"
     }
 
 
