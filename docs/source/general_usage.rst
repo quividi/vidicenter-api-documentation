@@ -10,7 +10,7 @@ VidiCenter's REST protocol is stateless and therefore **you have to provide an a
     $> curl -u USERNAME:AUTH_TOKEN https://vidicenter.quividi.com/api/.../
 
 
-You can obtain your user token from your `VidiCenter profile page <http://vidicenter.quividi.com/next/profile>`_. The page will show your current active token and possibly a list of revoked tokens. Keep your token secure; you can revoke an active token if you think that it has been leaked or compromised. Once revoked, the token is forever inactive and you can generate a new one.
+You can obtain your user token from your `VidiCenter profile page <https://vidicenter.quividi.com/next/profile>`_. The page will show your current active token and possibly a list of revoked tokens. Keep your token secure; you can revoke an active token if you think that it has been leaked or compromised. Once revoked, the token is forever inactive and you can generate a new one.
 
 
 Do note that making an insecure call (using http instead of https for example) will **revoke your token**. You will need to go into VidiCenter and generate a new one.
@@ -46,7 +46,7 @@ The structure of the returned JSON object can evolve over time. We reserve the r
 Test page
 #########
 
-`This page on VidiCenter <http://vidicenter.quividi.com/api/v1/test/>`_ allows you to generate curl commands and query the export API. You can use it to famliarize yourself with the API.
+`This page on VidiCenter <https://vidicenter.quividi.com/api/v1/test/>`_ allows you to generate curl commands and query the export API. You can use it to famliarize yourself with the API.
 
 
 

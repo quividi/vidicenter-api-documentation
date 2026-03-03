@@ -174,14 +174,14 @@ Returns a list of a network's sites with vehicles factors
 URL
 ---
 
-``https://vidicenter.quividi.com/api/v1/network/{network_id}/sites/vehicles``
+``https://vidicenter.quividi.com/api/v1/network/{network_id}/sites/vehicles/``
 
 Example
 -------
 
  ::
 
-    curl -u USERNAME:AUTH_TOKEN https://vidicenter.quividi.com/api/v1/network/567/sites/vehicles
+    curl -u USERNAME:AUTH_TOKEN https://vidicenter.quividi.com/api/v1/network/567/sites/vehicles/
     [
         {
             "id": 4200,
@@ -659,7 +659,7 @@ Example
 
  ::
 
-    curl -u USERNAME:AUTH_TOKEN https://vidicenter.quividi.com/api/v1/location_tag/tag%20of%20mine/boxes
+    curl -u USERNAME:AUTH_TOKEN https://vidicenter.quividi.com/api/v1/location_tag/tag%20of%20mine/boxes/
     [
         {
             "last_upload_timestamp":"2015-09-15T11:00:16",

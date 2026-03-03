@@ -107,7 +107,7 @@ Example
     [
         {
             "description": "The description of my clip",
-            "screenshot": "http://vidicenter.quividi.com/media/clip_screenshots/my-filename_Y2W21O8.jpg",
+            "screenshot": "https://vidicenter.quividi.com/media/clip_screenshots/my-filename_Y2W21O8.jpg",
             "network_id": 9876,
             "clip_id": "clip_123",
             "id": 3,
@@ -139,7 +139,7 @@ Example
     curl -u USERNAME:AUTH_TOKEN https://vidicenter.quividi.com/api/v1/network/9876/clip/metadata/clip_123/
     {
         "description": "The description of my clip",
-        "screenshot": "http://vidicenter.quividi.com/media/clip_screenshots/my-filename_Y2W21O8.jpg",
+        "screenshot": "https://vidicenter.quividi.com/media/clip_screenshots/my-filename_Y2W21O8.jpg",
         "network_id": 9876,
         "clip_id": "clip_123",
         "id": 3,
