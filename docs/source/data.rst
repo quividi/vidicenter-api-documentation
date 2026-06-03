@@ -28,6 +28,7 @@ Mandatory arguments
     * :ref:`im_nobackup <impression_multiplier_iab_nobackup_export>`: Impression multiplier (IAB formumla, without backup values).
     * :ref:`im_ots <impression_multiplier_ots_export>`: Impression multiplier (OTS formula, with daytime backup values).
     * :ref:`im_ots_nobackup <impression_multiplier_ots_nobackup_export>`: Impression multiplier (OTS formumla, without backup values).
+    * :ref:`targeted_im <targeted_im_export>`: Targeted impression multiplier, broken down by gender and age bracket.
     * :ref:`ots <aggregated_ots_export>`: OTS data.
     * :ref:`pmp_sales_by_demographics <product_sales_by_demographics_export>`: Product sales by demographics.
     * :ref:`pmp_sales_funnel <product_sales_funnel_export>`: Sales funnel.
@@ -1658,6 +1659,110 @@ Note
 """"
 
 The syntax to request this export and the returned fields are identical to the standard IM OTS export, the only difference is there are no backup values used.
+
+
+.. _targeted_im_export:
+
+Targeted IM export
+^^^^^^^^^^^^^^^^^^
+
+Expected keys
+"""""""""""""
+* ``location_id``: unique numeric identifier of the data source.
+* ``period_start``: starting date and time for the current aggregate - see :ref:`data note`.
+* ``im``: combined impression multiplier
+
+For each of the age brackets ``12_17``, ``18_24``, ``25_34``, ``35_44``, ``45_54``, ``55_64`` and ``65_plus``, three IM values are provided:
+
+* ``all_age_<bracket>_im``: impression multiplier for the age bracket, both genders.
+* ``male_age_<bracket>_im``: impression multiplier for males in the age bracket.
+* ``female_age_<bracket>_im``: impression multiplier for females in the age bracket.
+
+For example, the ``35_44`` bracket yields ``all_age_35_44_im``, ``male_age_35_44_im`` and ``female_age_35_44_im``.
+
+Finally, the multiplier is also totalled per gender across all age brackets:
+
+* ``male_total_im``: impression multiplier for all males.
+* ``female_total_im``: impression multiplier for all females.
+
+Note
+""""
+
+The only time resolution available for this and other IM exports is 1h.
+The ``average_content_duration`` optional argument may be used with this export.
+
+Example
+"""""""
+
+ ::
+
+    curl -u USERNAME:AUTH_TOKEN 'https://vidicenter.quividi.com/api/v1/data/?locations=1234&start=2018-01-29T12:00:00&end=2018-01-29T13:59:59&data_type=targeted_im&time_resolution=1h'
+    {
+        "state": "finished",
+        "creation_date": "2018-01-29 17:55:13",
+        "data": [
+            {
+                "location_id": 1234,
+                "im": 0.9,
+                "all_age_12_17_im": 0.028,
+                "male_age_12_17_im": 0.028,
+                "female_age_12_17_im": 0.0,
+                "all_age_18_24_im": 0.0,
+                "male_age_18_24_im": 0.0,
+                "female_age_18_24_im": 0.0,
+                "all_age_25_34_im": 0.1125,
+                "male_age_25_34_im": 0.1125,
+                "female_age_25_34_im": 0.0,
+                "all_age_35_44_im": 0.3938,
+                "male_age_35_44_im": 0.1688,
+                "female_age_35_44_im": 0.225,
+                "all_age_45_54_im": 0.1688,
+                "male_age_45_54_im": 0.1406,
+                "female_age_45_54_im": 0.028,
+                "all_age_55_64_im": 0.1969,
+                "male_age_55_64_im": 0.1688,
+                "female_age_55_64_im": 0.028,
+                "all_age_65_plus_im": 0.0,
+                "male_age_65_plus_im": 0.0,
+                "female_age_65_plus_im": 0.0,
+                "male_total_im": 0.6188,
+                "female_total_im": 0.2813,
+                "period_start": "2018-01-29 12:00:00",
+                "period_start_date": "2018-01-29",
+                "period_start_time": "12:00:00"
+            },
+            {
+                "location_id": 1234,
+                "im": 0.63,
+                "all_age_12_17_im": 0.0274,
+                "male_age_12_17_im": 0.0274,
+                "female_age_12_17_im": 0.0,
+                "all_age_18_24_im": 0.0274,
+                "male_age_18_24_im": 0.0274,
+                "female_age_18_24_im": 0.0,
+                "all_age_25_34_im": 0.1096,
+                "male_age_25_34_im": 0.0548,
+                "female_age_25_34_im": 0.0548,
+                "all_age_35_44_im": 0.1096,
+                "male_age_35_44_im": 0.0822,
+                "female_age_35_44_im": 0.0274,
+                "all_age_45_54_im": 0.2465,
+                "male_age_45_54_im": 0.1643,
+                "female_age_45_54_im": 0.0822,
+                "all_age_55_64_im": 0.0822,
+                "male_age_55_64_im": 0.0822,
+                "female_age_55_64_im": 0.0,
+                "all_age_65_plus_im": 0.0274,
+                "male_age_65_plus_im": 0.0274,
+                "female_age_65_plus_im": 0.0,
+                "male_total_im": 0.4657,
+                "female_total_im": 0.1643,
+                "period_start": "2018-01-29 13:00:00",
+                "period_start_date": "2018-01-29",
+                "period_start_time": "13:00:00"
+            }
+        ]
+    }
 
 
 .. _product_sales_by_demographics_export:
