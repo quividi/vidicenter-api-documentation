@@ -485,7 +485,8 @@ Example
             "id":193538,
             "label":"box-193538 (C001680) (box-193538)",
             "active":true,
-            "box_mac":123456
+            "box_mac":123456,
+            "raw_camera_config":"rtsp://***:***@192.168.0.50:554/stream1"
         },
         {
             "last_upload_timestamp":"2015-10-27T11:19:32",
@@ -494,7 +495,8 @@ Example
             "id":192366,
             "label":"box-192366 (C001246) (box-192366)",
             "active":true,
-            "box_mac":123457
+            "box_mac":123457,
+            "raw_camera_config":"rtsp://***:***@192.168.0.51:554/stream1"
         },
         {
             "last_upload_timestamp":"2015-10-27T11:26:47",
@@ -503,9 +505,13 @@ Example
             "id":219354,
             "label":"My third box",
             "active":false,
-            "box_mac":123458
+            "box_mac":123458,
+            "raw_camera_config":""
         },
     ]
+
+The ``raw_camera_config`` field holds the camera configuration last reported by the
+box (e.g. the IP camera stream URL). Any embedded credentials are masked.
 
 
 Network's boxes list
@@ -533,7 +539,8 @@ Example
             "id":193538,
             "label":"box-193538 (C001680) (box-193538)",
             "active":true,
-            "box_mac":123456
+            "box_mac":123456,
+            "raw_camera_config":"rtsp://***:***@192.168.0.50:554/stream1"
         },
         {
             "last_upload_timestamp":"2015-10-27T11:19:32",
@@ -542,7 +549,8 @@ Example
             "id":192366,
             "label":"box-192366 (C001246) (box-192366)",
             "active":true,
-            "box_mac":123456
+            "box_mac":123456,
+            "raw_camera_config":"rtsp://***:***@192.168.0.51:554/stream1"
         }
     ]
 
@@ -572,7 +580,8 @@ Example
             "id":192366,
             "label":"box-192366 (C001246) (box-192366)",
             "active":true,
-            "box_mac":123456
+            "box_mac":123456,
+            "raw_camera_config":"rtsp://***:***@192.168.0.51:554/stream1"
         }
     ]
 
@@ -601,7 +610,8 @@ Example
             "id":114242,
             "label":"A first box",
             "active":true,
-            "box_mac":123456
+            "box_mac":123456,
+            "raw_camera_config":"rtsp://***:***@192.168.0.50:554/stream1"
         },
         {
             "last_upload_timestamp":"2015-10-29T12:13:02",
@@ -610,7 +620,8 @@ Example
             "id":114246,
             "label":"Another box",
             "active":true,
-            "box_mac":123456
+            "box_mac":123456,
+            "raw_camera_config":"rtsp://***:***@192.168.0.51:554/stream1"
         }
     ]
 
@@ -639,7 +650,8 @@ Example
             "id":192366,
             "label":"box-192366 (C001246) (box-192366)",
             "active":true,
-            "box_mac":123456
+            "box_mac":123456,
+            "raw_camera_config":"rtsp://***:***@192.168.0.51:554/stream1"
         }
     ]
 
@@ -668,7 +680,8 @@ Example
             "id":114242,
             "label":"A first box",
             "active":true,
-            "box_mac":123456
+            "box_mac":123456,
+            "raw_camera_config":"rtsp://***:***@192.168.0.50:554/stream1"
         },
         {
             "last_upload_timestamp":"2015-10-29T12:13:02",
@@ -677,7 +690,8 @@ Example
             "id":114246,
             "label":"Another box",
             "active":true,
-            "box_mac":123456
+            "box_mac":123456,
+            "raw_camera_config":"rtsp://***:***@192.168.0.51:554/stream1"
         }
     ]
 

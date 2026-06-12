@@ -279,6 +279,7 @@ Example
             "fps": "27.8",
             "location": 1982,
             "nb_inputlost": 0,
+            "raw_camera_config": "rtsp://***:***@192.168.0.50:554/stream1",
             "resolution": "800x600",
             "status": "running",
             "host_timestamp": "2015-10-27T11:00:00",
@@ -293,6 +294,7 @@ Example
             "fps": "-",
             "location": 1692,
             "nb_inputlost": 0,
+            "raw_camera_config": "",
             "resolution": "0x0",
             "status": "running",
             "host_timestamp": "2015-10-27T12:00:00",
@@ -301,6 +303,9 @@ Example
             "vr_version": "VidiReports v7.7.5.1"
         }
     ]
+
+The ``raw_camera_config`` field holds the camera configuration last reported by the
+box (e.g. the IP camera stream URL). Any embedded credentials are masked.
 
 
 Network's monitoring messages list
