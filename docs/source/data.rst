@@ -44,10 +44,11 @@ Mandatory arguments
     * :ref:`viewers <finest_viewers_export>`: Viewers data.
     * :ref:`content_plays <content_plays_export>`: Content plays.
     * :ref:`retail_analytics_footfall <retail_analytics_footfall>`: Retail analytics zones footfall.
+    * :ref:`retail_analytics_footfall_aggregated <retail_analytics_footfall_aggregated>`: Retail analytics zones footfall, aggregated per zone and time bucket.
 
 * ``time_resolution``: The time resolution used in the aggregation. Allowed values:
 
-    * ``finest``: Do not aggregate, display all raw objects (unavailable for OTS, Gate, Proof of play, Footfall and Vehicle exports).
+    * ``finest``: Do not aggregate, display all raw objects (unavailable for OTS, Gate, Proof of play, Footfall, Vehicle and Retail analytics aggregated exports).
     * ``5m``: 5 minutes aggregates.
     * ``10m``: 10 minutes aggregates.
     * ``15m``: 15 minutes aggregates.
@@ -2162,6 +2163,69 @@ Example
             }
         ],
         "creation_date":"2018-01-29 09:24:18"
+    }
+
+
+.. _retail_analytics_footfall_aggregated:
+
+Retail analytics zones footfall (aggregated) export
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Per-zone aggregation of the retail analytics footfall, with one line per location, zone and time bucket. Only aggregated time resolutions are supported (``finest`` is not available). Only regular and carpet zones are reported; doorway zones, which record passages rather than dwell, are excluded.
+
+Expected keys
+"""""""""""""
+
+* ``location_id``: unique numeric identifier of the data source.
+* ``zone_id``: unique numeric identifier of the retail analytics zone.
+* ``zone_name``: name of the zone, as set in its definition.
+* ``period_start_date``: starting date of the aggregation bucket - see :ref:`data note`.
+* ``period_start_time``: starting time of the aggregation bucket.
+* ``total_impressions``: total number of footfalls recorded at the location during the bucket, regardless of which zone they entered.
+* ``nb_visits``: number of zone visits recorded during the bucket.
+* ``total_dwell_duration``: cumulated dwell time of all visits to the zone, in **seconds**.
+* ``dwell_threshold``: the presence threshold configured for the zone (the minimum presence for a qualified visit), in **seconds**.
+* ``nb_visits_above_threshold``: number of qualified visits, i.e. visits where at least one presence interval reaches the zone threshold.
+* ``total_dwell_above_threshold``: cumulated dwell time of the presence intervals that reach the zone threshold, in **seconds**.
+
+
+Example
+"""""""""""
+
+ ::
+
+    curl -u USERNAME:AUTH_TOKEN 'https://vidicenter.quividi.com/api/v1/data/?locations=136558&start=2025-12-23T12:00:00&end=2025-12-23T13:59:59&data_type=retail_analytics_footfall_aggregated&time_resolution=1h'
+    {
+        "state":"finished",
+        "data":[
+            {
+                "location_id": 136558,
+                "zone_id": 60,
+                "zone_name": "Entrance",
+                "period_start_date": "2025-12-23",
+                "period_start_time": "12:00:00",
+                "total_impressions": 42,
+                "nb_visits": 18,
+                "total_dwell_duration": 233.7,
+                "dwell_threshold": 4.0,
+                "nb_visits_above_threshold": 11,
+                "total_dwell_above_threshold": 198.4
+            },
+            {
+                "location_id": 136558,
+                "zone_id": 61,
+                "zone_name": "Promo carpet",
+                "period_start_date": "2025-12-23",
+                "period_start_time": "12:00:00",
+                "total_impressions": 42,
+                "nb_visits": 7,
+                "total_dwell_duration": 51.2,
+                "dwell_threshold": 3.0,
+                "nb_visits_above_threshold": 4,
+                "total_dwell_above_threshold": 39.6
+            }
+        ],
+        "creation_date":"2025-12-23 14:05:11"
     }
 
 
