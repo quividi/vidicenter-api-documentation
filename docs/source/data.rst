@@ -128,7 +128,7 @@ First call starts the export
 
     curl -u USERNAME:AUTH_TOKEN 'https://vidicenter.quividi.com/api/v1/data/?locations=1056&data_type=viewers&start=2016-04-29T10:00:00&end=2016-04-29T11:00:00&time_resolution=1h'
     {
-        "state": "started",
+        "state": "started"
     }
 
 We immediately make the same call
@@ -161,7 +161,7 @@ We may ask for VidiCenter to rebuild the exports, to take into accounts recent u
 
     curl -u USERNAME:AUTH_TOKEN 'https://vidicenter.quividi.com/api/v1/data/?locations=1056&data_type=viewers&start=2016-04-29T10:00:00&end=2016-04-29T11:00:00&time_resolution=1h&force_rebuild=1'
     {
-        "state": "started",
+        "state": "started"
     }
 
 
@@ -169,6 +169,7 @@ Data formats
 ------------
 
 .. _data note:
+
 Note
 ^^^^
 
@@ -242,7 +243,7 @@ Core keys are present, but are filled with ``null`` values.
                 "attention_time_in_tenths_of_sec":16,
                 "period_start":"2018-01-29T00:00:27",
                 "location_id":8264,
-                "very_happy":null,
+                "very_happy":null
             },
             {
                 "happy":null,
@@ -256,7 +257,7 @@ Core keys are present, but are filled with ``null`` values.
                 "attention_time_in_tenths_of_sec":39,
                 "period_start":"2018-01-29T00:03:57",
                 "location_id":8264,
-                "very_happy":null,
+                "very_happy":null
             }
         ],
         "creation_date":"2018-01-29 09:24:18"
@@ -285,7 +286,7 @@ Core values are present.
                 "attention_time_in_tenths_of_sec":8,
                 "period_start":"2018-01-29T01:28:52",
                 "location_id":8866,
-                "very_happy":33.333333333333336,
+                "very_happy":33.333333333333336
             },
             {
                 "happy":49.80392156862745,
@@ -299,7 +300,7 @@ Core values are present.
                 "attention_time_in_tenths_of_sec":3,
                 "period_start":"2018-01-29T00:25:18",
                 "location_id":8866,
-                "very_happy":0.0,
+                "very_happy":0.0
             }
         ],
         "creation_date":"2018-01-29 09:18:53"
@@ -474,7 +475,7 @@ Example
                 "attention_time_in_tenths_of_sec":27,
                 "period_start":"2018-01-29 04:00:00",
                 "location_id":4636
-            },
+            }
         ],
         "creation_date":"2018-01-29 10:06:09"
     }
@@ -526,8 +527,10 @@ Expected keys
 And the following metrics, which apply to the current aggregate:
 
 * ``ots_count``: cumulated number of OTS.
+* ``effective_ots_count``: cumulated number of effective OTS (OTS falling within the effective viewing angle). Returned for the ``1h``, ``1d``, ``7d`` and ``1M`` time resolutions.
 * ``duration``: cumulated duration of the OTS events, in seconds.
 * ``watcher_count``: cumulated number of watchers.
+* ``status``: operational status of the data source during the segment. Only populated for the ``15m`` time resolution.
 
 Example
 """""""
@@ -543,35 +546,40 @@ Example
                 "watcher_count":3,
                 "period_start":"2018-01-29 00:00:00",
                 "location_id":1467,
-                "ots_count":4
+                "ots_count":4,
+                "effective_ots_count":3
             },
             {
                 "duration":3600,
                 "watcher_count":0,
                 "period_start":"2018-01-29 01:00:00",
                 "location_id":1467,
-                "ots_count":0
+                "ots_count":0,
+                "effective_ots_count":0
             },
             {
                 "duration":3600,
                 "watcher_count":1,
                 "period_start":"2018-01-29 02:00:00",
                 "location_id":1467,
-                "ots_count":9
+                "ots_count":9,
+                "effective_ots_count":6
             },
             {
                 "duration":3600,
                 "watcher_count":0,
                 "period_start":"2018-01-29 03:00:00",
                 "location_id":1467,
-                "ots_count":0
+                "ots_count":0,
+                "effective_ots_count":0
             },
             {
                 "duration":3600,
                 "watcher_count":3,
                 "period_start":"2018-01-29 04:00:00",
                 "location_id":1467,
-                "ots_count":11
+                "ots_count":11,
+                "effective_ots_count":8
             }
         ],
         "creation_date":"2018-01-29 10:15:49"
@@ -658,12 +666,14 @@ And the following metrics, which apply to the current aggregate:
 * ``avg_dwell_time_in_tenths_of_sec``: average dwell time per watcher, in **tenths of seconds**.
 * ``avg_attention_time_in_tenths_of_sec``: average attention time per watcher, in **tenths of seconds**.
 
+When the ``group_by_demographics=1`` optional argument is used, the watcher count is additionally broken down into the following keys (as shown in the example below): ``watchers_masked``, ``watchers_child_male``, ``watchers_young_adult_male``, ``watchers_adult_male``, ``watchers_senior_male``, ``watchers_child_female``, ``watchers_young_adult_female``, ``watchers_adult_female``, ``watchers_senior_female``.
+
 Example
 """""""
 
  ::
 
-    curl -u USERNAME:AUTH_TOKEN 'https://vidicenter.quividi.com/api/v1/data/?locations=4636&start=2018-01-29T02:00:00&end=2018-01-29T04:59:59&data_type=proof_of_play_by_location&time_resolution=1h'
+    curl -u USERNAME:AUTH_TOKEN 'https://vidicenter.quividi.com/api/v1/data/?locations=4636&start=2018-01-29T02:00:00&end=2018-01-29T04:59:59&data_type=proof_of_play_by_location&time_resolution=1h&group_by_demographics=1'
     {
         "state":"finished",
         "data":[
@@ -690,7 +700,7 @@ Example
                 "dwell_time_in_tenths_of_sec": 540,
                 "attention_time_in_tenths_of_sec": 120,
                 "avg_dwell_time_in_tenths_of_sec": 68,
-                "avg_attention_time_in_tenths_of_sec": 15,
+                "avg_attention_time_in_tenths_of_sec": 15
             },
             {
                 "content_duration":110,
@@ -715,7 +725,7 @@ Example
                 "dwell_time_in_tenths_of_sec": 1050,
                 "attention_time_in_tenths_of_sec": 380,
                 "avg_dwell_time_in_tenths_of_sec": 16,
-                "avg_attention_time_in_tenths_of_sec": 6,
+                "avg_attention_time_in_tenths_of_sec": 6
             },
             {
                 "content_duration":165,
@@ -740,8 +750,8 @@ Example
                 "dwell_time_in_tenths_of_sec": 60,
                 "attention_time_in_tenths_of_sec": 30,
                 "avg_dwell_time_in_tenths_of_sec": 15,
-                "avg_attention_time_in_tenths_of_sec": 8,
-            },
+                "avg_attention_time_in_tenths_of_sec": 8
+            }
         ],
         "creation_date":"2018-01-29 10:06:09"
     }
@@ -772,12 +782,14 @@ And the following metrics, which apply to the current aggregate:
 * ``avg_dwell_time_in_tenths_of_sec``: average dwell time per watcher, in **tenths of seconds**.
 * ``avg_attention_time_in_tenths_of_sec``: average attention time per watcher, in **tenths of seconds**.
 
+When the ``group_by_demographics=1`` optional argument is used, the watcher count is additionally broken down into the following keys (as shown in the example below): ``watchers_masked``, ``watchers_child_male``, ``watchers_young_adult_male``, ``watchers_adult_male``, ``watchers_senior_male``, ``watchers_child_female``, ``watchers_young_adult_female``, ``watchers_adult_female``, ``watchers_senior_female``.
+
 Example
 """""""
 
  ::
 
-    curl -u USERNAME:AUTH_TOKEN 'https://vidicenter.quividi.com/api/v1/data/?sites=178&start=2018-01-29T02:00:00&end=2018-01-29T04:59:59&data_type=proof_of_play_by_site&time_resolution=1h'
+    curl -u USERNAME:AUTH_TOKEN 'https://vidicenter.quividi.com/api/v1/data/?sites=178&start=2018-01-29T02:00:00&end=2018-01-29T04:59:59&data_type=proof_of_play_by_site&time_resolution=1h&group_by_demographics=1'
     {
         "state":"finished",
         "data":[
@@ -804,7 +816,7 @@ Example
                 "dwell_time_in_tenths_of_sec": 90,
                 "attention_time_in_tenths_of_sec": 50,
                 "avg_dwell_time_in_tenths_of_sec": 13,
-                "avg_attention_time_in_tenths_of_sec": 7,
+                "avg_attention_time_in_tenths_of_sec": 7
             },
             {
                 "content_duration":110,
@@ -829,7 +841,7 @@ Example
                 "dwell_time_in_tenths_of_sec": 360,
                 "attention_time_in_tenths_of_sec": 190,
                 "avg_dwell_time_in_tenths_of_sec": 26,
-                "avg_attention_time_in_tenths_of_sec": 14,
+                "avg_attention_time_in_tenths_of_sec": 14
             },
             {
                 "content_duration":20,
@@ -854,8 +866,8 @@ Example
                 "dwell_time_in_tenths_of_sec": 950,
                 "attention_time_in_tenths_of_sec": 420,
                 "avg_dwell_time_in_tenths_of_sec": 23,
-                "avg_attention_time_in_tenths_of_sec": 10,
-            },
+                "avg_attention_time_in_tenths_of_sec": 10
+            }
         ],
         "creation_date":"2018-01-29 10:08:12"
     }
@@ -915,7 +927,7 @@ Example
  ::
 
     curl -u USERNAME:AUTH_TOKEN 'https://vidicenter.quividi.com/api/v1/data/?locations=123,124&start=2022-01-01T12:00:00&end=2022-01-01T12:59:59&data_type=proof_of_play_vehicle_person_by_location&time_resolution=1h'
-   {
+    {
         "state":"finished",
         "data":[
             {
@@ -935,7 +947,7 @@ Example
                 "total_impressions": 160.0,
                 "total_impressions_per_play": 2.08,
                 "total_presence_time": 6321,
-                "avg_presence_time": 39,
+                "avg_presence_time": 39
             },
             {
                 "vehicle_impressions": 155,
@@ -954,7 +966,7 @@ Example
                 "total_impressions": 161.0,
                 "total_impressions_per_play": 2.06,
                 "total_presence_time": 6514,
-                "avg_presence_time": 40,
+                "avg_presence_time": 40
             }
         ],
         "creation_date":"2022-05-29 10:00:00"
@@ -996,7 +1008,7 @@ Example
  ::
 
     curl -u USERNAME:AUTH_TOKEN 'https://vidicenter.quividi.com/api/v1/data/?sites=1234,1235&start=2022-01-01T12:00:00&end=2022-01-01T12:59:59&data_type=proof_of_play_vehicle_person_by_site&time_resolution=1h'
-   {
+    {
         "state":"finished",
         "data":[
             {
@@ -1016,7 +1028,7 @@ Example
                 "total_impressions": 160.0,
                 "total_impressions_per_play": 2.08,
                 "total_presence_time": 6321,
-                "avg_presence_time": 39,
+                "avg_presence_time": 39
             },
             {
                 "vehicle_impressions": 155,
@@ -1035,7 +1047,7 @@ Example
                 "total_impressions": 161.0,
                 "total_impressions_per_play": 2.06,
                 "total_presence_time": 6514,
-                "avg_presence_time": 40,
+                "avg_presence_time": 40
             }
         ],
         "creation_date":"2022-05-29 10:00:00"
@@ -1075,20 +1087,20 @@ Example
                 "dwell_time_in_tenths_of_sec":12,
                 "watcher_count":1,
                 "attention_time_in_tenths_of_sec":3,
-                "period_start":"2018-01-29 02:00:00",
+                "period_start":"2018-01-29 02:00:00"
             },
             {
                 "dwell_time_in_tenths_of_sec":0,
                 "watcher_count":0,
                 "attention_time_in_tenths_of_sec":0,
-                "period_start":"2018-01-29 03:00:00",
+                "period_start":"2018-01-29 03:00:00"
             },
             {
                 "dwell_time_in_tenths_of_sec":83,
                 "watcher_count":3,
                 "attention_time_in_tenths_of_sec":27,
-                "period_start":"2018-01-29 04:00:00",
-            },
+                "period_start":"2018-01-29 04:00:00"
+            }
         ],
         "creation_date":"2018-01-29 10:06:09"
     }
@@ -1171,6 +1183,7 @@ Expected keys
 * ``vr_id``: vidireports id.
 * ``watcher_id``: vidireports id of the corresponding watcher record.
 * ``watcher_start``: timestamp of the corresponding watcher record.
+* ``tracking_mode``: the tracking mode used to detect the person.
 
 Example
 """""""""""
@@ -1184,12 +1197,12 @@ Example
             {
                 "footfall_presence_time":41,
                 "period_start":"2018-01-29T00:00:27",
-                "location_id":8264,
+                "location_id":8264
             },
             {
                 "footfall_presence_time":54,
                 "period_start":"2018-01-29T00:03:57",
-                "location_id":8264,
+                "location_id":8264
             }
         ],
         "creation_date":"2018-01-29 09:24:18"
@@ -1236,7 +1249,7 @@ Example
                 "footfall_impressions":3,
                 "period_start":"2018-01-29 04:00:00",
                 "location_id":4636
-            },
+            }
         ],
         "creation_date":"2018-01-29 10:06:09"
     }
@@ -1291,7 +1304,7 @@ Example
                 "location_id":8264,
                 "color":null,
                 "vehicle_impressions":1.83,
-                "impressions_per_vehicle":1.83,
+                "impressions_per_vehicle":1.83
             },
             {
                 "vehicle_presence_time":54,
@@ -1300,7 +1313,7 @@ Example
                 "location_id":8264,
                 "color":12356,
                 "vehicle_impressions":1.72,
-                "impressions_per_vehicle":1.72,
+                "impressions_per_vehicle":1.72
             }
         ],
         "creation_date":"2018-01-29 09:24:18"
@@ -1377,9 +1390,13 @@ Expected keys
 * ``type``: vehicle type (see "Finest vehicles export" for possible values).
 * ``color``: vehicle color (see "Finest vehicles export" for possible values).
 * ``vehicle_impressions``: number of impressions (= number of impressions per vehicle).
-* ``vehicle_presence_time``: presence time of the current vehicle, in **tenths of seconds**.* `
+* ``vehicle_presence_time``: presence time of the current vehicle, in **tenths of seconds**.
 * ``impressions_per_vehicle``: number of impressions per vehicle.
 * ``footfall_presence_time``:  presence time of the current person, in **tenths of seconds**.
+* ``tracking_mode``: the tracking mode used to detect the person (footfall records only).
+* ``vr_id``: vidireports id (footfall records only).
+* ``watcher_id``: vidireports id of the corresponding watcher record (footfall records only).
+* ``watcher_start``: timestamp of the corresponding watcher record (footfall records only).
 
 Example
 """""""
@@ -1409,10 +1426,14 @@ In this example, in a 3 min timeframe, we registered one vehicle (first record) 
                 "vehicle_presence_time": 0,
                 "vehicle_impressions": 0.0,
                 "impressions_per_vehicle": 0.0,
-                "footfall_presence_time": 85
-            },
+                "footfall_presence_time": 85,
+                "tracking_mode": 0,
+                "vr_id": 108451,
+                "watcher_id": 108452,
+                "watcher_start": "2021-11-01T09:05:21"
+            }
         ],
-        "creation_date": "2021-12-07 17:30:28",
+        "creation_date": "2021-12-07 17:30:28"
     }
 
 .. _aggregated_vehicles_footfall_export:
@@ -1457,8 +1478,7 @@ Example
                 "footfall_presence_time": 133,
                 "total_presence_time": 43735,
                 "total_impressions": 239,
-                "avg_presence_time": 182,
-
+                "avg_presence_time": 182
             },
             {
                 "location_id": 4636,
@@ -1471,7 +1491,7 @@ Example
                 "footfall_presence_time": 91,
                 "total_presence_time": 14214,
                 "total_impressions": 188,
-                "avg_presence_time": 76,
+                "avg_presence_time": 76
             },
             {
                 "location_id": 4636,
@@ -1484,10 +1504,10 @@ Example
                 "footfall_presence_time": 0,
                 "total_presence_time": 0,
                 "total_impressions": 0,
-                "avg_presence_time": 0,
+                "avg_presence_time": 0
             }
         ],
-        "creation_date": "2021-12-07 17:06:28",
+        "creation_date": "2021-12-07 17:06:28"
     }
 
 .. _impression_multiplier_iab_export:
@@ -1513,6 +1533,7 @@ And the following metrics, which apply to the current aggregate:
 * ``im``: combined impression multiplier.
 * ``backup_value``: if this contains "yes" it means a backup im value was calculated based on equivalent data of the previous week.
 * ``analysis_window``: time window during which the analysis took place, in **tenths of seconds**.
+* ``active``: whether the data source is currently active (the location, its site and its network are all active).
 
 Note
 """"
@@ -1543,6 +1564,7 @@ Example
               "im_vehicle": 0.14,
               "analysis_window": 36000,
               "backup_value": "",
+              "active": true,
               "period_start": "2021-11-14 21:00:00",
               "vehicle_count": 27,
               "vehicle_presence_time": 2696
@@ -1558,10 +1580,11 @@ Example
               "im_vehicle": 0.21,
               "analysis_window": 36000,
               "backup_value": "yes",
+              "active": true,
               "period_start": "2021-11-14 22:00:00",
               "vehicle_count": 36,
               "vehicle_presence_time": 3989
-            },
+            }
         ],
         "creation_date":"2018-01-29 10:06:09"
     }
@@ -1589,17 +1612,14 @@ Expected keys
 
 And the following metrics, which apply to the current aggregate:
 
-* ``vehicle_count``: number of vehicles.
-* ``vehicle_presence_time``: cumulated presence time, in **tenths of seconds**.
-* ``vehicle_impressions``: number of vehicle impressions.
-* ``impressions_per_vehicle``: number of impressions per vehicle.
-* ``footfall_impressions``: number of footfall impressions.
-* ``footfall_presence_time``: cumulated footfall presence time, in **tenths of seconds**.
-* ``im_footfall``: impression multiplier for footfall.
-* ``im_vehicle``: impression multiplier for vehicles.
-* ``im``: combined impression multiplier.
+* ``ots_count``: cumulated number of OTS.
+* ``watcher_count``: cumulated number of watchers.
+* ``watcher_dwell_time``: cumulated watcher dwell time, in **tenths of seconds**.
+* ``watcher_attention_time``: cumulated watcher attention time, in **tenths of seconds**.
+* ``im``: impression multiplier.
 * ``backup_value``: if this contains "yes" it means a backup im value was calculated based on equivalent data of the previous week.
 * ``analysis_window``: time window during which the analysis took place, in **tenths of seconds**.
+* ``active``: whether the data source is currently active (the location, its site and its network are all active).
 
 Note
 """"
@@ -1619,34 +1639,28 @@ Example
         "data":[
             {
               "location_id": 60628,
-              "vehicle_impressions": 50,
-              "impressions_per_vehicle": 1.85,
-              "footfall_impressions": 76,
-              "footfall_presence_time": 23482,
+              "ots_count": 412,
+              "watcher_count": 137,
+              "watcher_dwell_time": 23482,
+              "watcher_attention_time": 15230,
               "im": 0.79,
-              "im_footfall": 0.65,
-              "im_vehicle": 0.14,
               "analysis_window": 36000,
               "backup_value": "",
-              "period_start": "2021-11-14 21:00:00",
-              "vehicle_count": 27,
-              "vehicle_presence_time": 2696
+              "active": true,
+              "period_start": "2021-11-14 21:00:00"
             },
             {
               "location_id": 60628,
-              "vehicle_impressions": 70,
-              "impressions_per_vehicle": 1.94,
-              "footfall_impressions": 49,
-              "footfall_presence_time": 6662,
+              "ots_count": 288,
+              "watcher_count": 96,
+              "watcher_dwell_time": 6662,
+              "watcher_attention_time": 4120,
               "im": 0.4,
-              "im_footfall": 0.19,
-              "im_vehicle": 0.21,
               "analysis_window": 36000,
               "backup_value": "yes",
-              "period_start": "2021-11-14 22:00:00",
-              "vehicle_count": 36,
-              "vehicle_presence_time": 3989
-            },
+              "active": true,
+              "period_start": "2021-11-14 22:00:00"
+            }
         ],
         "creation_date":"2018-01-29 10:06:09"
     }
@@ -1865,7 +1879,7 @@ Example
         }
     ],
     "state": "finished"
-}
+    }
 
 
 .. _product_sales_funnel_export:
@@ -1947,7 +1961,7 @@ Example
         }
     ],
     "state": "finished"
-}
+    }
 
 
 .. _compass_export:
@@ -1958,21 +1972,23 @@ Compass export
 Expected keys
 """""""""""""
 * ``location_id``: unique numeric identifier of the data source.
+* ``location_name``: name of the data source.
 * ``period_start``: starting date and time for data aggregation - see :ref:`data note`.
-* ``ots_count``: number of OTS counted for this segment.
+* ``ots_count_impressions``: number of OTS counted for this segment.
 * ``effective_ots_count``: number of OTS counted for this segment, considering only east, west, south, south_west and south_west.
+* ``nearby_ots_count_impressions``: number of nearby OTS counted for this segment.
 * ``presence_total``: presence time in seconds.
 * ``far``: presence time ratio spent in far range.
 * ``mid_range``: presence time ratio spent in mid range.
 * ``near``: presence time ratio spent in near range.
-* ``north``: percentage of the ots_count that was detected as going to the north.
-* ``north_east``: percentage of the ots_count that was detected as going to the north east.
-* ``north_west``: percentage of the ots_count that was detected as going to the north west.
-* ``south``: percentage of the ots_count that was detected as going to the south.
-* ``south_east``: percentage of the ots_count that was detected as going to the south east.
-* ``south_west``: percentage of the ots_count that was detected as going to the south west.
-* ``west``: percentage of the ots_count that was detected as going to the west.
-* ``east``: percentage of the ots_count that was detected as going to the east.
+* ``north``: percentage of the ots_count_impressions that was detected as going to the north.
+* ``north_east``: percentage of the ots_count_impressions that was detected as going to the north east.
+* ``north_west``: percentage of the ots_count_impressions that was detected as going to the north west.
+* ``south``: percentage of the ots_count_impressions that was detected as going to the south.
+* ``south_east``: percentage of the ots_count_impressions that was detected as going to the south east.
+* ``south_west``: percentage of the ots_count_impressions that was detected as going to the south west.
+* ``west``: percentage of the ots_count_impressions that was detected as going to the west.
+* ``east``: percentage of the ots_count_impressions that was detected as going to the east.
 
 
 Example
@@ -1988,13 +2004,15 @@ Example
             "east": "0.242",
             "far": "0.000",
             "location_id": 92304,
+            "location_name": "Store entrance",
             "mid_range": "0.922",
             "near": "0.078",
             "north": "0.273",
             "north_east": "0.106",
             "north_west": "0.061",
-            "ots_count": 77,
+            "ots_count_impressions": 77,
             "effective_ots_count": 43,
+            "nearby_ots_count_impressions": 64,
             "presence_total": 502,
             "period_start": "2025-04-02 19:00:00",
             "period_start_date": "2025-04-02",
@@ -2008,13 +2026,15 @@ Example
             "east": "0.000",
             "far": "0.000",
             "location_id": 92304,
+            "location_name": "Store entrance",
             "mid_range": "0.782",
             "near": "0.218",
             "north": "0.318",
             "north_east": "0.045",
             "north_west": "0.045",
-            "ots_count": 19,
+            "ots_count_impressions": 19,
             "effective_ots_count": 11,
+            "nearby_ots_count_impressions": 15,
             "presence_total": 307,
             "period_start": "2025-04-02 20:00:00",
             "period_start_date": "2025-04-02",
@@ -2023,10 +2043,10 @@ Example
             "south_east": "0.091",
             "south_west": "0.136",
             "west": "0.045"
-        },
+        }
     ],
     "state": "finished"
-}
+    }
 
 
 .. _content_plays_export:
@@ -2059,22 +2079,22 @@ Example
                 "content_id":"content one",
                 "location_id":4636,
                 "period_start":"2018-01-29 02:00:00",
-                "plays":12,
+                "plays":12
             },
             {
                 "content_duration":110,
                 "content_id":"content one",
                 "location_id":4636,
                 "period_start":"2018-01-29 03:00:00",
-                "play_count":22,
+                "plays":22
             },
             {
                 "content_duration":165,
                 "content_id":"content one",
                 "location_id":4636,
                 "period_start":"2018-01-29 04:00:00",
-                "play_count":33,
-            },
+                "plays":33
+            }
         ],
         "creation_date":"2018-01-29 10:06:09"
     }
@@ -2093,8 +2113,13 @@ Expected keys
 * ``vr_id``: vidireports id.
 * ``watcher_id``: vidireports id of the corresponding watcher record.
 * ``watcher_start``: timestamp of the corresponding watcher record.
+* ``tracking_mode``: the tracking mode used to detect the person.
 * ``nb_visits``: number of registered zone visits
-* ``visits``: the visits data, containing the zone id, and a set of timings (start and duration both in milliseconds), start relative to period_start
+* ``visits``: the visits data, each entry containing the zone ``id``, the zone ``name``, and a set of ``timings`` (start and duration both in milliseconds), start relative to period_start
+* ``nb_clips``: number of registered clip views
+* ``clips``: the clip view data, each entry containing the zone ``id``, the zone ``name``, and a set of ``timings`` (start and duration both in milliseconds), start relative to period_start
+* ``nb_doorpass``: number of registered door passes
+* ``doorpass``: the door pass data, each entry containing the zone ``id``, the zone ``name``, and a set of ``timings`` (start and duration both in milliseconds), start relative to period_start
 
 
 Example
@@ -2115,6 +2140,7 @@ Example
                 "visits": [
                     {
                         "id": 60,
+                        "name": "Checkout zone",
                         "timings": [
                             {
                                 "start": 0,
@@ -2124,6 +2150,32 @@ Example
                     }
                 ],
                 "nb_visits": 1.0,
+                "clips": [
+                    {
+                        "id": 72,
+                        "name": "Endcap display",
+                        "timings": [
+                            {
+                                "start": 1200,
+                                "duration": 5300
+                            }
+                        ]
+                    }
+                ],
+                "nb_clips": 1.0,
+                "doorpass": [
+                    {
+                        "id": 85,
+                        "name": "Main entrance",
+                        "timings": [
+                            {
+                                "start": 0,
+                                "duration": 120
+                            }
+                        ]
+                    }
+                ],
+                "nb_doorpass": 1.0,
                 "period_start": "2025-12-23T12:59:04",
                 "period_start_date": "2025-12-23",
                 "period_start_time": "12:59:04",
@@ -2138,6 +2190,7 @@ Example
                 "visits": [
                     {
                         "id": 61,
+                        "name": "Aisle 3",
                         "timings": [
                             {
                                 "start": 200,
@@ -2147,6 +2200,7 @@ Example
                     },
                     {
                         "id": 60,
+                        "name": "Checkout zone",
                         "timings": [
                             {
                                 "start": 0,
@@ -2240,14 +2294,14 @@ The API will try to fill "missing" lines with placeholder values. Let's say you 
             "location_id": 1234,
             "ots_count": 504,
             "watcher_count": 156,
-            "period_start": '2016-04-29 00:00:00'
+            "period_start": "2016-04-29 00:00:00"
         },
         {
             "duration": null,
             "location_id": 1234,
             "ots_count": null,
             "watcher_count": null,
-            "period_start": '2016-04-30 00:00:00'
+            "period_start": "2016-04-30 00:00:00"
         }
     ]
 

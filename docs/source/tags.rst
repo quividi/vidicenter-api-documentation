@@ -77,6 +77,14 @@ Example
         }
     ]
 
+.. note::
+    Each entry in the ``sites`` array contains the full set of site fields
+    returned by the ``Sites list`` endpoint (``active``, ``description``,
+    ``address``, ``venue_type``, ``venue_subtype``, ``max_active_locations``,
+    ``exclude_from_network_vrc``, ``upload_period_alert``,
+    ``daily_watchers_alert_threshold``, ``black_input_is_error``,
+    ``ignore_low_fps``, ...); the example above is abbreviated for brevity.
+
 
 Location tags list
 ##################
@@ -160,6 +168,15 @@ Example
             "label":"Another tag"
         }
     ]
+
+.. note::
+    Each entry in the ``locations`` array contains the full set of location
+    fields returned by the ``Locations list`` endpoint (``id_broadsign_uuid``,
+    ``id_broadsign_playerid``, ``id_broadsign_screenid_v1``,
+    ``id_broadsign_displayunitid``, ``id_pointer``, ``description``,
+    ``last_timezone``, ``last_seen``, ``last_ots_uploaded``, ``creation_date``,
+    ``active``, ``location_type``, ``venue_type``, ``venue_subtype``,
+    ``bm_ignore``, ...); the example above is abbreviated for brevity.
 
 
 Continue to :ref:`data`

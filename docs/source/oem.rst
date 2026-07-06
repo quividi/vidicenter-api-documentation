@@ -32,4 +32,22 @@ The vendor_network_id identifier may be used in subsequent calls to the Charts A
 Response's form
 ---------------
 
-This api endpoint returns a JSON dictionary containing the result of the call (success or failure).
+This api endpoint returns a JSON dictionary containing the result of the call (success or failure):
+
+* ``status``: either ``"ok"`` on success, or ``"error"`` on failure.
+* ``reason``: present only on failure (``status`` is ``"error"``), a human-readable description of what went wrong.
+
+On failure, the HTTP status code is ``400``.
+
+Example of a successful response::
+
+    {
+        "status": "ok"
+    }
+
+Example of a failure response::
+
+    {
+        "status": "error",
+        "reason": "Missing 'vendor_id' in request"
+    }

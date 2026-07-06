@@ -60,25 +60,28 @@ Example
             "id":8654,
             "label":"VidiReports",
             "active":true,
+            "address": "12 Main Street",
             "black_input_is_error": true,
             "daily_watchers_alert_threshold": 0,
             "description": "VEHICULOS",
             "exclude_from_network_vrc": false,
+            "ignore_low_fps": false,
             "max_active_locations": 0,
             "upload_period_alert": 780,
             "venue_subtype": "Bowling Center",
             "venue_type": "Entertainment / hospitality"
-
         },
         {
             "network_id":15678,
             "id":54422,
             "label":"Another site",
             "active":true,
+            "address": "",
             "black_input_is_error": true,
             "daily_watchers_alert_threshold": 0,
             "description": "",
             "exclude_from_network_vrc": false,
+            "ignore_low_fps": false,
             "max_active_locations": 0,
             "upload_period_alert": 780,
             "venue_subtype": "Bowling Center",
@@ -88,17 +91,25 @@ Example
             "network_id":25444,
             "id":66531,
             "label":"VidiReports",
-            "active":false
+            "active":false,
+            "address": "",
             "black_input_is_error": true,
             "daily_watchers_alert_threshold": 0,
             "description": "",
             "exclude_from_network_vrc": false,
+            "ignore_low_fps": false,
             "max_active_locations": 0,
             "upload_period_alert": 780,
             "venue_subtype": "Bowling Center",
             "venue_type": "Entertainment / hospitality"
         }
     ]
+
+.. note::
+    The other site-listing endpoints below (network's sites, site tag's sites,
+    and the ``/vehicles/`` variants) return the same set of site fields shown
+    above; their examples are abbreviated for brevity. The ``/vehicles/``
+    variants additionally include the ``vehicles_factors`` object.
 
 
 Sites list with vehicles factors
@@ -127,9 +138,9 @@ Example
                 "factor_car": 1.6,
                 "factor_van": 3.5,
                 "factor_bus": 9.5,
-                "factor_truck": 1.2,
+                "factor_truck": 1.2
             }
-        },
+        }
     ]
 
 
@@ -155,13 +166,13 @@ Example
             "network_id":15678,
             "id":8654,
             "label":"VidiReports",
-            "active":true,
+            "active":true
         },
         {
             "network_id":15678,
             "id":54422,
             "label":"Another site",
-            "active":true,
+            "active":true
         }
     ]
 
@@ -192,9 +203,9 @@ Example
                 "factor_car": 1.6,
                 "factor_van": 3.5,
                 "factor_bus": 9.5,
-                "factor_truck": 1.2,
+                "factor_truck": 1.2
             }
-        },
+        }
     ]
 
 
@@ -249,6 +260,8 @@ Notable data keys
 * ``location_type``: type describing this location
 * ``venue_type``: venue_type of the site this location belongs to
 * ``venue_subtype``: venue_subtype of the site this location belongs to
+* ``description``: free-text description of the location
+* ``bm_ignore``: whether this location is excluded from benchmarks
 
 Example
 -------
@@ -263,10 +276,15 @@ Example
             "box_id":193538,
             "site_id":8654,
             "id":204452,
-            "id_broadsign":"",
+            "id_broadsign_uuid":"",
+            "id_broadsign_playerid":"",
+            "id_broadsign_screenid_v1":"",
+            "id_broadsign_displayunitid":"",
             "id_pointer":"",
             "creation_date":"2014-09-11T09:18:32",
             "label":"location-204452",
+            "description":"Main hall screen",
+            "bm_ignore":false,
             "active":true
         },
         {
@@ -275,7 +293,10 @@ Example
             "box_id":192366,
             "site_id":54422,
             "id":27046,
-            "id_broadsign":"",
+            "id_broadsign_uuid":"",
+            "id_broadsign_playerid":"",
+            "id_broadsign_screenid_v1":"",
+            "id_broadsign_displayunitid":"",
             "id_pointer":"",
             "creation_date":"2012-07-09T07:05:19",
             "label":"Entrance",
@@ -287,7 +308,10 @@ Example
             "box_id":219354,
             "site_id":66531,
             "id":320453,
-            "id_broadsign":"",
+            "id_broadsign_uuid":"",
+            "id_broadsign_playerid":"",
+            "id_broadsign_screenid_v1":"",
+            "id_broadsign_displayunitid":"",
             "id_pointer":"",
             "creation_date":"2014-01-04T19:55:41",
             "label":"Exit screen",
@@ -319,10 +343,15 @@ Example
             "box_id":193538,
             "site_id":8654,
             "id":204452,
-            "id_broadsign":"",
+            "id_broadsign_uuid":"",
+            "id_broadsign_playerid":"",
+            "id_broadsign_screenid_v1":"",
+            "id_broadsign_displayunitid":"",
             "id_pointer":"",
             "creation_date":"2014-09-11T09:18:32",
             "label":"location-204452",
+            "description":"Main hall screen",
+            "bm_ignore":false,
             "active":true
         },
         {
@@ -331,7 +360,10 @@ Example
             "box_id":192366,
             "site_id":54422,
             "id":27046,
-            "id_broadsign":"",
+            "id_broadsign_uuid":"",
+            "id_broadsign_playerid":"",
+            "id_broadsign_screenid_v1":"",
+            "id_broadsign_displayunitid":"",
             "id_pointer":"",
             "creation_date":"2012-07-09T07:05:19",
             "label":"Entrance",
@@ -363,7 +395,10 @@ Example
             "box_id":193538,
             "site_id":8654,
             "id":204452,
-            "id_broadsign":"",
+            "id_broadsign_uuid":"",
+            "id_broadsign_playerid":"",
+            "id_broadsign_screenid_v1":"",
+            "id_broadsign_displayunitid":"",
             "id_pointer":"",
             "creation_date":"2014-09-11T09:18:32",
             "label":"location-204452",
@@ -395,7 +430,10 @@ Example
             "box_id":114242,
             "site_id":54892,
             "id":1330,
-            "id_broadsign":"",
+            "id_broadsign_uuid":"",
+            "id_broadsign_playerid":"",
+            "id_broadsign_screenid_v1":"",
+            "id_broadsign_displayunitid":"",
             "id_pointer":"",
             "creation_date":"2014-09-11T09:18:32",
             "label":"A location's name",
@@ -407,7 +445,10 @@ Example
             "box_id":114246,
             "site_id":54892,
             "id":1334,
-            "id_broadsign":"",
+            "id_broadsign_uuid":"",
+            "id_broadsign_playerid":"",
+            "id_broadsign_screenid_v1":"",
+            "id_broadsign_displayunitid":"",
             "id_pointer":"",
             "creation_date":"2012-07-09T07:05:19",
             "label":"Another location",
@@ -439,7 +480,10 @@ Example
             "box_id":114242,
             "site_id":54892,
             "id":1330,
-            "id_broadsign":"",
+            "id_broadsign_uuid":"",
+            "id_broadsign_playerid":"",
+            "id_broadsign_screenid_v1":"",
+            "id_broadsign_displayunitid":"",
             "id_pointer":"",
             "creation_date":"2014-09-11T09:18:32",
             "label":"A location's name",
@@ -451,7 +495,10 @@ Example
             "box_id":114246,
             "site_id":54892,
             "id":1334,
-            "id_broadsign":"",
+            "id_broadsign_uuid":"",
+            "id_broadsign_playerid":"",
+            "id_broadsign_screenid_v1":"",
+            "id_broadsign_displayunitid":"",
             "id_pointer":"",
             "creation_date":"2012-07-09T07:05:19",
             "label":"Another location",
@@ -507,7 +554,7 @@ Example
             "active":false,
             "box_mac":123458,
             "raw_camera_config":""
-        },
+        }
     ]
 
 The ``raw_camera_config`` field holds the camera configuration last reported by the
