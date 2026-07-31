@@ -28,19 +28,26 @@ Example
         {
             "network_id":4834,
             "id":87,
-            "label":"a tag"
+            "label":"a tag",
+            "extrapolation":false
         },
         {
             "network_id":4834,
             "id":514,
-            "label":"another tag"
+            "label":"another tag",
+            "extrapolation":false
         },
         {
             "network_id":9842,
             "id":90244,
-            "label":"my special tag"
+            "label":"my special tag",
+            "extrapolation":true
         }
     ]
+
+.. note::
+    ``extrapolation`` is a boolean flag marking the tag as locked for
+    extrapolation purposes. It is read-only through the API.
 
 
 Network's site tags list
@@ -73,7 +80,8 @@ Example
                 }
             ],
             "id":2,
-            "label":"another tag"
+            "label":"another tag",
+            "extrapolation":false
         }
     ]
 
@@ -106,17 +114,20 @@ Example
         {
             "network_id":4834,
             "id":2231,
-            "label":"Test tag"
+            "label":"Test tag",
+            "extrapolation":false
         },
         {
             "network_id":4834,
             "id":4562,
-            "label":"Another tag"
+            "label":"Another tag",
+            "extrapolation":false
         },
         {
             "network_id":9842,
             "id":903,
-            "label":"Tag Heuer"
+            "label":"Tag Heuer",
+            "extrapolation":true
         }
     ]
 
@@ -148,7 +159,8 @@ Example
                 }
             ],
             "id":2231,
-            "label":"Test tag"
+            "label":"Test tag",
+            "extrapolation":false
         },
         {
             "network_id":4834,
@@ -165,7 +177,8 @@ Example
                 }
             ],
             "id":4562,
-            "label":"Another tag"
+            "label":"Another tag",
+            "extrapolation":false
         }
     ]
 
