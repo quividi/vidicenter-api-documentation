@@ -404,4 +404,4 @@ Optional arguments
 * ``hours``: an integer value between 1 and 24, returns only monitoring messages from the last X hours (still limited to 1000 maximum)
 
 
-Continue to :ref:`tags`
+Continue to :ref:`scene_models`

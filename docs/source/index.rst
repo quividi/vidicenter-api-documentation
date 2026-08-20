@@ -24,6 +24,7 @@ Contents:
    general_usage
    topology
    status
+   scene_models
    tags
    data
    clip_metadata
