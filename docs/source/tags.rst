@@ -72,11 +72,15 @@ Example
             "sites":[
                 {
                     "id":20019,
-                    "label":"My site"
+                    "label":"My site",
+                    "opening_hours": ["9,10,11,12,13,14,15,16,17,18", "9,10,11,12,13,14,15,16,17,18", "9,10,11,12,13,14,15,16,17,18", "9,10,11,12,13,14,15,16,17,18", "9,10,11,12,13,14,15,16,17,18", "10,11,12", ""],
+                    "guessed": 0
                 },
                 {
                     "id":14006,
-                    "label":"Another site of mine"
+                    "label":"Another site of mine",
+                    "opening_hours": ["10,11,12,13,14,15,16,17,18,19,20", "10,11,12,13,14,15,16,17,18,19,20", "10,11,12,13,14,15,16,17,18,19,20", "10,11,12,13,14,15,16,17,18,19,20", "10,11,12,13,14,15,16,17,18,19,20", "10,11,12,13,14,15,16,17,18,19,20", "11,12,13,14,15,16,17,18"],
+                    "guessed": 1
                 }
             ],
             "id":2,
@@ -91,7 +95,8 @@ Example
     ``address``, ``venue_type``, ``venue_subtype``, ``max_active_locations``,
     ``exclude_from_network_vrc``, ``upload_period_alert``,
     ``daily_watchers_alert_threshold``, ``black_input_is_error``,
-    ``ignore_low_fps``, ...); the example above is abbreviated for brevity.
+    ``ignore_low_fps``, ``opening_hours``, ``guessed``, ...); the example above
+    is abbreviated for brevity.
 
 
 Location tags list

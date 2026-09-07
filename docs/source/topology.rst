@@ -48,6 +48,18 @@ URL
 
 ``https://vidicenter.quividi.com/api/v1/sites/``
 
+Notable data keys
+-----------------
+
+* ``opening_hours``: the site's opening hours as seven strings, Monday to Sunday.
+  Each string lists the hours of the day (``0`` to ``23``) during which the site
+  is open, e.g. ``"9,10,11,14,15,16,17"`` for 9 am - 12 pm and 2 pm - 6 pm; an
+  empty string is a closed day. A site whose hours are unknown reports the
+  default of being open around the clock (``"0,1,...,23"`` every day).
+* ``guessed``: ``1`` when the hours were not set in VidiCenter and come from a
+  Google Maps lookup of the site's name and address, ``0`` when they are the
+  hours set manually on the site (or the default above).
+
 Example
 -------
 
@@ -67,6 +79,16 @@ Example
             "exclude_from_network_vrc": false,
             "ignore_low_fps": false,
             "max_active_locations": 0,
+            "opening_hours": [
+                "9,10,11,12,13,14,15,16,17,18",
+                "9,10,11,12,13,14,15,16,17,18",
+                "9,10,11,12,13,14,15,16,17,18",
+                "9,10,11,12,13,14,15,16,17,18",
+                "9,10,11,12,13,14,15,16,17,18",
+                "10,11,12",
+                ""
+            ],
+            "guessed": 0,
             "upload_period_alert": 780,
             "venue_subtype": "Bowling Center",
             "venue_type": "Entertainment / hospitality"
@@ -76,13 +98,23 @@ Example
             "id":54422,
             "label":"Another site",
             "active":true,
-            "address": "",
+            "address": "7101 Democracy Boulevard, Bethesda, MD",
             "black_input_is_error": true,
             "daily_watchers_alert_threshold": 0,
             "description": "",
             "exclude_from_network_vrc": false,
             "ignore_low_fps": false,
             "max_active_locations": 0,
+            "opening_hours": [
+                "10,11,12,13,14,15,16,17,18,19,20",
+                "10,11,12,13,14,15,16,17,18,19,20",
+                "10,11,12,13,14,15,16,17,18,19,20",
+                "10,11,12,13,14,15,16,17,18,19,20",
+                "10,11,12,13,14,15,16,17,18,19,20",
+                "10,11,12,13,14,15,16,17,18,19,20",
+                "11,12,13,14,15,16,17,18"
+            ],
+            "guessed": 1,
             "upload_period_alert": 780,
             "venue_subtype": "Bowling Center",
             "venue_type": "Entertainment / hospitality"
@@ -99,6 +131,16 @@ Example
             "exclude_from_network_vrc": false,
             "ignore_low_fps": false,
             "max_active_locations": 0,
+            "opening_hours": [
+                "0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23",
+                "0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23",
+                "0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23",
+                "0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23",
+                "0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23",
+                "0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23",
+                "0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23"
+            ],
+            "guessed": 0,
             "upload_period_alert": 780,
             "venue_subtype": "Bowling Center",
             "venue_type": "Entertainment / hospitality"
@@ -134,6 +176,8 @@ Example
             "label": "My only site",
             "active": true,
             "network_id": 567,
+            "opening_hours": ["8,9,10,11,12,13,14,15,16,17,18,19", "8,9,10,11,12,13,14,15,16,17,18,19", "8,9,10,11,12,13,14,15,16,17,18,19", "8,9,10,11,12,13,14,15,16,17,18,19", "8,9,10,11,12,13,14,15,16,17,18,19", "9,10,11,12,13,14,15,16,17", ""],
+            "guessed": 0,
             "vehicles_factors": {
                 "factor_car": 1.6,
                 "factor_van": 3.5,
@@ -166,13 +210,17 @@ Example
             "network_id":15678,
             "id":8654,
             "label":"VidiReports",
-            "active":true
+            "active":true,
+            "opening_hours": ["9,10,11,12,13,14,15,16,17,18", "9,10,11,12,13,14,15,16,17,18", "9,10,11,12,13,14,15,16,17,18", "9,10,11,12,13,14,15,16,17,18", "9,10,11,12,13,14,15,16,17,18", "10,11,12", ""],
+            "guessed": 0
         },
         {
             "network_id":15678,
             "id":54422,
             "label":"Another site",
-            "active":true
+            "active":true,
+            "opening_hours": ["10,11,12,13,14,15,16,17,18,19,20", "10,11,12,13,14,15,16,17,18,19,20", "10,11,12,13,14,15,16,17,18,19,20", "10,11,12,13,14,15,16,17,18,19,20", "10,11,12,13,14,15,16,17,18,19,20", "10,11,12,13,14,15,16,17,18,19,20", "11,12,13,14,15,16,17,18"],
+            "guessed": 1
         }
     ]
 
@@ -199,6 +247,8 @@ Example
             "label": "My only site",
             "active": true,
             "network_id": 567,
+            "opening_hours": ["8,9,10,11,12,13,14,15,16,17,18,19", "8,9,10,11,12,13,14,15,16,17,18,19", "8,9,10,11,12,13,14,15,16,17,18,19", "8,9,10,11,12,13,14,15,16,17,18,19", "8,9,10,11,12,13,14,15,16,17,18,19", "9,10,11,12,13,14,15,16,17", ""],
+            "guessed": 0,
             "vehicles_factors": {
                 "factor_car": 1.6,
                 "factor_van": 3.5,
@@ -230,7 +280,9 @@ Example
             "network_id":9842,
             "id":54892,
             "label":"A tagged site",
-            "active":true
+            "active":true,
+            "opening_hours": ["10,11,12,13,14,15,16,17,18,19,20", "10,11,12,13,14,15,16,17,18,19,20", "10,11,12,13,14,15,16,17,18,19,20", "10,11,12,13,14,15,16,17,18,19,20", "10,11,12,13,14,15,16,17,18,19,20", "10,11,12,13,14,15,16,17,18,19,20", "11,12,13,14,15,16,17,18"],
+            "guessed": 1
         }
     ]
 
