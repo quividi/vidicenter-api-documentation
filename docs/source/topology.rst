@@ -54,11 +54,13 @@ Notable data keys
 * ``opening_hours``: the site's opening hours as seven strings, Monday to Sunday.
   Each string lists the hours of the day (``0`` to ``23``) during which the site
   is open, e.g. ``"9,10,11,14,15,16,17"`` for 9 am - 12 pm and 2 pm - 6 pm; an
-  empty string is a closed day. A site whose hours are unknown reports the
-  default of being open around the clock (``"0,1,...,23"`` every day).
-* ``guessed``: ``1`` when the hours were not set in VidiCenter and come from a
-  Google Maps lookup of the site's name and address, ``0`` when they are the
-  hours set manually on the site (or the default above).
+  empty string is a closed day. Each day takes the first of: the hours set on
+  the site, the first matching opening-hours schedule of the network, a Google
+  Maps lookup of the site's name and address, the network's default hours. A day
+  none of them sets reports the site open around the clock (``"0,1,...,23"``).
+* ``guessed``: ``1`` when every day with known hours comes from the Google Maps
+  lookup, ``0`` otherwise (a day set on the site, by a schedule or by the
+  network default, or no hours known at all).
 
 Example
 -------
