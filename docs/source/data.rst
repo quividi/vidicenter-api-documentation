@@ -209,7 +209,7 @@ And the following metrics, which apply to the current viewer event:
 * ``vr_id``: vidireports id.
 * ``footfall_id``: vidireports id of the corresponding footfall record.
 * ``footfall_start``: timestamp of the corresponding footfall record.
-* ``age_value``: numeric age in years (core only).
+* ``age_value``: numeric age in years (core only), ``null`` without an age estimate.
 * ``dwell_time_in_tenths_of_sec``: dwell time in **tenths of seconds**.
 * ``attention_time_in_tenths_of_sec``: attention time in **tenths of seconds**.
 * Mood values (core only) are given in percentage, they represent the distribution of a viewer's mood over time. The sum of the five moods totals 100. Each mood is a key:
@@ -321,7 +321,7 @@ Viewers APC exports contain the same keys than `Finest viewers export`_ (the exc
 * ``contents``: contains the list of contents played while the viewer was in front of the camera. Each content has the following keys:
 
     * ``content_id``: identifier of the content played.
-    * ``campaign_id``: campaign_id of the content.
+    * ``campaign_id``: always ``null``; kept for backwards compatibility.
 
     And the following metrics, which apply to the current viewer event for this content:
 
@@ -349,12 +349,12 @@ Example
                 "gender":2,
                 "age":1,
                 "age_value":8,
-                "neutral":70.19607843137254,
+                "neutral":70.2,
                 "unhappy":0.0,
                 "attention_time_in_tenths_of_sec":12,
                 "location_id":38918,
                 "very_unhappy":0.0,
-                "very_happy":9.803921568627452,
+                "very_happy":9.8,
                 "contents":[
                     {
                         "campaign_id":null,
@@ -368,7 +368,7 @@ Example
                         "neutral_time":192
                     },
                     {
-                        "campaign_id":"A campaign id",
+                        "campaign_id":null,
                         "dwell_time_in_milliseconds":925,
                         "unhappy_time":0,
                         "happy_time":0,
@@ -387,7 +387,7 @@ Example
                 "gender":2,
                 "age":3,
                 "age_value":40,
-                "neutral":33.33333333333333,
+                "neutral":33.33,
                 "unhappy":0.0,
                 "attention_time_in_tenths_of_sec":5,
                 "location_id":38918,
@@ -406,7 +406,7 @@ Example
                         "neutral_time":0
                     }
                 ],
-                "happy":66.66666666666667
+                "happy":66.67
             }
         ],
         "creation_date":"2018-01-29 09:56:11"
